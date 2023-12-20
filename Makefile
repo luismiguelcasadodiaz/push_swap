@@ -3,6 +3,9 @@ BONUS = checker
 CC = cc
 CFLAGS = -g -Wall -Wextra -Werror
 
+NAMELIBPRINTF = libprintf.a
+NAMELIBFT = libft.a
+
 SRCDIR_PUSHS = ./src/pushs/
 SRCDIR_CHECK = ./src/checker/
 SRCDIR_PRINT = ./src/ft_printf/
@@ -10,6 +13,10 @@ SRCDIR_LIBFT = ./src/libft/
 SRCDIR_STACK = ./src/stack/
 
 OBJDIR = ./obj/
+INCDIR = ./inc/
+
+#LIBS = -L$(INCDIR) -lft -lprintf 
+LIBS = -Linc  -lft -lprintf 
 
 SRCS_PRINT = ft_write_str.c \
         ft_write_c.c \
@@ -83,67 +90,83 @@ OBJS_STACK = $(addprefix $(OBJDIR), $(SRCS_STACK:.c=.o))
 OBJS_PUSHS = $(addprefix $(OBJDIR), $(SRCS_PUSHS:.c=.o))
 OBJS_CHECK = $(addprefix $(OBJDIR), $(SRCS_CHECK:.c=.o))
 
+INCL_LIBFT = $(addprefix $(INCDIR), $(NAMELIBFT))
+INCL_PRINT = $(addprefix $(INCDIR), $(NAMELIBPRINTF))
+
 $(info $(FILE_PRINT))
 $(info $(OBJS_PRINT))
 
 all: $(NAME)
 bonus: $(BONUS)
 
-$(NAME): Makefile $(OBJS_PRINT) $(OBJS_LIBT) $(OBJS_STACK) $(OBJS_PUSHS)
+$(NAME): Makefile $(NAMELIBPRINTF) $(NAMELIBFT) $(OBJS_STACK) $(OBJS_PUSHS)
 	@echo "========== GATHERING PUSH_SWAP OBJECTS ============="
-	$(CC) $(OBJS_PRINT) $(OBJS_LIBT) $(OBJS_STACK) $(OBJS_PUSHS) -o $@
+	$(CC) $(OBJS_STACK) $(OBJS_PUSHS) -o $@ $(LIBS)
 
-$(BONUS) : Makefile $(OBJS_PRINT) $(OBJS_LIBT) $(OBJS_STACK) $(OBJS_CHECK)
-	@echo "========== GATHERING CHECKER OBJECTS ============="
-	$(CC) $(OBJS_PRINT) $(OBJS_LIBT) $(OBJS_STACK) $(OBJS_CHECK) -o $@
+$(BONUS) : Makefile $(OBJS_PRINT) $(OBJS_LIBFT) $(OBJS_STACK) $(OBJS_CHECK)
+	@echo "========== GATHERING CHECKER OBJECTS ==============="
+	$(CC) $(OBJS_STACK) $(OBJS_CHECK) -o $@ $(LIBS)
 
-$(OBJS_PRINT): $(FILE_PRINT) Makefile $(SRCDIR_PRINT)/ft_printf.h
-	@echo "========== COMPILING FT_PRINTF FILES ============="
-	$(CC) $(CFLAGS) -c $< -o $@ 
+
+# ################   LIBFT
+$(NAMELIBFT) : $(OBJS_LIBFT)
+	@echo "========= GATHERING LIBFT OBJECTS =================="
+	ar rcs $(INCL_LIBFT) $?
 
 $(OBJS_LIBFT): $(FILE_LIBFT) Makefile $(SRCDIR_LIBFT)/libft.h
-	@echo "========== COMPILING LIBFT FILES ============="
+	@echo "========== COMPILING LIBFT FILES ==================="
 	$(CC) $(CFLAGS) -c $< -o $@ 
 
+# ################   LIBPRINTF
+$(NAMELIBPRINTF) : $(OBJS_PRINT)
+	@echo "========= GATHERING LIBFT OBJECTS =================="
+	ar rcs $(INCL_PRINT) $?
+$(OBJS_PRINT): $(FILE_PRINT) Makefile $(SRCDIR_PRINT)/ft_printf.h
+	@echo "========== COMPILING FT_PRINTF FILES ==============="
+	$(CC) $(CFLAGS) -c $< -o $@ 
+
+
 $(OBJS_STACK): $(FILE_STACK) Makefile $(SRCDIR_STACK)/ps_stack.h
-	@echo "========== COMPILING STACK FILES ============="
+	@echo "========== COMPILING STACK FILES ==================="
 	$(CC) $(CFLAGS) -c $< -o $@ 
 
 $(OBJS_PUSHS): $(FILE_PUSHS) Makefile 
-	@echo "========== COMPILING PUSH_SWAP FILES ============="
+	@echo "========== COMPILING PUSH_SWAP FILES ==============="
 	$(CC) $(CFLAGS) -c $< -o $@ 
 
 $(OBJS_CHECK): $(FILE_CHECK) Makefile 
-	@echo "========== COMPILING PUSH_SWAP FILES ============="
+	@echo "========== COMPILING PUSH_SWAP FILES ==============="
 	$(CC) $(CFLAGS) -c $< -o $@ 
 
 .PHONY: clean
 clean:
-	@echo "========== Cleaning Push_swap objects ============"
+	@echo "========== Cleaning Push_swap objects =============="
 	rm -f $(OBJS_PUSHS)
-	@echo "========== Cleaning stack objects ============"
+	@echo "========== Cleaning stack objects =================="
 	rm -f $(OBJS_STACK)
-	@echo "========== Cleaning prinf_f objects ============"
+	@echo "========== Cleaning prinf_f objects ================"
 	rm -f $(OBJS_PRINT)
-	@echo "========== Cleaning libft  objects ============"
+	@echo "========== Cleaning libft  objects ================="
 	rm -f $(OBJS_LIBFT)
+	@echo "========== Cleaning libraries *.a =================="
+	rm -f $(INCDIR)*
 
 .PHONY: fclean
 fclean : clean
-	@echo "========== Cleaning executable Push_Swap ========"
+	@echo "========== Cleaning executable Push_Swap ==========="
 	rm -f $(NAME)
 
 .PHONY: re
 re: fclean all
-	@echo "========== Rebuilding Push_swap ==============="
+	@echo "========== Rebuilding Push_swap ===================="
 
 .PHONY: bonus_clean
 bonus_clean:
-	@echo "========== Cleaning CHECKER objects ============"
+	@echo "========== Cleaning CHECKER objects ================"
 	rm -f $(OBJS_CHECK)
 
 .PHONY: bonus_fclean
 bonus_fclean: bonus_clean
-	@echo "========== Cleaning executable Checker ========="
+	@echo "========== Cleaning executable Checker ============="
 	rm -f $(BONUS)
 
