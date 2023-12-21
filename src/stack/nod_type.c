@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 19:50:15 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/19 18:01:24 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:10:21 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ps_stack.h"
@@ -40,7 +40,7 @@ t_nod	*nod_init(int num)
 /*                                                                            */
 /*                                                                            */
 /* ************************************************************************** */
-void	nod_free(t_nod *my_n)
+/*void	nod_free(t_nod *my_n)
 {
-	free(my_n);
-}
+	free((void *)my_n);
+}*/

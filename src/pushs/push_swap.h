@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 19:08:37 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/21 18:03:36 by luicasad         ###   ########.fr       */
+/*   Created: 2023/12/21 18:52:05 by luicasad          #+#    #+#             */
+/*   Updated: 2023/12/21 19:07:51 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../libft/libft.h"
-#include "../ftpri/ft_printf.h"
-#include "../stack/ps_stack.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+# include <limits.h>
 
-int	main(int argc, char **argv)
-{
-	int	i;
+void	max_min(int num, int *min, int *max);
+# endif
 
-	i = 1;
-	while (i < argc)
-		ft_printf("%d\n", ft_atoi(argv[i++]));
-	return (0);
-}

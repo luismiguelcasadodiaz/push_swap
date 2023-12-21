@@ -1,0 +1,146 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
+#    Updated: 2023/12/21 18:19:20 by luicasad         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+# ============================================================================ #
+#                                 COLORS                                       #
+# ============================================================================ #
+DEF_COLOR =		\033[0;39m
+GRAY =			\033[0;90m
+RED =			\033[0;91m
+GREEN =			\033[0;92m
+YELLOW =		\033[0;93m
+BLUE =			\033[0;94m
+MAGENTA =		\033[0;95m
+CYAN =			\033[0;96m
+WHITE =			\033[0;97m
+BLACK =			\033[0;99m
+ORANGE =		\033[38;5;209m
+BROWN =			\033[38;2;184;143;29m
+DARK_GRAY =		\033[38;5;234m
+MID_GRAY =		\033[38;5;245m
+DARK_GREEN =	\033[38;2;75;179;82m
+DARK_YELLOW =	\033[38;5;143m
+# ============================================================================ #
+#                                 TARGETS                                      #
+# ============================================================================ #
+NAME = libft.a
+CC = cc
+CFLAGS =  -Wall -Wextra  -Werror
+
+# From 4.4.3 The Function wildcard gnu make manual....
+# Althought wildcard exparnds automaticaly in rules
+# I use the wildcard function to expand wildcards in variables. 
+# SRCS = $(wildcard *.c)
+#
+# This technique is forbidden according to 42 Norm point III.11
+#
+# So I must explicitly enumerate files for the project.
+
+SRCS = ft_isalnum.c \
+       ft_isalpha.c \
+       ft_isascii.c \
+       ft_isdigit.c \
+       ft_isprint.c \
+       ft_strlen.c \
+       ft_memset.c \
+       ft_bzero.c \
+       ft_memcpy.c \
+       ft_memmove.c \
+       ft_memchr.c \
+       ft_memcmp.c \
+       ft_strlcpy.c \
+       ft_strlcat.c \
+       ft_strchr.c \
+       ft_strrchr.c \
+       ft_tolower.c \
+       ft_toupper.c \
+	   ft_atoi.c \
+       ft_strtrim.c \
+       ft_strncmp.c \
+       ft_calloc.c \
+       ft_strdup.c \
+       ft_strnstr.c \
+       ft_substr.c \
+       ft_strjoin.c \
+       ft_split.c \
+       ft_itoa.c \
+       ft_putchar_fd.c \
+       ft_putstr_fd.c \
+       ft_putendl_fd.c \
+       ft_putnbr_fd.c \
+       ft_strmapi.c \
+       ft_striteri.c
+
+
+BONUS_SRCS = ft_lstnew_bonus.c \
+			 ft_lstadd_front_bonus.c \
+			 ft_lstsize_bonus.c \
+			 ft_lstlast_bonus.c \
+			 ft_lstmap_bonus.c \
+			 ft_lstadd_back_bonus.c \
+			 ft_lstdelone_bonus.c \
+			 ft_lstclear_bonus.c \
+			 ft_lstiter_bonus.c
+
+# Generate a list of object files by replacing .c with .o
+#
+# I did this approach
+#
+#OBJS = $(patsubst %.c, %.o, $(SRCS))
+#BONUS_OBJS = $(patsubst %.c, %.o, $(BONUS_SRCS))
+#
+#But Dina Zhuzhleva suggested me this aproach to avoid suspicious usage of wild cards.
+#
+OBJS = $(SRCS:.c=.o)
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+
+# The default goal is the first target of the first rule in the first makefile.
+# This is the reason for writtting this rule the first one
+
+
+all: $(NAME)
+
+
+# Vous devez utiliser la commande ar pour créer votre bibliothèque
+# NOTE rcs:
+# - r  means that if the library already exists, replace the old files within the library with your new files. 
+# - c means create the library if it did not exist. 
+# - s can be seen to mean 'sort' (create a sorted index of) the library, so that it will be indexed and faster to access the functions in the library.
+#   Therefore, rcs can be seen to mean replace, create, sort
+
+$(NAME): $(OBJS) $(BONUS_OBJS)
+	@echo "$(BLUE)LIBFT$(DEF_COLOR) ========== GATHERING ALL OBJECTS ====================="
+	ar rcs $(NAME) $?
+
+
+# For each c file create its object file.
+
+%.o: %.c Makefile libft.h
+	@echo "$(BLUE)LIBFT$(DEF_COLOR) ========== GATHERING ALL OBJECTS ====================="
+	$(CC) $(CFLAGS) -c $< -o $@ 
+
+# removes all generated object files
+clean:
+	@echo "$(BLUE)LIBFT$(DEF_COLOR) ========== REMOVING ALL OBJECTS ======================"
+	rm -f $(OBJS)
+
+# removes target file and all generated object files
+fclean: clean
+	@echo "$(BLUE)LIBFT$(DEF_COLOR) ========== REMOVING TARGET =========================="
+	rm -f $(NAME)
+
+# rebuild all after removing all
+re: fclean all
+	@echo "$(BLUE)LIBFT$(DEF_COLOR) ================ REBUILDING ==============================="
+
+
+.PHONY: all clean fclean re
+

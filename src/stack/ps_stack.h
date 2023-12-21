@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 21:04:07 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/19 22:43:15 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:15:37 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -29,6 +29,9 @@ typedef struct s_nod
 	struct s_nod	*prev;
 }	t_nod;
 
+t_nod	*nod_init(int num);
+//void	nod_free(t_nod *my_n);
+
 typedef struct s_pss
 {
 	t_nod	*top;
@@ -38,9 +41,6 @@ typedef struct s_pss
 	char	name;
 	int		fd;
 }	t_pss;
-
-t_nod	*nod_init(int num);
-void	nod_free(t_nod *my_n);
 
 t_pss	*pss_init(void);
 short	pss_empt(t_pss *my_s);
