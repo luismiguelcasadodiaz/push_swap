@@ -6,12 +6,12 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 19:08:37 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/21 18:03:36 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/22 13:24:07 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../libft/libft.h"
-#include "../ftpri/ft_printf.h"
-#include "../stack/ps_stack.h"
+#include "libft.h"
+#include "ft_printf.h"
+#include "ps_stack.h"
 
 int	main(int argc, char **argv)
 {

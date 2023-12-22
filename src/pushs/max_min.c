@@ -6,9 +6,10 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 18:40:30 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/21 18:51:04 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/22 11:44:24 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "push_swap.h"
 
 void	max_min(int num, int *max, int *min)
 {

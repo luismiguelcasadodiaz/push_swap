@@ -6,13 +6,13 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 18:16:20 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/21 19:08:37 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/22 13:23:37 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../libft/libft.h"
-#include "../ftpri/ft_printf.h"
-#include "../stack/ps_stack.h"
-#include "push_swap.h"
+#include "libft.h"
+#include "ft_printf.h"
+// #include "ps_stack.h"
+//#include "push_swap.h"
 
 int	main(int argc, char **argv)
 {
@@ -23,12 +23,13 @@ int	main(int argc, char **argv)
 
 	min = INT_MAX;
 	max = INT_MIN;
+	num = 0;
 
 	i = 1;
 	while (i < argc)
 	{
 		num = ft_atoi(argv[i++]);
-		max_min(num, &min, &max);
+		//max_min(num, &min, &max);
 		ft_printf("%d\n", num);
 	}
 	ft_printf("En el rango (%d..%d) hay %d enteros\n", min, max, max - min);

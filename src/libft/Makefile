@@ -6,35 +6,44 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/21 18:19:20 by luicasad         ###   ########.fr        #
+#    Updated: 2023/12/22 13:37:10 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+MAKEFLAGS += rR
 # ============================================================================ #
 #                                 COLORS                                       #
 # ============================================================================ #
-DEF_COLOR =		\033[0;39m
-GRAY =			\033[0;90m
-RED =			\033[0;91m
-GREEN =			\033[0;92m
-YELLOW =		\033[0;93m
-BLUE =			\033[0;94m
-MAGENTA =		\033[0;95m
-CYAN =			\033[0;96m
-WHITE =			\033[0;97m
-BLACK =			\033[0;99m
-ORANGE =		\033[38;5;209m
-BROWN =			\033[38;2;184;143;29m
-DARK_GRAY =		\033[38;5;234m
-MID_GRAY =		\033[38;5;245m
-DARK_GREEN =	\033[38;2;75;179;82m
-DARK_YELLOW =	\033[38;5;143m
+DEF_COLOR	=	\033[0;39m
+GRAY		=	\033[0;90m
+RED			=	\033[0;91m
+GREEN		=	\033[0;92m
+YELLOW		=	\033[0;93m
+BLUE		=	\033[0;94m
+MAGENTA		=	\033[0;95m
+CYAN		=	\033[0;96m
+WHITE		=	\033[0;97m
+BLACK		=	\033[0;99m
+ORANGE		=	\033[38;5;209m
+BROWN		=	\033[38;2;184;143;29m
+DARK_GRAY	=	\033[38;5;234m
+MID_GRAY	=	\033[38;5;245m
+DARK_GREEN	=	\033[38;2;75;179;82m
+DARK_YELLOW	=	\033[38;5;143m
 # ============================================================================ #
 #                                 TARGETS                                      #
 # ============================================================================ #
-NAME = libft.a
-CC = cc
-CFLAGS =  -Wall -Wextra  -Werror
-
+NAME		= libft.a
+# ============================================================================ #
+#                                 FOLDERS                                      #
+# ============================================================================ #
+INCDIR		= ../../inc/
+LIBDIR		= ../../lib/
+# ============================================================================ #
+#                               COMPILER SETUP                                 #
+# ============================================================================ #
+CC			=	cc
+CFLAGS		=	-Wall -Wextra  -Werror
+HEADS		=	-I$(INCDIR)
 # From 4.4.3 The Function wildcard gnu make manual....
 # Althought wildcard exparnds automaticaly in rules
 # I use the wildcard function to expand wildcards in variables. 
@@ -77,36 +86,25 @@ SRCS = ft_isalnum.c \
        ft_putendl_fd.c \
        ft_putnbr_fd.c \
        ft_strmapi.c \
-       ft_striteri.c
-
-
-BONUS_SRCS = ft_lstnew_bonus.c \
-			 ft_lstadd_front_bonus.c \
-			 ft_lstsize_bonus.c \
-			 ft_lstlast_bonus.c \
-			 ft_lstmap_bonus.c \
-			 ft_lstadd_back_bonus.c \
-			 ft_lstdelone_bonus.c \
-			 ft_lstclear_bonus.c \
-			 ft_lstiter_bonus.c
+       ft_striteri.c \
+	   ft_lstnew_bonus.c \
+	   ft_lstadd_front_bonus.c \
+	   ft_lstsize_bonus.c \
+	   ft_lstlast_bonus.c \
+	   ft_lstmap_bonus.c \
+	   ft_lstadd_back_bonus.c \
+	   ft_lstdelone_bonus.c \
+	   ft_lstclear_bonus.c \
+	   ft_lstiter_bonus.c
 
 # Generate a list of object files by replacing .c with .o
-#
-# I did this approach
-#
-#OBJS = $(patsubst %.c, %.o, $(SRCS))
-#BONUS_OBJS = $(patsubst %.c, %.o, $(BONUS_SRCS))
-#
-#But Dina Zhuzhleva suggested me this aproach to avoid suspicious usage of wild cards.
-#
 OBJS = $(SRCS:.c=.o)
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 # The default goal is the first target of the first rule in the first makefile.
 # This is the reason for writtting this rule the first one
 
 
-all: $(NAME)
+all: Makefile $(NAME)
 
 
 # Vous devez utiliser la commande ar pour créer votre bibliothèque
@@ -116,16 +114,15 @@ all: $(NAME)
 # - s can be seen to mean 'sort' (create a sorted index of) the library, so that it will be indexed and faster to access the functions in the library.
 #   Therefore, rcs can be seen to mean replace, create, sort
 
-$(NAME): $(OBJS) $(BONUS_OBJS)
+$(NAME): $(OBJS) 
 	@echo "$(BLUE)LIBFT$(DEF_COLOR) ========== GATHERING ALL OBJECTS ====================="
-	ar rcs $(NAME) $?
+	ar vrcs $(LIBDIR)$(NAME) $?
 
 
 # For each c file create its object file.
-
-%.o: %.c Makefile libft.h
+$(OBJS): $(SRCS) 
 	@echo "$(BLUE)LIBFT$(DEF_COLOR) ========== GATHERING ALL OBJECTS ====================="
-	$(CC) $(CFLAGS) -c $< -o $@ 
+	$(CC) $(CFLAGS)  -c $< -o $@ -I../../inc/
 
 # removes all generated object files
 clean:
@@ -135,7 +132,7 @@ clean:
 # removes target file and all generated object files
 fclean: clean
 	@echo "$(BLUE)LIBFT$(DEF_COLOR) ========== REMOVING TARGET =========================="
-	rm -f $(NAME)
+	rm -f $(LIBDIR)$(NAME)
 
 # rebuild all after removing all
 re: fclean all

@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 09:13:08 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/21 19:10:41 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/10 08:54:19 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FT_PRINTF_H
@@ -38,7 +38,8 @@ ssize_t	ft_write_ptr(void *num);
 ssize_t	ft_write_uns(unsigned int num);
 ssize_t	ft_write_hex_low(unsigned int num);
 ssize_t	ft_write_hex_cap(unsigned int num);
-int	ft_printf(const char *fmt, ...)__attribute__((format (printf, 1, 2)));
+int		ft_printf(const char *fmt, ...);
+//int	ft_printf(const char *fmt, ...)__attribute__((format (printf, 1, 2)));
 #endif
 /* ************************************************************************** */
 /* A function suffix like "__attribute__((format (printf, 1, 2)))" instruct   */
