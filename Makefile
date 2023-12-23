@@ -6,12 +6,12 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 14:59:58 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/22 13:34:07 by luicasad         ###   ########.fr        #
+#    Updated: 2023/12/23 10:37:27 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #Here, rR is equivalent to --no-builtin-rules --no-builtin-variables.
-MAKEFLAGS += rR
+#MAKEFLAGS += rR
 #$(foreach x,$(filter-out .% MAKE% SHELL CURDIR,$(.VARIABLES)) MAKEINFO,$(if $(filter default,$(origin $x)),$(eval override undefine $x)))
 # ============================================================================ #
 #                                 COLORS                                       #
@@ -68,19 +68,19 @@ NAMELIBPRINTF 	= libftprintf.a
 PATH_PRINT 		= $(addprefix $(SRCDIR_PRINT), $(NAMELIBPRINTF))
 LOADLIBPRINTF 	= ftprintf
 
-$(info $(NAMELIBPRINTF))
-$(info $(SRCDIR_PRINT))
-$(info $(PATH_PRINT))
-$(info $(LOADLIBPRINTF))
+$(info name $(NAMELIBPRINTF))
+$(info dir  $(SRCDIR_PRINT))
+$(info path $(PATH_PRINT))
+$(info link $(LOADLIBPRINTF))
 
 NAMELIBFT 		= libft.a
 PATH_LIBFT 		= $(addprefix $(SRCDIR_LIBFT), $(NAMELIBFT))
 LOADLIBFT 		= ft
 
-$(info $(NAMELIBFT))
-$(info $(SRCDIR_LIBFT))
-$(info $(PATH_LIBFT))
-$(info $(LOADLIBFT))
+$(info name $(NAMELIBFT))
+$(info dir  $(SRCDIR_LIBFT))
+$(info path $(PATH_LIBFT))
+$(info link $(LOADLIBFT))
 
 LIBS 			= -L$(LIBDIR) -l$(LOADLIBPRINTF) -l$(LOADLIBFT) 
 # ============================================================================ #
@@ -90,7 +90,7 @@ LIBS 			= -L$(LIBDIR) -l$(LOADLIBPRINTF) -l$(LOADLIBFT)
 #SRCS_STACK = nod_type.c 
 
 SRCS_PUSHS = push_swap.c \
-			 #		max_min.c
+				max_min.c
 
 SRCS_CHECK = checker.c
 
@@ -130,17 +130,17 @@ makelibftprintf:
 # ################   STACK
 $(OBJS_STACK): $(FILE_STACK) Makefile 
 	@echo "========== COMPILING STACK FILES ==================="
-	$(CC) $(CFLGS) $(HEADS) -c $< -o $@ 
+	$(CC) $(CFLGS) -c $< -o $@ $(HEADS) 
 
 # ################   PUSH_SWAP
 $(OBJS_PUSHS): $(FILE_PUSHS) Makefile 
 	@echo "========== COMPILING PUSH_SWAP FILES ==============="
-	$(CC) $(CFLGS) $(HEADS) -c $< -o $@  
+	$(CC) $(CFLGS) -c $< -o $@ $(HEADS)  
 
 # ################   CHECKER
 $(OBJS_CHECK): $(FILE_CHECK) Makefile 
 	@echo "========== COMPILING CHECK FILES ==================="
-	$(CC) $(CFLGS) $(HEADS) -c $< -o $@ 
+	$(CC) $(CFLGS) -c $< -o $@ $(HEADS) 
    
 # .......................... targets construction ............................ #
 $(NAME): Makefile $(OBJS_STACK) $(OBJS_PUSHS)
@@ -168,6 +168,10 @@ clean:
 fclean : clean
 	@echo "========== Cleaning executable Push_Swap ==========="
 	rm -f $(NAME)
+	@echo "======= Cleaning prinf_f objects and library ======="
+	$(MAKE) -C $(SRCDIR_PRINT)  fclean
+	@echo "======= Cleaning libft   objectsand library ========"
+	$(MAKE) -C $(SRCDIR_LIBFT)  fclean
 
 .PHONY: re
 re: fclean all

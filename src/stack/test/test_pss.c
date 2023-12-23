@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   test_pss.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 18:16:20 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/23 10:46:09 by luicasad         ###   ########.fr       */
+/*   Created: 2023/12/23 12:29:20 by luicasad          #+#    #+#             */
+/*   Updated: 2023/12/23 15:27:11 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
-#include "ft_printf.h"
-// #include "ps_stack.h"
-#include "push_swap.h"
+#include "libpss.h"
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	int	i;
-	int	min;
-	int	max;
-	int num;
+	t_pss	*s;
 
-	min = INT_MAX;
-	max = INT_MIN;
-	num = 0;
-
-	i = 1;
-	while (i < argc)
-	{
-		num = ft_atoi(argv[i++]);
-		//max_min(num, &min, &max);
-		ft_printf("%d\n", num);
-	}
-	ft_printf("En el rango (%d..%d) hay %d enteros\n", min, max, max - min);
+	s = pss_init('c');
+	pss_prin(s);
+	pss_push(s, 3);
+	pss_prin(s);
 	return (0);
 }

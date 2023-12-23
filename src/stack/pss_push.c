@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   pss_push.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 18:16:20 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/23 10:46:09 by luicasad         ###   ########.fr       */
+/*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
+/*   Updated: 2023/12/23 15:30:38 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
-#include "ft_printf.h"
-// #include "ps_stack.h"
-#include "push_swap.h"
+#include "libpss.h"
 
-int	main(int argc, char **argv)
+int	pss_push(t_pss *s, int num)
 {
-	int	i;
-	int	min;
-	int	max;
-	int num;
+	t_nod	*n;
 
-	min = INT_MAX;
-	max = INT_MIN;
-	num = 0;
-
-	i = 1;
-	while (i < argc)
+	n = nod_init(num);
+	if (!n)
+		return (-1);
+	if (pss_empt(s))
 	{
-		num = ft_atoi(argv[i++]);
-		//max_min(num, &min, &max);
-		ft_printf("%d\n", num);
+		s->top = n;
+		n->prev = s->top;
+		n->next = s->top;
 	}
-	ft_printf("En el rango (%d..%d) hay %d enteros\n", min, max, max - min);
+	else
+	{
+		n->prev = s->top->prev;
+		n->next = s->top->next;
+		s->top = n;
+	}
 	return (0);
 }

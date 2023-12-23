@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   pss_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 18:16:20 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/23 10:46:09 by luicasad         ###   ########.fr       */
+/*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
+/*   Updated: 2023/12/23 11:57:21 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
-#include "ft_printf.h"
-// #include "ps_stack.h"
-#include "push_swap.h"
-
-int	main(int argc, char **argv)
+#include "libpss.h"
+t_pss	*pss_init(char name)
 {
-	int	i;
-	int	min;
-	int	max;
-	int num;
+	t_pss	*stack;
 
-	min = INT_MAX;
-	max = INT_MIN;
-	num = 0;
-
-	i = 1;
-	while (i < argc)
-	{
-		num = ft_atoi(argv[i++]);
-		//max_min(num, &min, &max);
-		ft_printf("%d\n", num);
-	}
-	ft_printf("En el rango (%d..%d) hay %d enteros\n", min, max, max - min);
-	return (0);
+	stack = (t_pss *)malloc(sizeof(t_pss));
+	if (!stack)
+		return(NULL);
+	stack->top = NULL;
+	stack->big = 0;
+	stack->sma = 0;
+	stack->siz = 0;
+	stack->nam = name;
+	stack->fld = OUTPUT_FD;
+	return (stack);
 }

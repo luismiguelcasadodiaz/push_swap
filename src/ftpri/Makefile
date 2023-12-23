@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:08:17 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/22 13:13:13 by luicasad         ###   ########.fr        #
+#    Updated: 2023/12/23 10:25:05 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -36,8 +36,12 @@ NAME = libftprintf.a
 # ============================================================================ #
 #                                 FOLDERS                                      #
 # ============================================================================ #
-INCDIR		= ../../inc/
+#OBJDIR		= ../../obj/
+#INCDIR		= ../../inc/
 LIBDIR		= ../../lib/
+OBJDIR		= 
+INCDIR		= ../../inc/
+#LIBDIR		= 
 # ============================================================================ #
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
@@ -67,12 +71,13 @@ SRCS := ft_write_str.c \
 
 # Generate a list of object files by replacing .c with .o
 
-OBJS:=$(SRCS:.c=.o)
+_OBJS:=$(SRCS:.c=.o)
+OBJS = $(addprefix $(OBJDIR), $(_OBJS))
  
 # The default goal is the first target of the first rule in the first makefile.
 # This is the reason for writtting this rule the first one
 
-all: Makefile $(NAME)
+all: $(NAME)
 
 
 $(NAME): $(OBJS)
@@ -82,9 +87,11 @@ $(NAME): $(OBJS)
 
 # For each c file create its object file.
 
-$(OBJS): $(SRCS)
+#$(OBJS): $(SRCS)
+%.o: %.c Makefile
 	@echo "$(ORANGE)FT_PRINTF$(DEF_COLOR)======= COMPILING ALL OBJECTS ====================="
 	$(CC) $(CFLAGS) -c $< -o $@ $(HEADS)
+
 
 # removes all generated object files
 clean:

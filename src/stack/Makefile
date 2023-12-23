@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/23 10:30:41 by luicasad         ###   ########.fr        #
+#    Updated: 2023/12/23 15:27:40 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -32,14 +32,14 @@ DARK_YELLOW	=	\033[38;5;143m
 # ============================================================================ #
 #                                 TARGETS                                      #
 # ============================================================================ #
-NAME		= libft.a
+NAME		= libpss.a
 # ============================================================================ #
 #                                 FOLDERS                                      #
 # ============================================================================ #
 #OBJDIR		= ../../obj/
 INCDIR		= ../../inc/
 LIBDIR		= ../../lib/
-OBJDIR		= 
+OBJDIR		=  
 #INCDIR		=
 #LIBDIR		=
 # ============================================================================ #
@@ -57,51 +57,26 @@ HEADS		=	-I$(INCDIR)
 #
 # So I must explicitly enumerate files for the project.
 
-SRCS = ft_isalnum.c \
-       ft_isalpha.c \
-       ft_isascii.c \
-       ft_isdigit.c \
-       ft_isprint.c \
-       ft_strlen.c \
-       ft_memset.c \
-       ft_bzero.c \
-       ft_memcpy.c \
-       ft_memmove.c \
-       ft_memchr.c \
-       ft_memcmp.c \
-       ft_strlcpy.c \
-       ft_strlcat.c \
-       ft_strchr.c \
-       ft_strrchr.c \
-       ft_tolower.c \
-       ft_toupper.c \
-	   ft_atoi.c \
-       ft_strtrim.c \
-       ft_strncmp.c \
-       ft_calloc.c \
-       ft_strdup.c \
-       ft_strnstr.c \
-       ft_substr.c \
-       ft_strjoin.c \
-       ft_split.c \
-       ft_itoa.c \
-       ft_putchar_fd.c \
-       ft_putstr_fd.c \
-       ft_putendl_fd.c \
-       ft_putnbr_fd.c \
-       ft_strmapi.c \
-       ft_striteri.c \
-	   ft_lstnew_bonus.c \
-	   ft_lstadd_front_bonus.c \
-	   ft_lstsize_bonus.c \
-	   ft_lstlast_bonus.c \
-	   ft_lstmap_bonus.c \
-	   ft_lstadd_back_bonus.c \
-	   ft_lstdelone_bonus.c \
-	   ft_lstclear_bonus.c \
-	   ft_lstiter_bonus.c
+# ============================================================================ #
+#                                   SOURCES                                    #
+# ============================================================================ #
+SRCS	=	pss_init.c \
+			pss_size.c \
+			pss_prin.c \
+			pss_empt.c \
+			pss_push.c \
+			#pss_peek.c \
+			pss_pope.c \
+			pss_swap.c \
+			pss_swsw.c \
+			pss_psoo.c \
+			pss_rota.c \
+			pss_roro.c \
+			pss_rrot.c \
+			pss_rrrr.c \
+			pss_free.c 
 
-# Generate a list of object files by replacing .c with .o
+# Generate a list of object files by replacing .c with .o 
 _OBJS = $(SRCS:.c=.o)
 OBJS = $(addprefix $(OBJDIR), $(_OBJS))
 
@@ -110,6 +85,9 @@ OBJS = $(addprefix $(OBJDIR), $(_OBJS))
 
 
 all: $(NAME)
+	$(info sources $(SRCS))
+	$(info objects $(_OBJS))
+	$(info targets $(OBJS))
 
 
 # Vous devez utiliser la commande ar pour créer votre bibliothèque
@@ -120,29 +98,30 @@ all: $(NAME)
 #   Therefore, rcs can be seen to mean replace, create, sort
 
 $(NAME): $(OBJS) 
-	@echo "$(BLUE)LIBFT$(DEF_COLOR) ========== GATHERING ALL OBJECTS ====================="
+	@echo "$(RED)LIBPSS$(DEF_COLOR) ========== GATHERING ALL OBJECTS ====================="
 	ar rcs $(LIBDIR)$(NAME) $?
 
 
 # For each c file create its object file.
-#$(OBJS): $(SRCS) 
+$(OBJS): $(SRCS) Makefile
+
 %.o: %.c Makefile
-	@echo "$(BLUE)LIBFT$(DEF_COLOR) ========== GATHERING ALL OBJECTS ====================="
-	$(CC) $(CFLAGS)  -c $< -o $@ $(HEADS)
+	@echo "$(RED)LIBPSS$(DEF_COLOR) ========== GATHERING ALL OBJECTS ====================="
+	$(CC) $(CFLAGS)  -c $< -o $@ $(HEADS) -L../../lib/ -l:libftprint.a
 
 # removes all generated object files
 clean:
-	@echo "$(BLUE)LIBFT$(DEF_COLOR) ========== REMOVING ALL OBJECTS ======================"
+	@echo "$(RED)LIBPSS$(DEF_COLOR) ========== REMOVING ALL OBJECTS ======================"
 	rm -f $(OBJS)
 
 # removes target file and all generated object files
 fclean: clean
-	@echo "$(BLUE)LIBFT$(DEF_COLOR) ========== REMOVING TARGET =========================="
+	@echo "$(RED)LIBPSS$(DEF_COLOR) ========== REMOVING TARGET =========================="
 	rm -f $(LIBDIR)$(NAME)
 
 # rebuild all after removing all
 re: fclean all
-	@echo "$(BLUE)LIBFT$(DEF_COLOR) ================ REBUILDING ==============================="
+	@echo "$(RED)LIBPSS$(DEF_COLOR) ================ REBUILDING ==============================="
 
 
 .PHONY: all clean fclean re
