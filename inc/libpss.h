@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 21:04:07 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/23 15:29:18 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/24 10:55:44 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -56,11 +56,12 @@ typedef struct s_pss
 
 t_pss	*pss_init(char name);
 short	pss_empt(t_pss *my_s);
-int		pss_size(t_pss *my_s);
+int	pss_size(t_pss *my_s);
+void	pss_mami(t_pss *my_s, int num);
 void	pss_prin(t_pss *my_s);
-int		pss_peek(t_pss *my_s);
-int		pss_push(t_pss *my_s, int num);
-int		pss_pope(t_pss *my_s);
+int	pss_peek(t_pss *my_s);
+int	pss_push(t_pss *my_s, int num);
+int	pss_pope(t_pss *my_s);
 void	pss_swap(t_pss *my_s);
 void	pss_swsw(t_pss *one, t_pss *two);
 void	pss_psoo(t_pss *one, t_pss *two);

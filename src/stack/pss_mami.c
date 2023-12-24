@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pss_init.c                                         :+:      :+:    :+:   */
+/*   pss_mami.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/24 11:05:00 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/24 11:02:08 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
-t_pss	*pss_init(char name)
-{
-	t_pss	*stack;
 
-	stack = (t_pss *)malloc(sizeof(t_pss));
-	if (!stack)
-		return(NULL);
-	stack->top = NULL;
-	stack->big = 0;
-	stack->sma = 0;
-	stack->siz = 0;
-	stack->nam = name;
-	stack->fld = OUTPUT_FD;
-	return (stack);
+void	pss_mami(t_pss *s, int num)
+{
+	if (num < s->sma)
+		s->sma = num;
+	if (s->big < num)
+		s->big = num;
 }
+

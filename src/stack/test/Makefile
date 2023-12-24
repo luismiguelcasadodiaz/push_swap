@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/23 12:57:35 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/23 13:34:57 by luicasad         ###   ########.fr        #
+#    Updated: 2023/12/24 10:48:31 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME	= 	test_pss
@@ -31,3 +31,8 @@ $(NAME): $(OBJS)
 
 %.o : %.c 
 	$(CC) $(CFLAGS) -c $< -o $@ $(HEADS) 
+
+clean:
+	rm -f $(OBJS)
+fclean: clean
+	rm -f $(NAME)
