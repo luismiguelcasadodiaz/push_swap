@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/24 10:59:48 by luicasad         ###   ########.fr        #
+#    Updated: 2023/12/24 16:23:13 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -15,7 +15,7 @@ MAKEFLAGS += rR
 # ============================================================================ #
 DEF_COLOR	=	\033[0;39m
 GRAY		=	\033[0;90m
-RED			=	\033[0;91m
+RED		=	\033[0;91m
 GREEN		=	\033[0;92m
 YELLOW		=	\033[0;93m
 BLUE		=	\033[0;94m
@@ -46,7 +46,7 @@ OBJDIR		=
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC			=	cc
-CFLAGS		=	-Wall -Wextra  -Werror
+CFLAGS		=	-g -Wall -Wextra  -Werror
 HEADS		=	-I$(INCDIR)
 # From 4.4.3 The Function wildcard gnu make manual....
 # Althought wildcard exparnds automaticaly in rules
@@ -60,23 +60,27 @@ HEADS		=	-I$(INCDIR)
 # ============================================================================ #
 #                                   SOURCES                                    #
 # ============================================================================ #
-SRCS	=	pss_init.c \
-			pss_size.c \
-			pss_prin.c \
-			pss_empt.c \
-			pss_push.c \
-			nod_init.c \
-			pss_mami.c \
-			#pss_peek.c \
-			pss_pope.c \
-			pss_swap.c \
-			pss_swsw.c \
-			pss_psoo.c \
-			pss_rota.c \
-			pss_roro.c \
-			pss_rrot.c \
-			pss_rrrr.c \
-			pss_free.c 
+SRCS	=	nod_init.c \
+		nod_free.c \
+		pss_init.c \
+		pss_size.c \
+		pss_prin.c \
+		pss_empt.c \
+		pss_push.c \
+		pss_pope.c \
+		pss_mami.c \
+		pss_maxi.c \
+		pss_mini.c \
+		pss_free.c
+		#pss_peek.c \
+		pss_swap.c \
+		pss_swsw.c \
+		pss_psoo.c \
+		pss_rota.c \
+		pss_roro.c \
+		pss_rrot.c \
+		pss_rrrr.c \
+		pss_free.c 
 
 # Generate a list of object files by replacing .c with .o 
 _OBJS = $(SRCS:.c=.o)

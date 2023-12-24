@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pss_pope.c                                         :+:      :+:    :+:   */
+/*   pss_maxi.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/24 16:14:19 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/24 16:15:43 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
 
-int	pss_pope(t_pss *s)
-{	
-	int	num;
-	t_nod	*p;
-	t_nod	*n;
-	t_nod	*node;
+int	pss_maxi(t_pss *s)
+{
+	t_nod	*nod;
+	short	end;
+	int	max;
 
-	node = s->top;
-	num = node->num;
-	if (pss_size(s) > 1)
+	end = 0;
+	nod = s->top;
+	max = s->top->num;
+	while (!end)
 	{
-		p = s->top->prev;
-		n = s->top->next;
-		p->next = n;
-		n->prev = p;
-		s->top = n;
-		pss_mami(s, num, 'o');
+		end = (nod->next == s->top);
+		nod = nod->next;
+		if (max < nod->num)
+			max = nod->num;
 	}
-	else
-		s->top = NULL;
-	node->prev = NULL;
-	node->next = NULL;
-	s->siz = s->siz - 1;
-	nod_free(node);
-	return (num);
+	return (max);
 }

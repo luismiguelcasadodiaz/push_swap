@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 21:04:07 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/24 10:55:44 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/24 16:13:57 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -26,13 +26,13 @@
 
 typedef struct s_nod
 {
-	int				num;
+	int		num;
 	struct s_nod	*next;
 	struct s_nod	*prev;
 }	t_nod;
 
 t_nod	*nod_init(int num);
-//void	nod_free(t_nod *my_n);
+void	nod_free(t_nod *my_n);
 
 /* ************************************************************************** */
 /* The stack is a structure that contains stack atributes.                    */
@@ -57,7 +57,9 @@ typedef struct s_pss
 t_pss	*pss_init(char name);
 short	pss_empt(t_pss *my_s);
 int	pss_size(t_pss *my_s);
-void	pss_mami(t_pss *my_s, int num);
+int	pss_mini(t_pss *my_s);
+int	pss_maxi(t_pss *my_s);
+void	pss_mami(t_pss *my_s, int num, char c);
 void	pss_prin(t_pss *my_s);
 int	pss_peek(t_pss *my_s);
 int	pss_push(t_pss *my_s, int num);

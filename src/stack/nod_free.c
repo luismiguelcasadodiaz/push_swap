@@ -1,39 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pss_pope.c                                         :+:      :+:    :+:   */
+/*   nod_free.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/24 16:14:19 by luicasad         ###   ########.fr       */
+/*   Created: 2023/12/17 19:50:15 by luicasad          #+#    #+#             */
+/*   Updated: 2023/12/24 16:21:54 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
+#include <stdlib.h>
 
-int	pss_pope(t_pss *s)
-{	
-	int	num;
-	t_nod	*p;
-	t_nod	*n;
-	t_nod	*node;
-
-	node = s->top;
-	num = node->num;
-	if (pss_size(s) > 1)
-	{
-		p = s->top->prev;
-		n = s->top->next;
-		p->next = n;
-		n->prev = p;
-		s->top = n;
-		pss_mami(s, num, 'o');
-	}
-	else
-		s->top = NULL;
-	node->prev = NULL;
-	node->next = NULL;
-	s->siz = s->siz - 1;
-	nod_free(node);
-	return (num);
+void	nod_free(t_nod *node)
+{
+	free(node);
 }

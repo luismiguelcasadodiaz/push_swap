@@ -6,8 +6,14 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/23 11:05:08 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/24 16:40:05 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libpss.h"
 
-
+void	pss_free(t_pss *s)
+{
+	while (s->top != NULL)
+		pss_pope(s);
+	free(s);
+}

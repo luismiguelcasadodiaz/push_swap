@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/23 12:57:35 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/24 10:48:31 by luicasad         ###   ########.fr        #
+#    Updated: 2023/12/24 16:34:24 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME	= 	test_pss
@@ -16,7 +16,7 @@ LIBPSS	=	libpss.a
 LIBPRI	=	libftprintf.a
 
 CC		=	cc
-CFLAGS	=	-Werror -Wextra -Wall
+CFLAGS	=	-g -Werror -Wextra -Wall
 HEADS	=	-I$(INCDIR)
 LIBS	=	-L$(LIBDIR) -l:$(LIBPSS) -l:$(LIBPRI)
 SRCS	=	test_pss.c
@@ -31,8 +31,12 @@ $(NAME): $(OBJS)
 
 %.o : %.c 
 	$(CC) $(CFLAGS) -c $< -o $@ $(HEADS) 
-
+re: fclean all
 clean:
 	rm -f $(OBJS)
 fclean: clean
 	rm -f $(NAME)
+run:
+	valgrind --tool=memcheck --leak-check=yes ./$(NAME)
+rung:
+	valgrind --tool=massif --stacks=yes ./$(NAME)

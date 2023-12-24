@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/24 11:05:02 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/24 14:15:15 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
@@ -33,6 +33,6 @@ int	pss_push(t_pss *s, int num)
 		s->top = n;
 	}
 	s->siz = s->siz + 1;
-	pss_mami(s, num);
+	pss_mami(s, num, 'u');
 	return (0);
 }

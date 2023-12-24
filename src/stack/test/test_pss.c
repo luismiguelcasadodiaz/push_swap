@@ -6,10 +6,11 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:29:20 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/24 10:49:45 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/24 16:29:57 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
+#include "ft_printf.h"
 
 int	main(void)
 {
@@ -25,5 +26,10 @@ int	main(void)
 	pss_prin(s);
 	pss_push(s, 33);
 	pss_prin(s);
+	ft_printf("poped %d\n", pss_pope(s));
+	pss_prin(s);
+	ft_printf("poped %d\n", pss_pope(s));
+	pss_prin(s);
+	pss_free(s);
 	return (0);
 }
