@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/24 16:23:13 by luicasad         ###   ########.fr        #
+#    Updated: 2023/12/25 10:46:54 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -71,16 +71,15 @@ SRCS	=	nod_init.c \
 		pss_mami.c \
 		pss_maxi.c \
 		pss_mini.c \
-		pss_free.c
-		#pss_peek.c \
+		pss_free.c \
+		pss_peek.c \
 		pss_swap.c \
 		pss_swsw.c \
 		pss_psoo.c \
 		pss_rota.c \
 		pss_roro.c \
 		pss_rrot.c \
-		pss_rrrr.c \
-		pss_free.c 
+		pss_rrrr.c 
 
 # Generate a list of object files by replacing .c with .o 
 _OBJS = $(SRCS:.c=.o)

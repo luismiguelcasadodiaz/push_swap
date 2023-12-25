@@ -6,8 +6,18 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/23 11:05:08 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/25 10:48:42 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libpss.h"
 
-
+/* ************************************************************************** */
+/* pss_rota() moves top to the top's next node, making the first the last.    */
+/*                                                                            */
+/* ************************************************************************** */
+void	pss_rota(t_pss *s, int printme)
+{
+	s->top = s->top->next;
+	if (printme)
+		ft_printf("r%c\n", s->nam);
+}
