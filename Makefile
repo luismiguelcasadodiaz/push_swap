@@ -6,19 +6,19 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 14:59:58 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/23 10:37:27 by luicasad         ###   ########.fr        #
+#    Updated: 2023/12/26 18:05:12 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #Here, rR is equivalent to --no-builtin-rules --no-builtin-variables.
-#MAKEFLAGS += rR
+MAKEFLAGS += rR
 #$(foreach x,$(filter-out .% MAKE% SHELL CURDIR,$(.VARIABLES)) MAKEINFO,$(if $(filter default,$(origin $x)),$(eval override undefine $x)))
 # ============================================================================ #
 #                                 COLORS                                       #
 # ============================================================================ #
 DEF_COLOR		=	\033[0;39m
 GRAY			=	\033[0;90m
-RED				=	\033[0;91m
+RED			=	\033[0;91m
 GREEN			=	\033[0;92m
 YELLOW			=	\033[0;93m
 BLUE			=	\033[0;94m
@@ -54,55 +54,50 @@ REQUIRED_DIRS	= $(OBJDIR) $(INCDIR) $(LIBDIR)
 # ============================================================================ #
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
-CC 				= gcc
+CC 			= gcc
 WRNFL			= -Wall -Wextra -Werror
 DBGFL			= -g
 CFLGS			= $(DBGFL) $(WRNFL) -c
 HEADS			= -I$(INCDIR)
-LFLGS 			= -Wl,-v
+#LFLGS 			= -Wl,-v
+LFLGS 			= 
 
 # ============================================================================ #
 #                              LIBRARIES SETUP                                 #
 # ============================================================================ #
-NAMELIBPRINTF 	= libftprintf.a
+NAMELIBPRINTF 		= libftprintf.a
 PATH_PRINT 		= $(addprefix $(SRCDIR_PRINT), $(NAMELIBPRINTF))
-LOADLIBPRINTF 	= ftprintf
-
-$(info name $(NAMELIBPRINTF))
-$(info dir  $(SRCDIR_PRINT))
-$(info path $(PATH_PRINT))
-$(info link $(LOADLIBPRINTF))
+LOADLIBPRINTF 		= ftprintf
 
 NAMELIBFT 		= libft.a
 PATH_LIBFT 		= $(addprefix $(SRCDIR_LIBFT), $(NAMELIBFT))
 LOADLIBFT 		= ft
 
-$(info name $(NAMELIBFT))
-$(info dir  $(SRCDIR_LIBFT))
-$(info path $(PATH_LIBFT))
-$(info link $(LOADLIBFT))
+NAMELIBPSS 		= libpss.a
+PATH_STACK 		= $(addprefix $(SRCDIR_STACK), $(NAMELIBPSS))
+LOADLIBSS 		= pss
 
-LIBS 			= -L$(LIBDIR) -l$(LOADLIBPRINTF) -l$(LOADLIBFT) 
+MYLIBS			= $(NAMELIBPRINTF) $(NAMELIBFT) $(NAMELIBPSS)
+LLIBS 			= -L$(LIBDIR) -l$(LOADLIBPRINTF) -l$(LOADLIBFT) -l$(LOADLIBSS)
 # ============================================================================ #
 #                                 SOURCES                                      #
 # ============================================================================ #
 
-#SRCS_STACK = nod_type.c 
 
-SRCS_PUSHS = push_swap.c \
-				max_min.c
+SRCS_PUSHS = max_min.c \
+		push_swap.c
 
 SRCS_CHECK = checker.c
 
-FILE_STACK = $(addprefix $(SRCDIR_STACK), $(SRCS_STACK))
 FILE_PUSHS = $(addprefix $(SRCDIR_PUSHS), $(SRCS_PUSHS))
 FILE_CHECK = $(addprefix $(SRCDIR_CHECK), $(SRCS_CHECK))
 
-OBJS_STACK = $(addprefix $(OBJDIR), $(SRCS_STACK:.c=.o))
 OBJS_PUSHS = $(addprefix $(OBJDIR), $(SRCS_PUSHS:.c=.o))
 OBJS_CHECK = $(addprefix $(OBJDIR), $(SRCS_CHECK:.c=.o))
 
-
+$(info source files $(SRCS_PUSHS))
+$(info source paths $(FILE_PUSHS))
+$(info object patha $(OBJS_PUSHS))
 # ============================================================================ #
 #                                 RULES                                        #
 # ============================================================================ #
@@ -117,7 +112,11 @@ makedirs:
  				done)
 
 # .......................... library construction ............................ #
-makelibs: makelibft makelibftprintf
+makelibs: $(MYLIBS) 
+
+$(NAMELIBPRINTF): makelibftprintf 
+$(NAMELIBFT): makelibft
+$(NAMELIBPSS): makelibpss
 
 makelibft:
 	$(MAKE) -C $(SRCDIR_LIBFT)
@@ -125,42 +124,50 @@ makelibft:
 makelibftprintf:
 	$(MAKE) -C $(SRCDIR_PRINT)
 
+makelibpss:
+	$(MAKE) -C $(SRCDIR_STACK)
 
+# .......................... targets construction ............................ #
+$(NAME): Makefile $(OBJS_PUSHS)
+	@echo "$(GREEN)========== GATHERING PUSH_SWAP OBJECTS =============$(DEF_COLOR)"
+	$(CC) $(LFLGS) $(OBJS_PUSHS) -o $@ $(LLIBS)
+
+$(BONUS): Makefile $(OBJS_CHECK)
+	@echo "$(MAGENTA)========== GATHERING CHECKER OBJECTS ===============$(DEF_COLOR)"
+	$(CC) $(LFLGS) $(OBJS_CHECK) -o $@ $(LLIBS)
 # .......................... objects construction ............................ #
-# ################   STACK
-$(OBJS_STACK): $(FILE_STACK) Makefile 
-	@echo "========== COMPILING STACK FILES ==================="
-	$(CC) $(CFLGS) -c $< -o $@ $(HEADS) 
-
 # ################   PUSH_SWAP
-$(OBJS_PUSHS): $(FILE_PUSHS) Makefile 
-	@echo "========== COMPILING PUSH_SWAP FILES ==============="
-	$(CC) $(CFLGS) -c $< -o $@ $(HEADS)  
+#$(OBJS_PUSHS): $(FILE_PUSHS)
+#	@echo "========== COMPILING PUSH_SWAP FILES ==============="
+#	$(CC) $(CFLGS) $? -o $@ $(HEADS)  
 
 # ################   CHECKER
-$(OBJS_CHECK): $(FILE_CHECK) Makefile 
-	@echo "========== COMPILING CHECK FILES ==================="
-	$(CC) $(CFLGS) -c $< -o $@ $(HEADS) 
+#$(OBJS_CHECK): $(FILE_CHECK)
+#	@echo "========== COMPILING CHECK FILES ==================="
+#	$(CC) $(CFLGS) $< -o $@ $(HEADS)  
    
-# .......................... targets construction ............................ #
-$(NAME): Makefile $(OBJS_STACK) $(OBJS_PUSHS)
-	@echo "========== GATHERING PUSH_SWAP OBJECTS ============="
-	$(CC) $(LFLGS) $(OBJS_STACK) $(OBJS_PUSHS) -o $@ $(LIBS)
+#$(OBJS_PUSHS): $(FILE_PUSHS) 
+#	@echo "========== COMPILING PUSH_SWAP FILES ==============="
+#	$(CC) $(CFLGS) $< -o $@ $(HEADS)  
 
-$(BONUS): Makefile $(OBJS_STACK) $(OBJS_CHECK)
-	@echo "========== GATHERING CHECKER OBJECTS ==============="
-	$(CC) $(LFLGS) $(OBJS_STACK) $(OBJS_CHECK) -o $@ $(LIBS)
+$(OBJDIR)%.o: $(SRCDIR_PUSHS)%.c
+	@echo "$(GREEN)========== COMPILING PUSH_SWAP FILES ===============$(DEF_COLOR)"
+	$(CC) $(CFLGS) $< -o $@ $(HEADS)  
 
+$(OBJDIR)%.o: $(SRCDIR_CHECK)%.c
+	@echo "$(MAGENTA)========== COMPILING  CHECKER  FILES ===============$(DEF_COLOR)"
+	$(CC) $(CFLGS) $< -o $@ $(HEADS) 
+ 
 .PHONY: clean
 clean:
 	@echo "========== Cleaning Push_swap objects =============="
 	rm -f $(OBJS_PUSHS)
-	@echo "========== Cleaning stack objects =================="
-	rm -f $(OBJS_STACK)
 	@echo "========== Cleaning prinf_f objects ================"
 	$(MAKE) -C $(SRCDIR_PRINT)  clean
 	@echo "========== Cleaning libft  objects ================="
 	$(MAKE) -C $(SRCDIR_LIBFT)  clean
+	@echo "========== Cleaning libft  objects ================="
+	$(MAKE) -C $(SRCDIR_STACK)  clean
 	@echo "========== Cleaning libraries *.a =================="
 	rm -f $(LIBDIR)*
 
@@ -187,4 +194,7 @@ bonus_fclean: bonus_clean
 	@echo "========== Cleaning executable Checker ============="
 	rm -f $(BONUS)
 norma:
-	norminette $(SRCDIR_STACK) $(SRCDIR_PUSHS) $(SRCDIR_CHECK)
+	$(MAKE) -C $(SRCDIR_PRINT)  norma
+	$(MAKE) -C $(SRCDIR_LIBFT)  clean
+	$(MAKE) -C $(SRCDIR_STACK)  clean
+	norminette $(SRCDIR_PUSHS) $(SRCDIR_CHECK)

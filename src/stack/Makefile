@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/25 10:46:54 by luicasad         ###   ########.fr        #
+#    Updated: 2023/12/26 17:52:15 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -90,9 +90,9 @@ OBJS = $(addprefix $(OBJDIR), $(_OBJS))
 
 
 all: $(NAME)
-	$(info sources $(SRCS))
-	$(info objects $(_OBJS))
-	$(info targets $(OBJS))
+#	$(info sources $(SRCS))
+#	$(info objects $(_OBJS))
+#	$(info targets $(OBJS))
 
 
 # Vous devez utiliser la commande ar pour créer votre bibliothèque
@@ -103,7 +103,7 @@ all: $(NAME)
 #   Therefore, rcs can be seen to mean replace, create, sort
 
 $(NAME): $(OBJS) 
-	@echo "$(RED)LIBPSS$(DEF_COLOR) ========== GATHERING ALL OBJECTS ====================="
+	@echo "$(RED)LIBPSS ========== GATHERING ALL OBJECTS ====================$(DEF_COLOR)"
 	ar rcs $(LIBDIR)$(NAME) $?
 
 
@@ -111,22 +111,22 @@ $(NAME): $(OBJS)
 $(OBJS): $(SRCS) Makefile
 
 %.o: %.c Makefile
-	@echo "$(RED)LIBPSS$(DEF_COLOR) ========== GATHERING ALL OBJECTS ====================="
+	@echo "$(RED)LIBPSS ========== COMPILING ALL OBJECTS ====================$(DEF_COLOR)"
 	$(CC) $(CFLAGS)  -c $< -o $@ $(HEADS) -L../../lib/ -l:libftprint.a
 
 # removes all generated object files
 clean:
-	@echo "$(RED)LIBPSS$(DEF_COLOR) ========== REMOVING ALL OBJECTS ======================"
+	@echo "$(RED)LIBPSS ========== REMOVING ALL OBJECTS =====================$(DEF_COLOR)"
 	rm -f $(OBJS)
 
 # removes target file and all generated object files
 fclean: clean
-	@echo "$(RED)LIBPSS$(DEF_COLOR) ========== REMOVING TARGET =========================="
+	@echo "$(RED)LIBPSS ========== REMOVING TARGET ==========================$(DEF_COLOR)"
 	rm -f $(LIBDIR)$(NAME)
 
 # rebuild all after removing all
 re: fclean all
-	@echo "$(RED)LIBPSS$(DEF_COLOR) ================ REBUILDING ==============================="
+	@echo "$(RED)LIBPSS ================ REBUILDING =========================$(DEF_COLOR)"
 
 
 .PHONY: all clean fclean re

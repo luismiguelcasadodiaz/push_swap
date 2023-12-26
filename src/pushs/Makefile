@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/21 18:08:17 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/26 17:55:53 by luicasad         ###   ########.fr        #
+#    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
+#    Updated: 2023/12/26 10:59:26 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -32,21 +32,21 @@ DARK_YELLOW	=	\033[38;5;143m
 # ============================================================================ #
 #                                 TARGETS                                      #
 # ============================================================================ #
-NAME = libftprintf.a
+NAME		= push_swap
 # ============================================================================ #
 #                                 FOLDERS                                      #
 # ============================================================================ #
 #OBJDIR		= ../../obj/
-#INCDIR		= ../../inc/
-LIBDIR		= ../../lib/
-OBJDIR		= 
 INCDIR		= ../../inc/
-#LIBDIR		= 
+LIBDIR		= ../../lib/
+OBJDIR		=  
+#INCDIR		=
+#LIBDIR		=
 # ============================================================================ #
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
-CC = cc
-CFLAGS = -g -Wall -Wextra -Werror
+CC		=	cc
+CFLAGS		=	-g -Wall -Wextra  -Werror
 HEADS		=	-I$(INCDIR)
 # From 4.4.3 The Function wildcard gnu make manual....
 # Althought wildcard exparnds automaticaly in rules
@@ -57,58 +57,58 @@ HEADS		=	-I$(INCDIR)
 #
 # So I must explicitly enumerate files for the project.
 
-SRCS := ft_write_str.c \
-        ft_write_c.c \
-		ft_write_int_base.c \
-		ft_write_uns_base.c \
-		ft_write_ptr.c \
-		ft_write_int.c \
-		ft_write_dec.c \
-		ft_write_uns.c \
-		ft_write_hex_low.c \
-		ft_write_hex_cap.c \
-		ft_printf.c
+# ============================================================================ #
+#                                   SOURCES                                    #
+# ============================================================================ #
+SRCS	=	max_min.c \
+		push_swap.c 
 
-# Generate a list of object files by replacing .c with .o
-
-_OBJS:=$(SRCS:.c=.o)
+# Generate a list of object files by replacing .c with .o 
+_OBJS = $(SRCS:.c=.o)
 OBJS = $(addprefix $(OBJDIR), $(_OBJS))
- 
+
 # The default goal is the first target of the first rule in the first makefile.
 # This is the reason for writtting this rule the first one
 
+
 all: $(NAME)
+	$(info sources $(SRCS))
+	$(info objects $(_OBJS))
+	$(info targets $(OBJS))
 
 
-$(NAME): $(OBJS)
-	@echo "$(YELLOW)FT_PRINTF ======= GATHERING ALL OBJECTS =====================$(DEF_COLOR)"
-	ar rcs $(LIBDIR)$(NAME) $?
+# Vous devez utiliser la commande ar pour créer votre bibliothèque
+# NOTE rcs:
+# - r  means that if the library already exists, replace the old files within the library with your new files. 
+# - c means create the library if it did not exist. 
+# - s can be seen to mean 'sort' (create a sorted index of) the library, so that it will be indexed and faster to access the functions in the library.
+#   Therefore, rcs can be seen to mean replace, create, sort
+
+$(NAME): $(OBJS) 
+	@echo "$(RED)LIBPSS$(DEF_COLOR) ========== GATHERING ALL OBJECTS ====================="
+	$(CC)  $(LIBDIR)$(NAME) $?
 
 
 # For each c file create its object file.
+$(OBJS): $(SRCS) Makefile
 
-#$(OBJS): $(SRCS)
 %.o: %.c Makefile
-	@echo "$(YELLOW)FT_PRINTF ======= COMPILING ALL OBJECTS =====================$(DEF_COLOR)"
-	$(CC) $(CFLAGS) -c $< -o $@ $(HEADS)
-
+	@echo "$(RED)LIBPSS$(DEF_COLOR) ========== GATHERING ALL OBJECTS ====================="
+	$(CC) $(CFLAGS)  -c $< -o $@ $(HEADS) -L../../lib/ -l:libftprint.a
 
 # removes all generated object files
 clean:
-	@echo "$(YELLOW)FT_PRINTF ======= REMOVING ALL OBJECTS ======================$(DEF_COLOR)"
+	@echo "$(RED)LIBPSS$(DEF_COLOR) ========== REMOVING ALL OBJECTS ======================"
 	rm -f $(OBJS)
 
 # removes target file and all generated object files
 fclean: clean
-	@echo "$(YELLOW)FT_PRINTF ======= REMOVING TARGET ==========================$(DEF_COLOR)"
+	@echo "$(RED)LIBPSS$(DEF_COLOR) ========== REMOVING TARGET =========================="
 	rm -f $(LIBDIR)$(NAME)
 
 # rebuild all after removing all
 re: fclean all
-	@echo "$(YELLOW)FT_PRINTF ======== REBUILDING ===============================$(DEF_COLOR)"
-norma: $(SRCS)
-	@echo "$(YELLOW)FT_PRINTF ======= CHECKING NORME ===========================$(DEF_COLOR)"
-	norminette  $(SRCS)
+	@echo "$(RED)LIBPSS$(DEF_COLOR) ================ REBUILDING ==============================="
 
 
 .PHONY: all clean fclean re

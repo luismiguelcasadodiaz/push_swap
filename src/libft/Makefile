@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/23 10:30:41 by luicasad         ###   ########.fr        #
+#    Updated: 2023/12/26 17:49:48 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -120,29 +120,29 @@ all: $(NAME)
 #   Therefore, rcs can be seen to mean replace, create, sort
 
 $(NAME): $(OBJS) 
-	@echo "$(BLUE)LIBFT$(DEF_COLOR) ========== GATHERING ALL OBJECTS ====================="
+	@echo "$(BLUE)LIBFT ========== GATHERING ALL OBJECTS ====================$(DEF_COLOR)"
 	ar rcs $(LIBDIR)$(NAME) $?
 
 
 # For each c file create its object file.
 #$(OBJS): $(SRCS) 
 %.o: %.c Makefile
-	@echo "$(BLUE)LIBFT$(DEF_COLOR) ========== GATHERING ALL OBJECTS ====================="
+	@echo "$(BLUE)LIBFT ========== COMPILING ALL OBJECTS ====================$(DEF_COLOR)"
 	$(CC) $(CFLAGS)  -c $< -o $@ $(HEADS)
 
 # removes all generated object files
 clean:
-	@echo "$(BLUE)LIBFT$(DEF_COLOR) ========== REMOVING ALL OBJECTS ======================"
+	@echo "$(BLUE)LIBFT ========== REMOVING ALL OBJECTS =====================$(DEF_COLOR)"
 	rm -f $(OBJS)
 
 # removes target file and all generated object files
 fclean: clean
-	@echo "$(BLUE)LIBFT$(DEF_COLOR) ========== REMOVING TARGET =========================="
+	@echo "$(BLUE)LIBFT ========== REMOVING TARGET ==========================$(DEF_COLOR)"
 	rm -f $(LIBDIR)$(NAME)
 
 # rebuild all after removing all
 re: fclean all
-	@echo "$(BLUE)LIBFT$(DEF_COLOR) ================ REBUILDING ==============================="
+	@echo "$(BLUE)LIBFT ================ REBUILDING =========================$(DEF_COLOR)"
 
 
 .PHONY: all clean fclean re
