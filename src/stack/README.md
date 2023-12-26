@@ -11,7 +11,7 @@ I implementent the stack as a double linked list that becomes circular. I do tha
 
 ### Swap two top element of the stack
 
-[imagen](https://github.com/luismiguelcasadodiaz/push_swap/blob/main/docs/media/swap.jpeg)
+![imagen](https://github.com/luismiguelcasadodiaz/push_swap/blob/main/docs/media/swap.jpeg)
 
 ### Rotate Stack, either forward or backward
-[imagen](https://github.com/luismiguelcasadodiaz/push_swap/blob/main/docs/media/rotate.jpeg)
+![imagen](https://github.com/luismiguelcasadodiaz/push_swap/blob/main/docs/media/rotate.jpeg)
