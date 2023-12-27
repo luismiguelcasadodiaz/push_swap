@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 14:59:58 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/26 18:05:12 by luicasad         ###   ########.fr        #
+#    Updated: 2023/12/27 09:16:41 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,7 +87,12 @@ LLIBS 			= -L$(LIBDIR) -l$(LOADLIBPRINTF) -l$(LOADLIBFT) -l$(LOADLIBSS)
 SRCS_PUSHS = max_min.c \
 		push_swap.c
 
-SRCS_CHECK = checker.c
+SRCS_CHECK = chk_init.c \
+		chk_trea.c \
+		chk_swap.c \
+		chk_push.c \
+		chk_rota.c \
+		checker.c
 
 FILE_PUSHS = $(addprefix $(SRCDIR_PUSHS), $(SRCS_PUSHS))
 FILE_CHECK = $(addprefix $(SRCDIR_CHECK), $(SRCS_CHECK))

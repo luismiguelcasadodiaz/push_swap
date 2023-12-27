@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 21:04:07 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/25 12:22:47 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/27 08:50:39 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -17,8 +17,8 @@
 /*                                                                            */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef PS_STACK_H
-# define PS_STACK_H
+#ifndef LIBPSS_H
+# define LIBPSS_H
 # include <unistd.h>
 # include <stdlib.h>
 # include "ft_printf.h"
@@ -65,6 +65,7 @@ int	pss_maxi(t_pss *my_s);
 void	pss_mami(t_pss *my_s, int num, char c);
 void	pss_prin(t_pss *my_s);
 int	pss_peek(t_pss *my_s);
+int	pss_isor(t_pss *my_s);
 int	pss_push(t_pss *my_s, int num);
 int	pss_pope(t_pss *my_s, int *num);
 void	pss_swap(t_pss *my_s, int printme);
