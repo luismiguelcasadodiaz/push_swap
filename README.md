@@ -34,3 +34,28 @@ You have 2 stacks named a and b.
 |rrr| (reverse rotate a) and (reverse rotate b)| rra and rrb at the same time.|
 
 [Complexity of Sorting algorithms](https://pereiratechtalks.com/analisis-de-algoritmos-de-ordenamiento/)
+
+
+# learnings
+## linker
+The library order matters. you get different results with this two option:
+
+```bash
+gcc -o test_argpa test_argpa.o -L../../../lib -lft -lftprintf -lpss -largpar
+/usr/bin/ld: ../../../lib/libargpar.a(arg_pars.o): en la función `arg_ok':
+/home/luicasad/Documentos/c/cursus/circle3/push_swap/src/argpa/arg_pars.c:21: referencia a `pss_init' sin definir
+/usr/bin/ld: /home/luicasad/Documentos/c/cursus/circle3/push_swap/src/argpa/arg_pars.c:30: referencia a `pss_have' sin definir
+/usr/bin/ld: ../../../lib/libargpar.a(arg_digi.o): en la función `check':
+/home/luicasad/Documentos/c/cursus/circle3/push_swap/src/argpa/arg_digi.c:26: referencia a `ft_isdigit' sin definir
+/usr/bin/ld: ../../../lib/libargpar.a(arg_rang.o): en la función `arg_range_int':
+/home/luicasad/Documentos/c/cursus/circle3/push_swap/src/argpa/arg_rang.c:22: referencia a `ft_atol' sin definir
+collect2: error: ld returned 1 exit status
+```
+
+```bash
+gcc -o test_argpa test_argpa.o -L../../../lib -largpar -lpss -lftprintf -lft
+```
+
+Library argpa uses pss to check duplicates or if num are ordered. Also uses libft to check digits and convert arg to longs
+LIbrary pss used ftprintf for stack visualization.
+

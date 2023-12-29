@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/28 10:18:31 by luicasad         ###   ########.fr        #
+#    Updated: 2023/12/29 08:20:08 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -15,7 +15,7 @@ MAKEFLAGS += rR
 # ============================================================================ #
 DEF_COLOR	=	\033[0;39m
 GRAY		=	\033[0;90m
-RED			=	\033[0;91m
+RED		=	\033[0;91m
 GREEN		=	\033[0;92m
 YELLOW		=	\033[0;93m
 BLUE		=	\033[0;94m
@@ -32,21 +32,21 @@ DARK_YELLOW	=	\033[38;5;143m
 # ============================================================================ #
 #                                 TARGETS                                      #
 # ============================================================================ #
-NAME		= libft.a
+NAME		= libargpar.a
 # ============================================================================ #
 #                                 FOLDERS                                      #
 # ============================================================================ #
 #OBJDIR		= ../../obj/
 INCDIR		= ../../inc/
 LIBDIR		= ../../lib/
-OBJDIR		= 
+OBJDIR		=  
 #INCDIR		=
 #LIBDIR		=
 # ============================================================================ #
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC			=	cc
-CFLAGS		=	-Wall -Wextra  -Werror
+CFLAGS		=	-g -Wall -Wextra  -Werror
 HEADS		=	-I$(INCDIR)
 # From 4.4.3 The Function wildcard gnu make manual....
 # Althought wildcard exparnds automaticaly in rules
@@ -57,52 +57,15 @@ HEADS		=	-I$(INCDIR)
 #
 # So I must explicitly enumerate files for the project.
 
-SRCS =	ft_isalnum.c \
-      	ft_isalpha.c \
-      	ft_isascii.c \
-      	ft_isdigit.c \
-      	ft_isprint.c \
-      	ft_strlen.c \
-      	ft_memset.c \
-      	ft_bzero.c \
-      	ft_memcpy.c \
-      	ft_memmove.c \
-      	ft_memchr.c \
-      	ft_memcmp.c \
-      	ft_strlcpy.c \
-      	ft_strlcat.c \
-      	ft_strchr.c \
-      	ft_strrchr.c \
-      	ft_tolower.c \
-      	ft_toupper.c \
-	ft_atoi.c \
-	ft_atol.c \
-      	ft_strtrim.c \
-      	ft_strncmp.c \
-      	ft_calloc.c \
-      	ft_strdup.c \
-      	ft_strnstr.c \
-      	ft_substr.c \
-      	ft_strjoin.c \
-      	ft_split.c \
-      	ft_itoa.c \
-      	ft_putchar_fd.c \
-      	ft_putstr_fd.c \
-      	ft_putendl_fd.c \
-      	ft_putnbr_fd.c \
-      	ft_strmapi.c \
-      	ft_striteri.c \
-	ft_lstnew_bonus.c \
-	ft_lstadd_front_bonus.c \
-	ft_lstsize_bonus.c \
-	ft_lstlast_bonus.c \
-	ft_lstmap_bonus.c \
-	ft_lstadd_back_bonus.c \
-	ft_lstdelone_bonus.c \
-	ft_lstclear_bonus.c \
-	ft_lstiter_bonus.c
+# ============================================================================ #
+#                                   SOURCES                                    #
+# ============================================================================ #
+SRCS	=	arg_digi.c \
+		arg_rang.c \
+		arg_seen.c \
+		arg_pars.c 
 
-# Generate a list of object files by replacing .c with .o
+# Generate a list of object files by replacing .c with .o 
 _OBJS = $(SRCS:.c=.o)
 OBJS = $(addprefix $(OBJDIR), $(_OBJS))
 
@@ -111,6 +74,9 @@ OBJS = $(addprefix $(OBJDIR), $(_OBJS))
 
 
 all: $(NAME)
+#	$(info sources $(SRCS))
+#	$(info objects $(_OBJS))
+#	$(info targets $(OBJS))
 
 
 # Vous devez utiliser la commande ar pour créer votre bibliothèque
@@ -121,29 +87,30 @@ all: $(NAME)
 #   Therefore, rcs can be seen to mean replace, create, sort
 
 $(NAME): $(OBJS) 
-	@echo "$(BLUE)LIBFT ========== GATHERING ALL OBJECTS ====================$(DEF_COLOR)"
+	@echo "$(CYAN)LIBARGPAR ========== GATHERING ALL OBJECTS ====================$(DEF_COLOR)"
 	ar rcs $(LIBDIR)$(NAME) $?
 
 
 # For each c file create its object file.
-#$(OBJS): $(SRCS) 
+$(OBJS): $(SRCS) Makefile
+
 %.o: %.c Makefile
-	@echo "$(BLUE)LIBFT ========== COMPILING ALL OBJECTS ====================$(DEF_COLOR)"
-	$(CC) $(CFLAGS)  -c $< -o $@ $(HEADS)
+	@echo "$(CYAN)LIBARGPAR ========== COMPILING ALL OBJECTS ====================$(DEF_COLOR)"
+	$(CC) $(CFLAGS)  -c $< -o $@ $(HEADS) -L../../lib -l:libpss.a -l:libftprint.a  -l:libft.a
 
 # removes all generated object files
 clean:
-	@echo "$(BLUE)LIBFT ========== REMOVING ALL OBJECTS =====================$(DEF_COLOR)"
+	@echo "$(CYAN)LIBARGPAR ========== REMOVING ALL OBJECTS =====================$(DEF_COLOR)"
 	rm -f $(OBJS)
 
 # removes target file and all generated object files
 fclean: clean
-	@echo "$(BLUE)LIBFT ========== REMOVING TARGET ==========================$(DEF_COLOR)"
+	@echo "$(CYAN)LIBARGPAR ========== REMOVING TARGET ==========================$(DEF_COLOR)"
 	rm -f $(LIBDIR)$(NAME)
 
 # rebuild all after removing all
 re: fclean all
-	@echo "$(BLUE)LIBFT ================ REBUILDING =========================$(DEF_COLOR)"
+	@echo "$(CYAN)LIBARGPAR ================ REBUILDING =========================$(DEF_COLOR)"
 
 
 .PHONY: all clean fclean re

@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pss_isor.c                                         :+:      :+:    :+:   */
+/*   arg_pars.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:luicasad<luicasad@student.42barcelona.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/27 08:33:47 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/27 16:55:53 by luicasad         ###   ########.fr       */
+/*   Created: 2023/12/28 08:54:52 by luicasad          #+#    #+#             */
+/*   Updated: 2023/12/29 08:42:52 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "argpar.h"
 
-#include "libpss.h"
-
-int	pss_isor(t_pss	*s)
+t_pss	*arg_ok(int argc, char **argv)
 {
-	t_nod	*nod;
+	int	i;
+	int	all_ok;
 	int	num;
-	int	end;
-	int	result;
+	t_pss	*c;
 
-	result = 1;
-	if (!pss_empt(s))
+	c = pss_init('c');
+	i = 1;
+	all_ok = 1;
+	while (all_ok && i < argc)
 	{
-		nod = s->top;
-		end = 0;
-		num = nod->num;
-		while (!end && result)
-		{
-			end = (nod->next == s->top);
-			if (!end)
-				result = (num < nod->next->num);
-			nod = nod->next;
-		}
+		all_ok = all_ok && arg_digits(argv[i]);
+		if (all_ok)
+			all_ok = all_ok && (arg_range_int(argv[i++], &num));
+		if (all_ok)
+			all_ok = all_ok && !pss_have(c, num);
+		if (all_ok)
+			pss_push(c, num);
 	}
-	return (result);
-}
+	if (all_ok)
+		return (c);
+	pss_free(c);
+	return (NULL);
+}	

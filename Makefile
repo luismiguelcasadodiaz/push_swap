@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 14:59:58 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/27 09:16:41 by luicasad         ###   ########.fr        #
+#    Updated: 2023/12/28 20:53:28 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,11 +41,12 @@ BONUS 			= checker
 # ============================================================================ #
 #                                 FOLDERS                                      #
 # ============================================================================ #
-SRCDIR_PUSHS	= ./src/pushs/
-SRCDIR_CHECK	= ./src/check/
-SRCDIR_PRINT	= ./src/ftpri/
-SRCDIR_LIBFT	= ./src/libft/
-SRCDIR_STACK	= ./src/stack/
+SRCDIR_PUSHS		= ./src/pushs/
+SRCDIR_CHECK		= ./src/check/
+SRCDIR_PRINT		= ./src/ftpri/
+SRCDIR_LIBFT		= ./src/libft/
+SRCDIR_STACK		= ./src/stack/
+SRCDIR_ARGPA		= ./src/argpa/	
 
 OBJDIR 			= ./obj/
 INCDIR 			= ./inc/
@@ -77,8 +78,12 @@ NAMELIBPSS 		= libpss.a
 PATH_STACK 		= $(addprefix $(SRCDIR_STACK), $(NAMELIBPSS))
 LOADLIBSS 		= pss
 
-MYLIBS			= $(NAMELIBPRINTF) $(NAMELIBFT) $(NAMELIBPSS)
-LLIBS 			= -L$(LIBDIR) -l$(LOADLIBPRINTF) -l$(LOADLIBFT) -l$(LOADLIBSS)
+NAMELIBARGPA 		= libargpar.a
+PATH_ARGPA 		= $(addprefix $(SRCDIR_ARGPA), $(NAMELIBARGPA))
+LOADLIBARGPA 		= argpar
+
+MYLIBS			= $(NAMELIBPRINTF) $(NAMELIBFT) $(NAMELIBPSS) $(NAMELIBARGPA)
+LLIBS 			= -L$(LIBDIR) -l$(LOADLIBPRINTF) -l$(LOADLIBFT) -l$(LOADLIBSS) -l$(LOADLIBARGPA)
 # ============================================================================ #
 #                                 SOURCES                                      #
 # ============================================================================ #
@@ -90,8 +95,9 @@ SRCS_PUSHS = max_min.c \
 SRCS_CHECK = chk_init.c \
 		chk_trea.c \
 		chk_swap.c \
-		chk_push.c \
+		chk_psoo.c \
 		chk_rota.c \
+		chk_rrot.c \
 		checker.c
 
 FILE_PUSHS = $(addprefix $(SRCDIR_PUSHS), $(SRCS_PUSHS))
@@ -120,8 +126,9 @@ makedirs:
 makelibs: $(MYLIBS) 
 
 $(NAMELIBPRINTF): makelibftprintf 
-$(NAMELIBFT): makelibft
-$(NAMELIBPSS): makelibpss
+$(NAMELIBFT): 	  makelibft
+$(NAMELIBPSS):    makelibpss
+$(NAMELIBARGPA):  makelibargpa
 
 makelibft:
 	$(MAKE) -C $(SRCDIR_LIBFT)
@@ -131,6 +138,9 @@ makelibftprintf:
 
 makelibpss:
 	$(MAKE) -C $(SRCDIR_STACK)
+
+makelibargpa:
+	$(MAKE) -C $(SRCDIR_ARGPA)
 
 # .......................... targets construction ............................ #
 $(NAME): Makefile $(OBJS_PUSHS)
@@ -203,3 +213,7 @@ norma:
 	$(MAKE) -C $(SRCDIR_LIBFT)  clean
 	$(MAKE) -C $(SRCDIR_STACK)  clean
 	norminette $(SRCDIR_PUSHS) $(SRCDIR_CHECK)
+bonusrun:
+	valgrind --tool=memcheck --leak-check=yes ./$(BONUS)
+bonusrung:
+	valgrind --tool=massif --stacks=yes ./$(BONUS)

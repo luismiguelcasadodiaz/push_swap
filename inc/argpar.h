@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   argpar.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
+/*   By:luicasad<luicasad@student.42barcelona.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 18:16:20 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/21 09:01:03 by luicasad         ###   ########.fr       */
+/*   Created: 2023/12/28 08:54:52 by luicasad          #+#    #+#             */
+/*   Updated: 2023/12/28 20:31:14 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../src/libft/libft.h"
-#include "../../src/ft_printf/ft_printf.h"
+#ifndef ARGPAR_H
+# define ARGPAR_H
+# include "libpss.h"
+# include "libft.h"
 
-int	main(int argc, char **argv)
-{
-	int	i;
+int	arg_seen(int num, t_pss *my_s);
+int	arg_range_int(char *arg, int *my_int);
+int	arg_digits(char *arg);
+t_pss	*arg_ok(int argc, char **argv);
+#endif
 
-	i = 1;
-	while (i < argc)
-		ft_printf("%d\n", ft_atoi(argv[i++]));
-	return (0);
-}

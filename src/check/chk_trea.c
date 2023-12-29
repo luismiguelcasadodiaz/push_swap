@@ -6,7 +6,7 @@
 /*   By:luicasad<luicasad@student.42barcelona.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:00:44 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/27 09:25:47 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/27 17:04:13 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "checker.h"
@@ -17,21 +17,26 @@
 /* ************************************************************************** */
 int	chk_trea(char *arg, t_pss *a, t_pss *b)
 {
-	if (arg[1] == 's')
-		result = chk_swap(a, b);
-	else if (arg[1] == 'p')
-		result = chk_push(a, b);
-	else if (arg[1] == 'r')
-		result = chk_rota(a, b);
-	else if (arg[1] == '+' || arg[1] == '-' || ft_isdigit(arg[1])
-		result = 
-		if (!pss_push(a, ft_atoi(arg))
+	int	result;
+
+	result = 0;
+	if (arg[0] == 's')
+		result = chk_swap(a, b, arg);
+	else if (arg[0] == 'p')
+		result = chk_psoo(a, b, arg);
+	else if (arg[0] == 'r')
+		if (ft_strlen(arg) == 2)
+			result = chk_rota(a, b, arg);
+		else
+			result = chk_rrot(a, b, arg);
+	else if (arg[0] == '+' || arg[0] == '-' || ft_isdigit(arg[0]))
+	{
+		if (!pss_push(a, ft_atoi(arg)))
 			result = 1;
 		else
 			result = 0;
-	//TODO check what pss_push reuturns
+	}
 	else
 		result = 0;
 	return (result);
 }
-

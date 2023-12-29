@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/25 10:42:03 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/27 17:12:49 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 /* Rotates the stacks in such a way that the last  node becomes first         */
 /*                                                                            */
 /* ************************************************************************** */
-void	pss_roro(t_pss *a, t_pss *b, int printme)
+void	pss_rrrr(t_pss *a, t_pss *b, int printme)
 {
 	pss_rrot(a, NOPRINT);
 	pss_rrot(b, NOPRINT);

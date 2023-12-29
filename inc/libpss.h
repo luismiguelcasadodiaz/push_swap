@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 21:04:07 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/27 08:50:39 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/28 19:02:15 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -64,13 +64,14 @@ int	pss_mini(t_pss *my_s);
 int	pss_maxi(t_pss *my_s);
 void	pss_mami(t_pss *my_s, int num, char c);
 void	pss_prin(t_pss *my_s);
+int	pss_have(t_pss *my_s, int num);
 int	pss_peek(t_pss *my_s);
 int	pss_isor(t_pss *my_s);
 int	pss_push(t_pss *my_s, int num);
 int	pss_pope(t_pss *my_s, int *num);
 void	pss_swap(t_pss *my_s, int printme);
 void	pss_swsw(t_pss *one, t_pss *two, int printme);
-void	pss_psoo(t_pss *one, t_pss *two, int printme);
+void	pss_psoo(t_pss *dst, t_pss *ori, int printme);
 void	pss_rota(t_pss *my_s, int printme);
 void	pss_roro(t_pss *one, t_pss *two, int printme);
 void	pss_rrot(t_pss *my_s, int printme);
