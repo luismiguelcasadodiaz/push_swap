@@ -9,7 +9,7 @@ I implementent the stack as a double linked list that becomes circular. I do tha
 
 ### Pop element
 
-![imagen](https://github.com/luismiguelcasadodiaz/push_swap/blob/main/docs/media/pop.jpeg)
+![imagen](https://github.com/luismiguelcasadodiaz/push_swap/blob/main/docs/media/pop.png)
 
 ### Swap two top element of the stack
 
