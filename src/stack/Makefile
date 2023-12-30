@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/28 19:02:47 by luicasad         ###   ########.fr        #
+#    Updated: 2023/12/29 17:59:10 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -67,6 +67,7 @@ SRCS	=	nod_init.c \
 		pss_prin.c \
 		pss_empt.c \
 		pss_isor.c \
+		pss_reve.c \
 		pss_push.c \
 		pss_pope.c \
 		pss_mami.c \

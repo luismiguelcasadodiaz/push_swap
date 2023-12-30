@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   pss_reve.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 18:52:05 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/30 10:08:09 by luicasad         ###   ########.fr       */
+/*   Created: 2023/12/23 11:05:07 by luicasad          #+#    #+#             */
+/*   Updated: 2023/12/30 08:48:03 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <limits.h>
-# include "libft.h"
-# include "ft_printf.h"
-# include "libpss.h"
-# include "argpar.h"
+#include "libpss.h"
+#include "ft_printf.h"
 
-void	ps_sort(t_pss	*a, t_pss *b);
-void	ps_sor2(t_pss	*a);
-void	ps_sor3(t_pss	*a);
-void	ps_sor4(t_pss	*a, t_pss *b);
-void	ps_sor5(t_pss	*a, t_pss *b);
+t_pss	*pss_reve(t_pss *s)
+{
+	t_pss	*a;
+	t_nod	*nod;
+	short	end;
 
-# endif
-
+	a = pss_init('a');
+	if (!pss_empt(s))
+	{
+		end = 0;
+		nod = s->top;
+		while (!end)
+		{
+			end = (nod->next == s->top);
+			pss_push(a, nod->num);
+			nod = nod->next;
+		}
+	}
+	pss_free(s);
+	return (a);
+}

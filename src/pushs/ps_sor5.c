@@ -1,34 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ps_sor5.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
+/*   By:luicasad<luicasad@student.42barcelona.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 18:16:20 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/30 12:38:24 by luicasad         ###   ########.fr       */
+/*   Created: 2023/12/30 08:59:33 by luicasad          #+#    #+#             */
+/*   Updated: 2023/12/30 12:02:28 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	ps_sor5(t_pss *a, t_pss *b)
 {
-	t_pss	*a;
-	t_pss	*b;
+	pss_psoo(b, a, PRINTME);
+	ps_sor4(a, b);
 
-	if (argc == 1)
-		return (0);
-	a = arg_ok(argc, argv);
-	if (a)
-	{
-//		pss_prin(a);
-		b = pss_init('b');
-		ps_sort(a, b);
-//		pss_prin(a);
-		pss_free(a);
-		pss_free(b);
-	}
-	else
-		ft_printf("Error\n");
-	return (0);
 }
+
+

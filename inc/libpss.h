@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 21:04:07 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/28 19:02:15 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/29 18:00:41 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -67,6 +67,7 @@ void	pss_prin(t_pss *my_s);
 int	pss_have(t_pss *my_s, int num);
 int	pss_peek(t_pss *my_s);
 int	pss_isor(t_pss *my_s);
+t_pss	*pss_reve(t_pss *my_s);
 int	pss_push(t_pss *my_s, int num);
 int	pss_pope(t_pss *my_s, int *num);
 void	pss_swap(t_pss *my_s, int printme);

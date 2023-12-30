@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 14:59:58 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/28 20:53:28 by luicasad         ###   ########.fr        #
+#    Updated: 2023/12/30 09:02:22 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,13 +83,18 @@ PATH_ARGPA 		= $(addprefix $(SRCDIR_ARGPA), $(NAMELIBARGPA))
 LOADLIBARGPA 		= argpar
 
 MYLIBS			= $(NAMELIBPRINTF) $(NAMELIBFT) $(NAMELIBPSS) $(NAMELIBARGPA)
-LLIBS 			= -L$(LIBDIR) -l$(LOADLIBPRINTF) -l$(LOADLIBFT) -l$(LOADLIBSS) -l$(LOADLIBARGPA)
+LLIBS 			= -L$(LIBDIR) -l$(LOADLIBARGPA) -l$(LOADLIBSS) -l$(LOADLIBPRINTF) -l$(LOADLIBFT) 
 # ============================================================================ #
 #                                 SOURCES                                      #
 # ============================================================================ #
 
 
-SRCS_PUSHS = max_min.c \
+SRCS_PUSHS = 	max_min.c \
+		ps_sort.c \
+		ps_sor2.c \
+		ps_sor3.c \
+		ps_sor4.c \
+		ps_sor5.c \
 		push_swap.c
 
 SRCS_CHECK = chk_init.c \
