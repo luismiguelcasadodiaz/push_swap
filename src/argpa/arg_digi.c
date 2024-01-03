@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   arg_digi.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:luicasad<luicasad@student.42barcelona.com>  +#+  +:+       +#+        */
+/*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 08:54:52 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/28 09:29:27 by luicasad         ###   ########.fr       */
+/*   Created: 2023/12/31 08:57:56 by luicasad          #+#    #+#             */
+/*   Updated: 2023/12/31 08:58:21 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "argpar.h"
 
 /* ************************************************************************** */
@@ -30,11 +31,10 @@ int	arg_digits(char	*arg)
 {
 	int	i;
 	int	ok;
-	
+
 	i = 0;
 	ok = 1;
 	while (ok && arg[i] != '\0')
 		ok = ok && check(arg[i++]);
 	return (ok);
-}	
-
+}

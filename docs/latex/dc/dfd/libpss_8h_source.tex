@@ -1,0 +1,87 @@
+\hypertarget{libpss_8h_source}{}\doxysection{libpss.\+h}
+\label{libpss_8h_source}\index{inc/libpss.h@{inc/libpss.h}}
+\mbox{\hyperlink{libpss_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/* ************************************************************************** */}}
+\DoxyCodeLine{2 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{3 \textcolor{comment}{/*                                                        :::      ::::::::   */}}
+\DoxyCodeLine{4 \textcolor{comment}{/*   libpss.h                                           :+:      :+:    :+:   */}}
+\DoxyCodeLine{5 \textcolor{comment}{/*                                                    +:+ +:+         +:+     */}}
+\DoxyCodeLine{6 \textcolor{comment}{/*   By: luicasad <luicasad@student.42.fr>          +\#+  +:+       +\#+        */}}
+\DoxyCodeLine{7 \textcolor{comment}{/*                                                +\#+\#+\#+\#+\#+   +\#+           */}}
+\DoxyCodeLine{8 \textcolor{comment}{/*   Created: 2023/12/15 21:04:07 by luicasad          \#+\#    \#+\#             */}}
+\DoxyCodeLine{9 \textcolor{comment}{/*   Updated: 2023/12/29 18:00:41 by luicasad         \#\#\#   \#\#\#\#\#\#\#\#.fr       */}}
+\DoxyCodeLine{10 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{11 \textcolor{comment}{/* ************************************************************************** */}}
+\DoxyCodeLine{12 \textcolor{comment}{/* ************************************************************************** */}}
+\DoxyCodeLine{13 \textcolor{comment}{/* PS refers to Push Swap.                                                    */}}
+\DoxyCodeLine{14 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{15 \textcolor{comment}{/* I create a special stack implemented with a double linked list aiming to   */}}
+\DoxyCodeLine{16 \textcolor{comment}{/* simplyfy rotating operation i have to implement.                           */}}
+\DoxyCodeLine{17 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{18 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{19 \textcolor{comment}{/* ************************************************************************** */}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifndef LIBPSS\_H}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\# define LIBPSS\_H}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\# include <unistd.h>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\# include <stdlib.h>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\# include "{}\mbox{\hyperlink{ft__printf_8h}{ft\_printf.h}}"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\# define OUTPUT\_FD 1}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\# define PRINTME 1}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\# define NOPRINT 0}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structs__nod}{s\_nod}}}
+\DoxyCodeLine{30 \{}
+\DoxyCodeLine{31     \textcolor{keywordtype}{int}     \mbox{\hyperlink{structs__nod_ac3721710fa403e12a08441aa4846eb3a}{num}};}
+\DoxyCodeLine{32     \textcolor{keyword}{struct }\mbox{\hyperlink{structs__nod}{s\_nod}}   *\mbox{\hyperlink{structs__nod_a94b4dc70d21b176177411bf22dbf09e7}{next}};}
+\DoxyCodeLine{33     \textcolor{keyword}{struct }\mbox{\hyperlink{structs__nod}{s\_nod}}   *\mbox{\hyperlink{structs__nod_a4f3cea3f9a9d2a1ab8878a0574dcb5a2}{prev}};}
+\DoxyCodeLine{34 \}   \mbox{\hyperlink{libpss_8h_ae2a682a2695a20f25173018c434be1a6}{t\_nod}};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \mbox{\hyperlink{structs__nod}{t\_nod}}  *\mbox{\hyperlink{libpss_8h_a57c195864248feb8870db54157ba74d8}{nod\_init}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{structs__nod_ac3721710fa403e12a08441aa4846eb3a}{num}});}
+\DoxyCodeLine{37 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libpss_8h_a550e3fd53ce91ec868f37637a1605ac4}{nod\_free}}(\mbox{\hyperlink{structs__nod}{t\_nod}} *my\_n);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{comment}{/* ************************************************************************** */}}
+\DoxyCodeLine{40 \textcolor{comment}{/* The stack is a structure that contains stack atributes.                    */}}
+\DoxyCodeLine{41 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{42 \textcolor{comment}{/* int big holds the biggest  integer in the stack.                           */}}
+\DoxyCodeLine{43 \textcolor{comment}{/* int sma holds the smallest integer in the stack.                           */}}
+\DoxyCodeLine{44 \textcolor{comment}{/* int siz holds the number of integers in the stack.                         */}}
+\DoxyCodeLine{45 \textcolor{comment}{/* chr nam holds the letter that names the stack.                             */}}
+\DoxyCodeLine{46 \textcolor{comment}{/* int fld holds the file descriptor to print stack data and movements        */}}
+\DoxyCodeLine{47 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{48 \textcolor{comment}{/* ************************************************************************** */}}
+\DoxyCodeLine{49 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structs__pss}{s\_pss}}}
+\DoxyCodeLine{50 \{}
+\DoxyCodeLine{51     \mbox{\hyperlink{structs__nod}{t\_nod}}  *\mbox{\hyperlink{structs__pss_adaa85e0ed376bbe3da6fb49fb08b1892}{top}};}
+\DoxyCodeLine{52     \textcolor{keywordtype}{int}     \mbox{\hyperlink{structs__pss_ad1812a7e92a2202f178fd66137614082}{big}};}
+\DoxyCodeLine{53     \textcolor{keywordtype}{int}     \mbox{\hyperlink{structs__pss_a3a1103649674a9f3711bb3d5762d6d67}{sma}};}
+\DoxyCodeLine{54     \textcolor{keywordtype}{int}     \mbox{\hyperlink{structs__pss_acbd72a07178b44d84309e89d72cb440c}{siz}};}
+\DoxyCodeLine{55     \textcolor{keywordtype}{char}    \mbox{\hyperlink{structs__pss_a6514433b29cdb7bbb779ca76bf499e1c}{nam}};}
+\DoxyCodeLine{56     \textcolor{keywordtype}{int}     \mbox{\hyperlink{structs__pss_a5e12fe94e688781d674d0abeca68aee8}{fld}};}
+\DoxyCodeLine{57 \}   \mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\_pss}};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \mbox{\hyperlink{structs__pss}{t\_pss}}  *\mbox{\hyperlink{libpss_8h_a73847b7eb598fb5dcd4a0d1ff9d6b1aa}{pss\_init}}(\textcolor{keywordtype}{char} name);}
+\DoxyCodeLine{60 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libpss_8h_ab4177ca90e75f8068a217413eca2b4d8}{pss\_free}}(\mbox{\hyperlink{structs__pss}{t\_pss}} *my\_s);}
+\DoxyCodeLine{61 \textcolor{keywordtype}{short}   \mbox{\hyperlink{libpss_8h_abdd237062ef2a5b470d9691a3c652422}{pss\_empt}}(\mbox{\hyperlink{structs__pss}{t\_pss}} *my\_s);}
+\DoxyCodeLine{62 \textcolor{keywordtype}{int} \mbox{\hyperlink{libpss_8h_ae2582c1360f8ccc3524ae74db818cf53}{pss\_size}}(\mbox{\hyperlink{structs__pss}{t\_pss}} *my\_s);}
+\DoxyCodeLine{63 \textcolor{keywordtype}{int} \mbox{\hyperlink{libpss_8h_a52218525d77b49875b6a0896b23f0677}{pss\_mini}}(\mbox{\hyperlink{structs__pss}{t\_pss}} *my\_s);}
+\DoxyCodeLine{64 \textcolor{keywordtype}{int} \mbox{\hyperlink{libpss_8h_abae2debfc96683a4e5a9b7ae7e6f2c7b}{pss\_maxi}}(\mbox{\hyperlink{structs__pss}{t\_pss}} *my\_s);}
+\DoxyCodeLine{65 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libpss_8h_a0a67f7608deb67d559c298497a0e895e}{pss\_mami}}(\mbox{\hyperlink{structs__pss}{t\_pss}} *my\_s, \textcolor{keywordtype}{int} num, \textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{66 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libpss_8h_aaa4f96277300979436e11d231e1a7dd0}{pss\_prin}}(\mbox{\hyperlink{structs__pss}{t\_pss}} *my\_s);}
+\DoxyCodeLine{67 \textcolor{keywordtype}{int} \mbox{\hyperlink{libpss_8h_a1a14b822ab74469ed8ce7d0fd36032ce}{pss\_have}}(\mbox{\hyperlink{structs__pss}{t\_pss}} *my\_s, \textcolor{keywordtype}{int} num);}
+\DoxyCodeLine{68 \textcolor{keywordtype}{int} \mbox{\hyperlink{libpss_8h_a8e0f825ca88fdc9cfb3713e8c4f3358f}{pss\_peek}}(\mbox{\hyperlink{structs__pss}{t\_pss}} *my\_s);}
+\DoxyCodeLine{69 \textcolor{keywordtype}{int} \mbox{\hyperlink{libpss_8h_a58b649105665fae54b832970a77372f1}{pss\_isor}}(\mbox{\hyperlink{structs__pss}{t\_pss}} *my\_s);}
+\DoxyCodeLine{70 \mbox{\hyperlink{structs__pss}{t\_pss}}  *\mbox{\hyperlink{libpss_8h_afe674394865c1f7350b9edf833856783}{pss\_reve}}(\mbox{\hyperlink{structs__pss}{t\_pss}} *my\_s);}
+\DoxyCodeLine{71 \textcolor{keywordtype}{int} \mbox{\hyperlink{libpss_8h_adba4db431db0d6da626626d593211cfe}{pss\_push}}(\mbox{\hyperlink{structs__pss}{t\_pss}} *my\_s, \textcolor{keywordtype}{int} num);}
+\DoxyCodeLine{72 \textcolor{keywordtype}{int} \mbox{\hyperlink{libpss_8h_a0429c0285946b3eb3fb6d6496567c392}{pss\_pope}}(\mbox{\hyperlink{structs__pss}{t\_pss}} *my\_s, \textcolor{keywordtype}{int} *num);}
+\DoxyCodeLine{73 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libpss_8h_abc9e031c899e57e3a1817c02428a9d8a}{pss\_swap}}(\mbox{\hyperlink{structs__pss}{t\_pss}} *my\_s, \textcolor{keywordtype}{int} printme);}
+\DoxyCodeLine{74 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libpss_8h_ae7089be6f5e802925668bf5773ca0f04}{pss\_swsw}}(\mbox{\hyperlink{structs__pss}{t\_pss}} *one, \mbox{\hyperlink{structs__pss}{t\_pss}} *two, \textcolor{keywordtype}{int} printme);}
+\DoxyCodeLine{75 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libpss_8h_a6ff170728ef2f1546ed2c27112f6c342}{pss\_psoo}}(\mbox{\hyperlink{structs__pss}{t\_pss}} *dst, \mbox{\hyperlink{structs__pss}{t\_pss}} *ori, \textcolor{keywordtype}{int} printme);}
+\DoxyCodeLine{76 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libpss_8h_abec49284950d1e0933a6feda19dd0cab}{pss\_rota}}(\mbox{\hyperlink{structs__pss}{t\_pss}} *my\_s, \textcolor{keywordtype}{int} printme);}
+\DoxyCodeLine{77 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libpss_8h_a51f3e9112399d9aa2e81ece248214368}{pss\_roro}}(\mbox{\hyperlink{structs__pss}{t\_pss}} *one, \mbox{\hyperlink{structs__pss}{t\_pss}} *two, \textcolor{keywordtype}{int} printme);}
+\DoxyCodeLine{78 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libpss_8h_a63635b1b079364a87a2583dc122aceb9}{pss\_rrot}}(\mbox{\hyperlink{structs__pss}{t\_pss}} *my\_s, \textcolor{keywordtype}{int} printme);}
+\DoxyCodeLine{79 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libpss_8h_a3b87b14ae9c081cf06e99229a01598c7}{pss\_rrrr}}(\mbox{\hyperlink{structs__pss}{t\_pss}} *one, \mbox{\hyperlink{structs__pss}{t\_pss}} *two, \textcolor{keywordtype}{int} printme);}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

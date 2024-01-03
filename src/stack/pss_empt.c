@@ -6,15 +6,15 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:07 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/23 14:44:59 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/31 08:53:47 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
 
 short	pss_empt(t_pss *s)
 {
-		if (s->top == NULL)
-			return (1);
-		else
-			return (0);
+	if (s->top == NULL)
+		return (1);
+	else
+		return (0);
 }

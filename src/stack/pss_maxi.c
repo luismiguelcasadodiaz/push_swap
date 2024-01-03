@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/24 16:15:43 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/31 08:48:43 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
@@ -15,7 +15,7 @@ int	pss_maxi(t_pss *s)
 {
 	t_nod	*nod;
 	short	end;
-	int	max;
+	int		max;
 
 	end = 0;
 	nod = s->top;

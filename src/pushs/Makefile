@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/26 10:59:26 by luicasad         ###   ########.fr        #
+#    Updated: 2023/12/31 08:31:59 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -93,23 +93,26 @@ $(NAME): $(OBJS)
 $(OBJS): $(SRCS) Makefile
 
 %.o: %.c Makefile
-	@echo "$(RED)LIBPSS$(DEF_COLOR) ========== GATHERING ALL OBJECTS ====================="
+	@echo "$(RED)LIBPSS ========== GATHERING ALL OBJECTS =====================$(DEF_COLOR)"
 	$(CC) $(CFLAGS)  -c $< -o $@ $(HEADS) -L../../lib/ -l:libftprint.a
 
 # removes all generated object files
 clean:
-	@echo "$(RED)LIBPSS$(DEF_COLOR) ========== REMOVING ALL OBJECTS ======================"
+	@echo "$(RED)LIBPSS ========== REMOVING ALL OBJECTS ======================$(DEF_COLOR)"
 	rm -f $(OBJS)
 
 # removes target file and all generated object files
 fclean: clean
-	@echo "$(RED)LIBPSS$(DEF_COLOR) ========== REMOVING TARGET =========================="
+	@echo "$(RED)LIBPSS ========== REMOVING TARGET ==========================$(DEF_COLOR)"
 	rm -f $(LIBDIR)$(NAME)
 
 # rebuild all after removing all
 re: fclean all
-	@echo "$(RED)LIBPSS$(DEF_COLOR) ================ REBUILDING ==============================="
+	@echo "$(RED)LIBPSS ================ REBUILDING ===============================$(DEF_COLOR)"
 
+norma:
+	@echo "$(RED)LIBPSS ============== CHECKING NORME =======================$(DEF_COLOR)"
+	norminette $(SRCS)
 
 .PHONY: all clean fclean re
 

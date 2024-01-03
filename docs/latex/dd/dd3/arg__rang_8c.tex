@@ -1,0 +1,46 @@
+\hypertarget{arg__rang_8c}{}\doxysection{src/argpa/arg\+\_\+rang.c File Reference}
+\label{arg__rang_8c}\index{src/argpa/arg\_rang.c@{src/argpa/arg\_rang.c}}
+
+
+\mbox{\hyperlink{arg__rang_8c_a8658ed137eec483af19dbbb32794ccba}{arg\+\_\+range\+\_\+int()}} check if arg fits in the integer range. ~\newline
+  
+
+
+{\ttfamily \#include \char`\"{}argpar.\+h\char`\"{}}\newline
+Include dependency graph for arg\+\_\+rang.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{arg__rang_8c_a8658ed137eec483af19dbbb32794ccba}{arg\+\_\+range\+\_\+int}} (char $\ast$arg, int $\ast$my\+\_\+int)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{arg__rang_8c_a8658ed137eec483af19dbbb32794ccba}{arg\+\_\+range\+\_\+int()}} check if arg fits in the integer range. ~\newline
+ 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em arg} & the string to see if fits inside an integer. ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em my\+\_\+int} & the value resulting from arg conversion. ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the argument is inside INT\+\_\+\+MIN..INT\+\_\+\+MAX, 0 otherwise.
+\end{DoxyReturn}
+~\newline
+ To check, first converts arg to long with \mbox{\hyperlink{ft__atol_8c_a01136db67a02fe4d1114eaad0fb5fa55}{ft\+\_\+atol()}} from ft\+\_\+libft. ~\newline
+ if arg\+\_\+num pass the test, assigns the value to my\+\_\+int ~\newline
+ 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{arg__rang_8c_a8658ed137eec483af19dbbb32794ccba}\label{arg__rang_8c_a8658ed137eec483af19dbbb32794ccba}} 
+\index{arg\_rang.c@{arg\_rang.c}!arg\_range\_int@{arg\_range\_int}}
+\index{arg\_range\_int@{arg\_range\_int}!arg\_rang.c@{arg\_rang.c}}
+\doxysubsubsection{\texorpdfstring{arg\_range\_int()}{arg\_range\_int()}}
+{\footnotesize\ttfamily int arg\+\_\+range\+\_\+int (\begin{DoxyParamCaption}\item[{char $\ast$}]{arg,  }\item[{int $\ast$}]{my\+\_\+int }\end{DoxyParamCaption})}
+

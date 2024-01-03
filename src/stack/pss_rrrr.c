@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/27 17:12:49 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/31 08:47:03 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,3 @@ void	pss_rrrr(t_pss *a, t_pss *b, int printme)
 	if (printme)
 		ft_printf("rrr\n");
 }
-

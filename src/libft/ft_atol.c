@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 18:02:54 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/28 10:15:31 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/31 08:41:51 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -49,7 +49,7 @@ static int	my_isspace(int c)
 /*                                                                            */
 long	ft_atol(const char *s)
 {
-	long		total;
+	long	total;
 	int		len;
 	int		idx;
 	short	sign;

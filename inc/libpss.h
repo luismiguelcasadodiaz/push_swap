@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 21:04:07 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/29 18:00:41 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/02 23:33:58 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -59,17 +59,21 @@ typedef struct s_pss
 t_pss	*pss_init(char name);
 void	pss_free(t_pss *my_s);
 short	pss_empt(t_pss *my_s);
-int	pss_size(t_pss *my_s);
-int	pss_mini(t_pss *my_s);
-int	pss_maxi(t_pss *my_s);
+int		pss_size(t_pss *my_s);
+int		pss_sman(t_pss *my_s);
+int		pss_bign(t_pss *my_s);
+int		pss_mini(t_pss *my_s);
+int		pss_maxi(t_pss *my_s);
 void	pss_mami(t_pss *my_s, int num, char c);
 void	pss_prin(t_pss *my_s);
-int	pss_have(t_pss *my_s, int num);
-int	pss_peek(t_pss *my_s);
-int	pss_isor(t_pss *my_s);
+int		pss_have(t_pss *my_s, int num);
+int		pss_peek(t_pss *my_s);
+int		pss_unpe(t_pss *my_s);
+int		pss_bott(t_pss *my_s);
+int		pss_isor(t_pss *my_s);
 t_pss	*pss_reve(t_pss *my_s);
-int	pss_push(t_pss *my_s, int num);
-int	pss_pope(t_pss *my_s, int *num);
+int		pss_push(t_pss *my_s, int num);
+int		pss_pope(t_pss *my_s, int *num);
 void	pss_swap(t_pss *my_s, int printme);
 void	pss_swsw(t_pss *one, t_pss *two, int printme);
 void	pss_psoo(t_pss *dst, t_pss *ori, int printme);

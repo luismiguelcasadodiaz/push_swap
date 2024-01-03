@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ps_sor2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:luicasad<luicasad@student.42barcelona.com>  +#+  +:+       +#+        */
+/*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/30 08:59:33 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/30 09:58:19 by luicasad         ###   ########.fr       */
+/*   Created: 2023/12/31 09:11:04 by luicasad          #+#    #+#             */
+/*   Updated: 2023/12/31 09:11:06 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ps_sor2(t_pss *a)
@@ -16,4 +17,3 @@ void	ps_sor2(t_pss *a)
 	if (pss_peek(a) == a->big)
 		pss_swap(a, PRINTME);
 }
-

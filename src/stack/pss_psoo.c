@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/25 12:27:25 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/31 08:47:46 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
@@ -16,7 +16,7 @@
 /*            do it if origin is not empty                                    */
 /* ************************************************************************** */
 void	pss_psoo(t_pss *dst, t_pss *ori, int printme)
-{	
+{
 	int	num;
 
 	if (!pss_empt(ori))

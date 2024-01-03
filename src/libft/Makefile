@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/28 10:18:31 by luicasad         ###   ########.fr        #
+#    Updated: 2023/12/31 08:28:49 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -146,5 +146,8 @@ re: fclean all
 	@echo "$(BLUE)LIBFT ================ REBUILDING =========================$(DEF_COLOR)"
 
 
+norma:
+	@echo "$(BLUE)LIBFT ============== CHECKING NORME =======================$(DEF_COLOR)"
+	norminette $(SRCS)
 .PHONY: all clean fclean re
 

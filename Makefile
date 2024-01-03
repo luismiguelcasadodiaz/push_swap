@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 14:59:58 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/30 09:02:22 by luicasad         ###   ########.fr        #
+#    Updated: 2023/12/31 09:06:31 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ MAKEFLAGS += rR
 # ============================================================================ #
 DEF_COLOR		=	\033[0;39m
 GRAY			=	\033[0;90m
-RED			=	\033[0;91m
+RED				=	\033[0;91m
 GREEN			=	\033[0;92m
 YELLOW			=	\033[0;93m
 BLUE			=	\033[0;94m
@@ -215,9 +215,13 @@ bonus_fclean: bonus_clean
 	rm -f $(BONUS)
 norma:
 	$(MAKE) -C $(SRCDIR_PRINT)  norma
-	$(MAKE) -C $(SRCDIR_LIBFT)  clean
-	$(MAKE) -C $(SRCDIR_STACK)  clean
-	norminette $(SRCDIR_PUSHS) $(SRCDIR_CHECK)
+	$(MAKE) -C $(SRCDIR_LIBFT)  norma
+	$(MAKE) -C $(SRCDIR_STACK)  norma
+	$(MAKE) -C $(SRCDIR_ARGPA)  norma
+	@echo "$(GREEN)========== CHECKING NORME $(NAME) ==============$(DEF_COLOR)"
+	norminette $(SRCDIR_PUSHS) 
+	@echo "$(MAGENTA)========== CHECKING NORME $(BONUS) ==============$(DEF_COLOR)"
+	norminette $(SRCDIR_CHECK)
 bonusrun:
 	valgrind --tool=memcheck --leak-check=yes ./$(BONUS)
 bonusrung:

@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   pss_isor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:luicasad<luicasad@student.42barcelona.com>  +#+  +:+       +#+        */
+/*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/27 08:33:47 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/30 12:33:08 by luicasad         ###   ########.fr       */
+/*   Created: 2023/12/31 08:52:53 by luicasad          #+#    #+#             */
+/*   Updated: 2023/12/31 08:53:01 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libpss.h"
 
 /* ************************************************************************** */
 /* pss_isor() checks if the elemnts in the stack are stored ordered, either   */
@@ -16,7 +18,7 @@
 /*                                                                            */
 /* An ascendat ordered arguments shall raise an error.                        */
 /*                                                                            */
-/* A command line 1 2 3 4 5, is stored in the stack as 5 4 3 2 1.             */ 
+/* A command line 1 2 3 4 5, is stored in the stack as 5 4 3 2 1.             */
 /* THis funciton raise the hand when it detects a descendat ordered stack     */
 /*                                                                            */
 /* GETS:                                                                      */
@@ -35,35 +37,29 @@
 /* order is possible.                                                         */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libpss.h"
 
 int	pss_isor(t_pss	*s)
 {
 	t_nod	*nod;
-	int	num;
-	int	end;
-//	int	ascend;
-	int	descen;
+	int		num;
+	int		end;
+	int		descen;
 
 	if (pss_empt(s) || (pss_size(s) <= 2))
 		return (0);
-//	ascend = 1;
 	descen = 1;
 	nod = s->top;
 	end = 0;
 	num = nod->num;
-//	while (!end && (ascend || descen))
 	while (!end && descen)
 	{
 		end = (nod->next == s->top);
 		if (!end)
 		{
-			//ascend = ascend && (num < nod->next->num);
 			descen = descen && (nod->next->num < num);
 		}
 		nod = nod->next;
 		num = nod->num;
 	}
-	//return ((ascend || descen));
 	return (descen);
 }

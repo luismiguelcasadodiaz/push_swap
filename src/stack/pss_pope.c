@@ -6,13 +6,13 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/26 10:38:50 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/31 08:51:17 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
 
 int	pss_pope(t_pss *s, int *num)
-{	
+{
 	t_nod	*p;
 	t_nod	*n;
 	t_nod	*node;

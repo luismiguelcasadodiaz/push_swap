@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ps_sor4.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:luicasad<luicasad@student.42barcelona.com>  +#+  +:+       +#+        */
+/*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/30 08:59:33 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/30 11:58:19 by luicasad         ###   ########.fr       */
+/*   Created: 2023/12/31 09:10:02 by luicasad          #+#    #+#             */
+/*   Updated: 2023/12/31 09:10:46 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	ps_prr(t_pss *a, t_pss *b)
@@ -41,7 +42,7 @@ void	ps_sor4(t_pss *a, t_pss *b)
 	pss_psoo(b, a, PRINTME);
 	ps_sor3(a);
 	if (pss_peek(b) == max)
-		ps_prr(a,b);
+		ps_prr(a, b);
 	else if (pss_peek(b) == min)
 		pss_psoo(a, b, PRINTME);
 	else if (pss_peek(b) < a->top->next->num)
@@ -49,5 +50,3 @@ void	ps_sor4(t_pss *a, t_pss *b)
 	else
 		ps_rrpr(a, b);
 }
-
-

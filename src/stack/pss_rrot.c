@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/25 10:57:38 by luicasad         ###   ########.fr       */
+/*   Updated: 2023/12/31 08:47:18 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
@@ -21,4 +21,3 @@ void	pss_rrot(t_pss *s, int printme)
 	if (printme)
 		ft_printf("rr%c\n", s->nam);
 }
-

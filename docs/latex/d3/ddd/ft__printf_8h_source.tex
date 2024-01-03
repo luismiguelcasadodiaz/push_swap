@@ -1,0 +1,54 @@
+\hypertarget{ft__printf_8h_source}{}\doxysection{ft\+\_\+printf.\+h}
+\label{ft__printf_8h_source}\index{inc/ft\_printf.h@{inc/ft\_printf.h}}
+\mbox{\hyperlink{ft__printf_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/* ************************************************************************** */}}
+\DoxyCodeLine{2 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{3 \textcolor{comment}{/*                                                        :::      ::::::::   */}}
+\DoxyCodeLine{4 \textcolor{comment}{/*   ft\_printf.h                                        :+:      :+:    :+:   */}}
+\DoxyCodeLine{5 \textcolor{comment}{/*                                                    +:+ +:+         +:+     */}}
+\DoxyCodeLine{6 \textcolor{comment}{/*   By: luicasad <luicasad@student.42barcel>       +\#+  +:+       +\#+        */}}
+\DoxyCodeLine{7 \textcolor{comment}{/*                                                +\#+\#+\#+\#+\#+   +\#+           */}}
+\DoxyCodeLine{8 \textcolor{comment}{/*   Created: 2023/12/07 09:13:08 by luicasad          \#+\#    \#+\#             */}}
+\DoxyCodeLine{9 \textcolor{comment}{/*   Updated: 2023/12/10 08:54:19 by luicasad         \#\#\#   \#\#\#\#\#\#\#\#.fr       */}}
+\DoxyCodeLine{10 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{11 \textcolor{comment}{/* ************************************************************************** */}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#ifndef FT\_PRINTF\_H}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\# define FT\_PRINTF\_H}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\# include <unistd.h>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\# include <stdlib.h>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\# include <limits.h>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\# ifdef \_\_linux\_\_}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#  define MY\_SYMBOL 1}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#  define MY\_ULL\_MAX ULLONG\_MAX}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\# elif \_\_APPLE\_\_}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#  define MY\_SYMBOL 2}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#  define MY\_ULL\_MAX ULONG\_LONG\_MAX}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\# define FD 1}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 ssize\_t \mbox{\hyperlink{ft__printf_8h_a7b723ca8d98d6da6c601dd76d124779b}{ft\_write\_c}}(\textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{29 ssize\_t \mbox{\hyperlink{ft__printf_8h_aa13412ac524d021e0175ae6fd3abda4d}{ft\_write\_str}}(\textcolor{keywordtype}{char} *str);}
+\DoxyCodeLine{30 ssize\_t \mbox{\hyperlink{ft__printf_8h_add709469c2066a628f243e374223ea11}{ft\_write\_int\_base}}(\textcolor{keywordtype}{int} num, \textcolor{keywordtype}{int} base, \textcolor{keywordtype}{char} *basechars, ssize\_t *digits);}
+\DoxyCodeLine{31 ssize\_t \mbox{\hyperlink{ft__printf_8h_a27eca6d66d3d6e065d5b64fed0ad5f91}{ft\_write\_uns\_base}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} n,}
+\DoxyCodeLine{32             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} b,}
+\DoxyCodeLine{33             \textcolor{keywordtype}{char} *c,}
+\DoxyCodeLine{34             ssize\_t *d);}
+\DoxyCodeLine{35 ssize\_t \mbox{\hyperlink{ft__printf_8h_a04f20ba26c16c8144f52360b194cfe7f}{ft\_write\_dec}}(\textcolor{keywordtype}{int} num);}
+\DoxyCodeLine{36 ssize\_t \mbox{\hyperlink{ft__printf_8h_a2200f20fb003033cd84b6bb6ad18c14b}{ft\_write\_int}}(\textcolor{keywordtype}{int} num);}
+\DoxyCodeLine{37 ssize\_t \mbox{\hyperlink{ft__printf_8h_ad13cab59dd6536d5eeb9ebaf4413352e}{ft\_write\_ptr}}(\textcolor{keywordtype}{void} *num);}
+\DoxyCodeLine{38 ssize\_t \mbox{\hyperlink{ft__printf_8h_af584fd35eeaa452a2ff6597a92cadcbc}{ft\_write\_uns}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} num);}
+\DoxyCodeLine{39 ssize\_t \mbox{\hyperlink{ft__printf_8h_ab2177b21e9cf8d1017916b0e7acabc8e}{ft\_write\_hex\_low}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} num);}
+\DoxyCodeLine{40 ssize\_t \mbox{\hyperlink{ft__printf_8h_a9aafbb0b44d008bc3d9c4c872821b2a9}{ft\_write\_hex\_cap}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} num);}
+\DoxyCodeLine{41 \textcolor{keywordtype}{int}     \mbox{\hyperlink{ft__printf_8h_a0d9db352c6e9d0a0d72371be9b27f3f6}{ft\_printf}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fmt, ...);}
+\DoxyCodeLine{42 \textcolor{comment}{//int   ft\_printf(const char *fmt, ...)\_\_attribute\_\_((format (printf, 1, 2)));}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{44 \textcolor{comment}{/* ************************************************************************** */}}
+\DoxyCodeLine{45 \textcolor{comment}{/* A function suffix like "{}\_\_attribute\_\_((format (printf, 1, 2)))"{} instruct   */}}
+\DoxyCodeLine{46 \textcolor{comment}{/* the compiler to check inconsistencies between variable arguments and the   */}}
+\DoxyCodeLine{47 \textcolor{comment}{/* format instrunction.                                                       */}}
+\DoxyCodeLine{48 \textcolor{comment}{/* ************************************************************************** */}}
+
+\end{DoxyCode}

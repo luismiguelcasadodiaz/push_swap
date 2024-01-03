@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   arg_pars.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:luicasad<luicasad@student.42barcelona.com>  +#+  +:+       +#+        */
+/*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 08:54:52 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/29 17:45:16 by luicasad         ###   ########.fr       */
+/*   Created: 2023/12/31 08:56:34 by luicasad          #+#    #+#             */
+/*   Updated: 2023/12/31 08:56:37 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "argpar.h"
 
 t_pss	*arg_ok(int argc, char **argv)
 {
-	int	i;
-	int	all_ok;
-	int	num;
+	int		i;
+	int		all_ok;
+	int		num;
 	t_pss	*c;
 
 	c = pss_init('c');
@@ -35,4 +36,4 @@ t_pss	*arg_ok(int argc, char **argv)
 		return (pss_reve(c));
 	pss_free(c);
 	return (NULL);
-}	
+}

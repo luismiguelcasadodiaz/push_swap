@@ -1,0 +1,49 @@
+\hypertarget{ps__sor3_8c}{}\doxysection{src/pushs/ps\+\_\+sor3.c File Reference}
+\label{ps__sor3_8c}\index{src/pushs/ps\_sor3.c@{src/pushs/ps\_sor3.c}}
+
+
+\mbox{\hyperlink{ps__sor3_8c_a7607f9721a58c80bf6f00f8262016b4e}{ps\+\_\+sor3()}} sorts s 3 numbers stack.. ~\newline
+  
+
+
+{\ttfamily \#include \char`\"{}push\+\_\+swap.\+h\char`\"{}}\newline
+Include dependency graph for ps\+\_\+sor3.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ps__sor3_8c_a7607f9721a58c80bf6f00f8262016b4e}{ps\+\_\+sor3}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$a)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{ps__sor3_8c_a7607f9721a58c80bf6f00f8262016b4e}{ps\+\_\+sor3()}} sorts s 3 numbers stack.. ~\newline
+ 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & The stack to sort. ~\newline
+\\
+\hline
+\end{DoxyParams}
+~\newline
+ case 1 \mbox{[}2 1 3\mbox{]} bottom = max \&\& peek != min ==\texorpdfstring{$>$}{>} sa \mbox{[}1 2 3\mbox{]}~\newline
+ case 2 \mbox{[}2 3 1\mbox{]} bottom = min \&\& peek != max ==\texorpdfstring{$>$}{>} rra \mbox{[}1 2 3\mbox{]}~\newline
+ case 3 \mbox{[}3 2 1\mbox{]} peek = max \&\& bottom = min ==\texorpdfstring{$>$}{>} sa \mbox{[}2 3 1\mbox{]} rra \mbox{[}1 2 3\mbox{]}~\newline
+ case 4 \mbox{[}3 1 2\mbox{]} peek = max \&\& bottom != min ==\texorpdfstring{$>$}{>} ra \mbox{[}1 2 3\mbox{]}~\newline
+ case 4 \mbox{[}1 3 2\mbox{]} peek = min \&\& bottom != max ==\texorpdfstring{$>$}{>} sa \mbox{[}3 1 2\mbox{]} ra \mbox{[}1 2 3\mbox{]}~\newline
+ ~\newline
+
+
+\begin{DoxyAuthor}{Author}
+LMCD (Luis Miguel Casado Díaz) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ps__sor3_8c_a7607f9721a58c80bf6f00f8262016b4e}\label{ps__sor3_8c_a7607f9721a58c80bf6f00f8262016b4e}} 
+\index{ps\_sor3.c@{ps\_sor3.c}!ps\_sor3@{ps\_sor3}}
+\index{ps\_sor3@{ps\_sor3}!ps\_sor3.c@{ps\_sor3.c}}
+\doxysubsubsection{\texorpdfstring{ps\_sor3()}{ps\_sor3()}}
+{\footnotesize\ttfamily void ps\+\_\+sor3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{a }\end{DoxyParamCaption})}
+

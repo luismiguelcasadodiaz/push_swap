@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ps_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:luicasad<luicasad@student.42barcelona.com>  +#+  +:+       +#+        */
+/*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/30 08:59:32 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/30 12:35:00 by luicasad         ###   ########.fr       */
+/*   Created: 2023/12/31 09:07:56 by luicasad          #+#    #+#             */
+/*   Updated: 2023/12/31 09:07:58 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ps_sort(t_pss *a, t_pss *b)

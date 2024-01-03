@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/29 08:20:08 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/02 23:38:33 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -15,7 +15,7 @@ MAKEFLAGS += rR
 # ============================================================================ #
 DEF_COLOR	=	\033[0;39m
 GRAY		=	\033[0;90m
-RED		=	\033[0;91m
+RED			=	\033[0;91m
 GREEN		=	\033[0;92m
 YELLOW		=	\033[0;93m
 BLUE		=	\033[0;94m
@@ -96,7 +96,7 @@ $(OBJS): $(SRCS) Makefile
 
 %.o: %.c Makefile
 	@echo "$(CYAN)LIBARGPAR ========== COMPILING ALL OBJECTS ====================$(DEF_COLOR)"
-	$(CC) $(CFLAGS)  -c $< -o $@ $(HEADS) -L../../lib -l:libpss.a -l:libftprint.a  -l:libft.a
+	$(CC) $(CFLAGS)  -c $< -o $@ $(HEADS)
 
 # removes all generated object files
 clean:
@@ -112,6 +112,8 @@ fclean: clean
 re: fclean all
 	@echo "$(CYAN)LIBARGPAR ================ REBUILDING =========================$(DEF_COLOR)"
 
+norma:
+	@echo "$(CYAN)LIBARGPAR ============== CHECKING NORME =======================$(DEF_COLOR)"
+	norminette $(SRCS)
 
 .PHONY: all clean fclean re
-
