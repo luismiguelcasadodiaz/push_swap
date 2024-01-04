@@ -6,47 +6,23 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 09:10:02 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/31 09:10:46 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/04 14:24:00 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ps_prr(t_pss *a, t_pss *b)
-{
-	pss_psoo(a, b, PRINTME);
-	pss_rrot(a, PRINTME);
-}
-
-static void	ps_rprr(t_pss *a, t_pss *b)
-{
-	pss_rota(a, PRINTME);
-	pss_psoo(a, b, PRINTME);
-	pss_rrot(a, PRINTME);
-}
-
-static void	ps_rrpr(t_pss *a, t_pss *b)
-{
-	pss_rrot(a, PRINTME);
-	pss_psoo(a, b, PRINTME);
-	pss_rota(a, PRINTME);
-}
-
+/* ************************************************************************** */
+/* ps_sor4() sort a 4-element stack                                           */
+/*                                                                            */
+/* 1.- Pass 1 elements to stack b                                             */
+/* 2.- Sort 3 elemnets of stack a                                             */
+/* 3.- from stack b add the 4th element to stack a                            */
+/*                                                                            */
+/* ************************************************************************** */
 void	ps_sor4(t_pss *a, t_pss *b)
 {
-	int	min;
-	int	max;
-
-	min = a->sma;
-	max = a->big;
 	pss_psoo(b, a, PRINTME);
 	ps_sor3(a);
-	if (pss_peek(b) == max)
-		ps_prr(a, b);
-	else if (pss_peek(b) == min)
-		pss_psoo(a, b, PRINTME);
-	else if (pss_peek(b) < a->top->next->num)
-		ps_rprr(a, b);
-	else
-		ps_rrpr(a, b);
+	ps_add4(a, b);
 }

@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   chk_read.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 18:16:20 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/04 09:01:54 by luicasad         ###   ########.fr       */
+/*   Created: 2024/01/04 10:28:20 by luicasad          #+#    #+#             */
+/*   Updated: 2024/01/04 10:34:29 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
 
-int	main(int argc, char **argv)
+#include "checker.h"
+
+int	chk_read(t_pss *a, t_pss *b)
 {
-	t_pss	*a;
-	t_pss	*b;
-
-	if (argc == 1)
-		return (0);
-	a = arg_ok(argc, argv);
-	if (a)
-	{
-//		pss_prin(a);
-		b = pss_init('b');
-		ps_sort(a, b);
-//		pss_prin(a);
-		pss_free(a);
-		pss_free(b);
-	}
-	else
-		ft_printf("Error\n");
-	return (0);
+	short	all_ok;
+	pss_psoo(b, a, PRINTME);
+	pss_psoo(a, b, PRINTME);
+	all_ok = 1;
+	return (all_ok);
 }

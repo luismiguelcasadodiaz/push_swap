@@ -6,80 +6,25 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 09:08:13 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/03 01:34:54 by luicasad         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/* add_fifth() insert into a 4-number ordered stack a fifth element           */
-/*                                                                            */
-/* The function deals with 4 cases:                                           */
-/*                                                                            */
-/*     >----< Case 1 pss_peek(b) < pss_peak(a)               pa               */
-/*       a1                                                                   */
-/*     >----< Case 2 pss_peek(b) < pss_unpe(a)               ra pa rra        */
-/*       a2                                                                   */
-/*     >----< Case 3 pss_unpe(a) < pss_peek(b) < pss_ovbo(a) ra ra pa rra rra */
-/*       a3                                                                   */
-/*     >----< Case 4 pss_ovbo(a) < pss_peek(b) < pss_bott(a) rra pa ra ra     */
-/*       a4                                                                   */
-/*     >----< Case 5 pss_bott(a) < pss_peek(b)               pa ra            */
-/*                                                                            */
-/*                                                                            */
-/*                                                                            */
-/*                                                                            */
-/* ************************************************************************** */
-/* ************************************************************************** */
-/* add_fourth() insert into a 3-number ordered stack a fourth element         */
-/*                                                                            */
-/* The function deals with 4 cases:                                           */
-/*                                                                            */
-/*     >----< Case 1 pss_peek(b) < pss_peak(a)               pa               */
-/*       a1                                                                   */
-/*     >----< Case 2 pss_peek(b) < pss_unpe(a)               ra pa rra        */
-/*       a2                                                                   */
-/*     >----< Case 3 pss_unpe(a) < pss_peek(b) < pss_bott(a) rra pa ra ra     */
-/*       a3                                                                   */
-/*     >----< Case 4 pss_bott(a) < pss_peek(b)               pa ra            */
-/*                                                                            */
-/*                                                                            */
-/*                                                                            */
+/*   Updated: 2024/01/04 14:06:42 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-static void	add_fourth(t_pss *a, t_pss *b)
-{
-	if (pss_peek(b) < pss_peek(a))
-		pss_psoo(a, b, PRINTME);
-	else if (pss_peek(b) < pss_unpe(a))
-	{
-		pss_rota(a, PRINTME);
-		pss_psoo(a, b, PRINTME);
-		pss_rrot(a, PRINTME);
-	}
-	else if ((pss_unpe(a) < pss_peek(b)) && (pss_peek(b) < pss_bot(a)))
-	{
-		pss_rrot(a, PRINTME);
-		pss_psoo(a, b, PRINTME);
-		pss_rota(a, PRINTME);
-		pss_rota(a, PRINTME);
-	}
-	else if (pss_bott(a) < pss_peek(b))
-	{
-		pss_psoo(a, b, PRINTME);
-		pss_rota(a, PRINTME);
-	}
-}
-
-
+/* ************************************************************************** */
+/* ps_sor5() sort a 5-element stack                                           */
+/*                                                                            */
+/* 1.- Pass 2 elements to stack b                                             */
+/* 2.- Sort 3 elemnets of stack a                                             */
+/* 3.- from stack b add the 4th element to stack a                            */
+/* 4.- From stack b add the 5th element to stack a                            */
+/*                                                                            */
+/* ************************************************************************** */
 void	ps_sor5(t_pss *a, t_pss *b)
 {
 	pss_psoo(b, a, PRINTME);
 	pss_psoo(b, a, PRINTME);
 	ps_sor3(a);
-	pss_prin(a);
-	add_fourth(a, b);
-	pss_prin(a);
-	add_fourth(a, b);
+	ps_add4(a, b);
+	ps_add5(a, b);
 }

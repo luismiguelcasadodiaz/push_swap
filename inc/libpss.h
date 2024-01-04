@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 21:04:07 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/02 23:33:58 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/04 08:46:19 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -69,6 +69,7 @@ void	pss_prin(t_pss *my_s);
 int		pss_have(t_pss *my_s, int num);
 int		pss_peek(t_pss *my_s);
 int		pss_unpe(t_pss *my_s);
+int		pss_ovbo(t_pss *my_s);
 int		pss_bott(t_pss *my_s);
 int		pss_isor(t_pss *my_s);
 t_pss	*pss_reve(t_pss *my_s);
@@ -81,5 +82,7 @@ void	pss_rota(t_pss *my_s, int printme);
 void	pss_roro(t_pss *one, t_pss *two, int printme);
 void	pss_rrot(t_pss *my_s, int printme);
 void	pss_rrrr(t_pss *one, t_pss *two, int printme);
+void	pss_nrot(t_pss *my_s, int n);
+void	pss_nrro(t_pss *my_s, int n);
 
 #endif

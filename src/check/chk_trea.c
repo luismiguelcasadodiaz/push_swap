@@ -6,7 +6,7 @@
 /*   By:luicasad<luicasad@student.42barcelona.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:00:44 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/27 17:04:13 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/04 09:16:39 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "checker.h"
@@ -19,6 +19,7 @@ int	chk_trea(char *arg, t_pss *a, t_pss *b)
 {
 	int	result;
 
+	ft_printf("Arg <%s>\n", arg);
 	result = 0;
 	if (arg[0] == 's')
 		result = chk_swap(a, b, arg);
@@ -38,5 +39,7 @@ int	chk_trea(char *arg, t_pss *a, t_pss *b)
 	}
 	else
 		result = 0;
+	pss_prin(a);
+	pss_prin(b);
 	return (result);
 }

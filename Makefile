@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 14:59:58 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/31 09:06:31 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/04 13:56:11 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,6 +95,8 @@ SRCS_PUSHS = 	max_min.c \
 		ps_sor3.c \
 		ps_sor4.c \
 		ps_sor5.c \
+		ps_add4.c \
+		ps_add5.c \
 		push_swap.c
 
 SRCS_CHECK = chk_init.c \
@@ -103,6 +105,7 @@ SRCS_CHECK = chk_init.c \
 		chk_psoo.c \
 		chk_rota.c \
 		chk_rrot.c \
+		chk_read.c \
 		checker.c
 
 FILE_PUSHS = $(addprefix $(SRCDIR_PUSHS), $(SRCS_PUSHS))

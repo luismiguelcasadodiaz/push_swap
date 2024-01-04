@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   max_min.c                                          :+:      :+:    :+:   */
+/*   pss_nrot.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 18:40:30 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/26 11:42:24 by luicasad         ###   ########.fr       */
+/*   Created: 2024/01/04 08:48:25 by luicasad          #+#    #+#             */
+/*   Updated: 2024/01/04 08:51:09 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
 
-void	max_min(int num, int *min, int *max)
+#include "libpss.h"
+
+void	pss_nrot(t_pss *a, int n)
 {
-	if ((*min == INT_MIN) && (*max == INT_MAX))
-	{
-		*min = num;
-		*max = num;
-	}
-	else
-	{
-		if (num < *min)
-			*min = num;
-		if (*max < num)
-			*max = num;
-	}
+	while (n-- > 0)
+		pss_rota(a, PRINTME);
 }
