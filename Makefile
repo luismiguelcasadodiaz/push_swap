@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 14:59:58 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/04 13:56:11 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/04 15:54:53 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,8 +89,7 @@ LLIBS 			= -L$(LIBDIR) -l$(LOADLIBARGPA) -l$(LOADLIBSS) -l$(LOADLIBPRINTF) -l$(L
 # ============================================================================ #
 
 
-SRCS_PUSHS = 	max_min.c \
-		ps_sort.c \
+SRCS_PUSHS = 	ps_sort.c \
 		ps_sor2.c \
 		ps_sor3.c \
 		ps_sor4.c \
