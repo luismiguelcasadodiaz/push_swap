@@ -101,5 +101,5 @@ First we request Valgrind the creation of a massif file.
 I got `massif.out.14023` where the number was de `PID` 
 
 
-![image](https://github.com/luismiguelcasadodiaz/push_swap/assets/19540140/ef502545-210a-4484-91da-f2b646fc028a)
+![image](https://github.com/luismiguelcasadodiaz/push_swap/blob/main/docs/media/massif_visualizer.png)
 
