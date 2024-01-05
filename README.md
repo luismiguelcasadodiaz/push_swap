@@ -59,3 +59,43 @@ gcc -o test_argpa test_argpa.o -L../../../lib -largpar -lpss -lftprintf -lft
 Library argpa uses pss to check duplicates or if num are ordered. Also uses libft to check digits and convert arg to longs
 LIbrary pss used ftprintf for stack visualization.
 
+## Valgrind
+In this proyect i learned how to check leaks with, and how to get some assistance to find where the leaks happend in my code.
+
+```bash
+    valgrind --tool=memcheck --leak-check=yes ./$(NAME)
+luis@:push_swap$ valgrind --tool=memcheck --leak-check=yes ./push_swap 7 1 8 2 3
+==14009== Memcheck, a memory error detector
+==14009== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==14009== Using Valgrind-3.21.0 and LibVEX; rerun with -h for copyright info
+==14009== Command: ./push_swap 7 1 8 2 3
+==14009== 
+pb
+pb
+ra
+pa
+rra
+pa
+ra
+ra
+==14009== 
+==14009== HEAP SUMMARY:
+==14009==     in use at exit: 0 bytes in 0 blocks
+==14009==   total heap usage: 17 allocs, 17 frees, 432 bytes allocated
+==14009== 
+==14009== All heap blocks were freed -- no leaks are possible
+==14009== 
+==14009== For lists of detected and suppressed errors, rerun with: -s
+==14009== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+```
+
+In this journey I also discovered a visualization tool of the memory usage.`massif-visualizer`
+
+First we request Valgrind the creation of a massif file.
+
+```bash
+    valgrind --tool=massif --stacks=yes ./push_swap
+```
+
+I got `massif.out.14023` where the number was de `PID` 
