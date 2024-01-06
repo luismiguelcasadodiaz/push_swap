@@ -9,6 +9,21 @@ According to <limits.h>   INT_MIN = -2 147 483 648 and INT_MAX = +2 147 483 647.
 Write a program in C called push_swap which calculates and displays on the standard output the **smallest** program, made of **Push swap language** instructions, that sorts the **integers** received as arguments.
 
 Sorting values is simple. To sort them the fastest way possible is less simple. Especially because **from one integers configuration to another, the most efficient sorting solution can differ**.
+ 
+In terms of 42, the word **smallest** requires clarification:
+
+sort   3 numbers with <=     3 operations
+sort   5 numbers with <=    12 operations
+sort 100 numbers with <=   700 operations   max score
+                           900 operations
+                          1100 operations
+                          1300 operations
+                          1500 operations   min score
+sort 500 numbers with <=  5500 operations   max score
+                          7000 operations
+                          8500 operations
+                         10000 operations
+                         11500 operations   min score
 
 ## rules
 You have 2 stacks named a and b.
