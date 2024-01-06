@@ -12,18 +12,20 @@ Sorting values is simple. To sort them the fastest way possible is less simple. 
  
 In terms of 42, the word **smallest** requires clarification:
 
-sort   3 numbers with <=     3 operations
-sort   5 numbers with <=    12 operations
-sort 100 numbers with <=   700 operations   max score
-                           900 operations
-                          1100 operations
-                          1300 operations
-                          1500 operations   min score
-sort 500 numbers with <=  5500 operations   max score
-                          7000 operations
-                          8500 operations
-                         10000 operations
-                         11500 operations   min score
+|numbers to sort| Max operations | Score|
+|--------------:|---------------:|-----:|
+|3              |3|
+|5              |12| 
+|100            |700|5|
+|               |900|4|
+|               |1100|3|
+|               |1300|2|
+|               |1500|1|
+|500            |5500|5|
+|               |7000|4|
+|               |8500|3|
+|               |10000|2|
+|               |11500|1|
 
 ## rules
 You have 2 stacks named a and b.
