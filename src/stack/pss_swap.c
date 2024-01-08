@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/25 10:47:25 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/09 00:57:22 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
@@ -17,11 +17,15 @@
 /* ************************************************************************** */
 void	pss_swap(t_pss *s, int printme)
 {
-	int	num;
+	int		num;
+	ssize_t	idx;
 
 	num = s->top->num;
+	idx = s->top->idx;
 	s->top->num = s->top->next->num;
+	s->top->idx = s->top->next->idx;
 	s->top->next->num = num;
+	s->top->next->idx = idx;
 	if (printme)
 		ft_printf("s%c\n", s->nam);
 }

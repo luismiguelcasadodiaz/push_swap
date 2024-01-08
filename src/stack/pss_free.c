@@ -6,17 +6,18 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/30 08:20:21 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/08 23:37:22 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
 
 void	pss_free(t_pss *s)
 {
-	int	num;
+	int		num;
+	ssize_t	idx;
 
 	while (s->top != NULL)
-		pss_pope(s, &num);
+		pss_pope(s, &num, &idx);
 	free(s);
 }
 //	short	end;

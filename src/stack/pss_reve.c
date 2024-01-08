@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:07 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/30 08:48:03 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/08 23:32:25 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
@@ -26,7 +26,7 @@ t_pss	*pss_reve(t_pss *s)
 		while (!end)
 		{
 			end = (nod->next == s->top);
-			pss_push(a, nod->num);
+			pss_push(a, nod->num, nod->idx);
 			nod = nod->next;
 		}
 	}

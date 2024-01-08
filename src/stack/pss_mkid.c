@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pss_push.c                                         :+:      :+:    :+:   */
+/*   pss_mkid.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/08 23:36:01 by luicasad         ###   ########.fr       */
+/*   Created: 2024/01/08 19:40:39 by luicasad          #+#    #+#             */
+/*   Updated: 2024/01/08 23:00:10 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libpss.h"
 
-int	pss_push(t_pss *s, int num, ssize_t idx)
+void	pss_mkid(t_pss *s)
 {
-	t_nod	*n;
+	t_nod	*ex_node;
+	t_nod	*in_node;
+	short	ex_end;
+	short	in_end;
 
-	n = nod_init(num, idx);
-	if (!n)
-		return (-1);
-	if (pss_empt(s))
+	ex_end = 0;
+	ex_node = s->top;
+	while (!ex_end)
 	{
-		s->top = n;
-		n->prev = s->top;
-		n->next = s->top;
+		ex_end = (ex_node->next == s->top);
+		in_end = 0;
+		in_node = ex_node;
+		while (!in_end)
+		{
+			in_end = (in_node->next == ex_node);
+			if (in_node->num < ex_node->num)
+				ex_node->idx++;
+			in_node = in_node->next;
+		}
+		ex_node = ex_node->next;
 	}
-	else
-	{
-		s->top->prev->next = n;
-		n->next = s->top;
-		n->prev = s->top->prev;
-		s->top->prev = n;
-		s->top = n;
-	}
-	s->siz = s->siz + 1;
-	pss_mami(s, num, 'u');
-	return (0);
 }

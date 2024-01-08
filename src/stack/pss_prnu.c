@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pss_push.c                                         :+:      :+:    :+:   */
+/*   pss_prnu.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/08 23:36:01 by luicasad         ###   ########.fr       */
+/*   Created: 2023/12/23 11:05:07 by luicasad          #+#    #+#             */
+/*   Updated: 2024/01/08 23:08:57 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
+#include "ft_printf.h"
 
-int	pss_push(t_pss *s, int num, ssize_t idx)
+void	pss_prnu(t_pss *s)
 {
-	t_nod	*n;
+	t_nod	*nod;
+	short	end;
 
-	n = nod_init(num, idx);
-	if (!n)
-		return (-1);
+	ft_printf("pss(%c){#:%d, [%d..%d]}(", s->nam, s->siz, s->sma, s->big);
 	if (pss_empt(s))
-	{
-		s->top = n;
-		n->prev = s->top;
-		n->next = s->top;
-	}
+		ft_printf("empty");
 	else
 	{
-		s->top->prev->next = n;
-		n->next = s->top;
-		n->prev = s->top->prev;
-		s->top->prev = n;
-		s->top = n;
+		end = 0;
+		nod = s->top;
+		while (!end)
+		{
+			end = (nod->next == s->top);
+			ft_printf("%d ", nod->num);
+			nod = nod->next;
+		}
 	}
-	s->siz = s->siz + 1;
-	pss_mami(s, num, 'u');
-	return (0);
+	ft_printf(")\n");
 }

@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 08:57:26 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/31 19:30:59 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/08 23:33:37 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	arg_seen(int num, t_pss *a)
 {
 	if (!pss_have(a, num))
 	{
-		pss_push(a, num);
+		pss_push(a, num, 0);
 		return (0);
 	}
 	return (1);

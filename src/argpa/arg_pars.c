@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 08:56:34 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/04 16:08:46 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/08 23:34:06 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_pss	*arg_ok(int argc, char **argv)
 		if (all_ok)
 			all_ok = all_ok && !pss_have(c, num);
 		if (all_ok)
-			pss_push(c, num);
+			pss_push(c, num, 0);
 	}
 	if (all_ok)
 		return (pss_reve(c));

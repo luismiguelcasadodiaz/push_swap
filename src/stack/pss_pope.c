@@ -6,12 +6,12 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/31 08:51:17 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/08 23:31:44 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
 
-int	pss_pope(t_pss *s, int *num)
+int	pss_pope(t_pss *s, int *num, ssize_t *idx)
 {
 	t_nod	*p;
 	t_nod	*n;
@@ -21,6 +21,7 @@ int	pss_pope(t_pss *s, int *num)
 		return (-1);
 	node = s->top;
 	*num = node->num;
+	*idx = node->idx;
 	if (pss_size(s) > 1)
 	{
 		p = s->top->prev;

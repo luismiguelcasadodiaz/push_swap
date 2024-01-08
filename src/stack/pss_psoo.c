@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/31 08:47:46 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/08 23:21:37 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
@@ -17,12 +17,13 @@
 /* ************************************************************************** */
 void	pss_psoo(t_pss *dst, t_pss *ori, int printme)
 {
-	int	num;
+	int		num;
+	ssize_t	idx;
 
 	if (!pss_empt(ori))
 	{
-		pss_pope(ori, &num);
-		pss_push(dst, num);
+		pss_pope(ori, &num, &idx);
+		pss_push(dst, num, idx);
 	}
 	if (printme)
 		ft_printf("p%c\n", dst->nam);
