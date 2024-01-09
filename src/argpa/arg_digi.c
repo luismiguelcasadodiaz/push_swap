@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 08:57:56 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/31 08:58:21 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/09 19:39:57 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int	arg_digits(char	*arg)
 
 	i = 0;
 	ok = 1;
+	ok = ok && check(arg[i++]);
 	while (ok && arg[i] != '\0')
-		ok = ok && check(arg[i++]);
+		ok = ok && ft_isdigit(arg[i++]);
 	return (ok);
 }

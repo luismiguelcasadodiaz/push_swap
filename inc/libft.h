@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 01:03:05 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/09 11:11:08 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/09 16:07:02 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -51,7 +51,7 @@ void	ft_putnbr_fd(int n, int fd);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 short	ft_msb(int n);
-int		ft_bit(ssize_t bit_pos, int num);
+int		ft_bit(size_t bit_pos, int num);
 typedef struct s_list
 {
 	void			*content;
