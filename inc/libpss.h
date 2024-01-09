@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 21:04:07 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/08 23:35:07 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/09 13:54:04 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -22,10 +22,20 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "ft_printf.h"
+# include "libft.h"
 # define OUTPUT_FD 1
 # define PRINTME 1
 # define NOPRINT 0
 
+/* ************************************************************************** */
+/* The node is a structure that contains:                                     */
+/*                                                                            */
+/* int num holds integer value to sor                                         */
+/* int idx holds the future position of num inside a sorted stack             */
+/* *next the pointer to next node.                                            */
+/* *prev the pointet to previous node.                                        */
+/*                                                                            */
+/* ************************************************************************** */
 typedef struct s_nod
 {
 	int				num;
@@ -70,6 +80,7 @@ void	pss_prin(t_pss *my_s);
 void	pss_prnu(t_pss *my_s);
 int		pss_have(t_pss *my_s, int num);
 int		pss_peek(t_pss *my_s);
+int		pss_peek_idx(t_pss *my_s);
 int		pss_unpe(t_pss *my_s);
 int		pss_ovbo(t_pss *my_s);
 int		pss_bott(t_pss *my_s);
@@ -86,7 +97,14 @@ void	pss_rrot(t_pss *my_s, int printme);
 void	pss_rrrr(t_pss *one, t_pss *two, int printme);
 void	pss_nrot(t_pss *my_s, int n);
 void	pss_nrro(t_pss *my_s, int n);
+/* ************************************************************************** */
+/* pss_mkid() makes(calculates) the future positions in a sorted stack        */
+/* ************************************************************************** */
 void	pss_mkid(t_pss *my_s);
-
+/* ************************************************************************** */
+/* pss_pall() pushes all nodes from stack two(ori) to stack one (dst)         */
+/* ************************************************************************** */
+void	pss_pall(t_pss *one, t_pss *two);
+void	pss_prad(t_pss *one, t_pss *two, ssize_t bit);
 
 #endif

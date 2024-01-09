@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 09:07:56 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/04 19:51:34 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/09 08:30:50 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@ void	ps_sort(t_pss *a, t_pss *b)
 {
 	if (a->siz == 2)
 		ps_sor2(a);
-	if (a->siz == 3)
+	else if (a->siz == 3)
 		ps_sor3(a);
-	if (a->siz == 4)
+	else if (a->siz == 4)
 		ps_sor4(a, b);
-	if (a->siz == 5)
+	else if (a->siz == 5)
 		ps_sor5(a, b);
+	else 
+		ps_radi(a, b);
+	
 }

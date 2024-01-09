@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/06 12:27:18 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/09 11:37:00 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -102,7 +102,8 @@ SRCS =	ft_isalnum.c \
 		ft_lstdelone_bonus.c \
 		ft_lstclear_bonus.c \
 		ft_lstiter_bonus.c \
-		ft_msb.c
+		ft_msb.c \
+		ft_bit.c
 
 # Generate a list of object files by replacing .c with .o
 _OBJS = $(SRCS:.c=.o)

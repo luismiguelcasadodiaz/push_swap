@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   pss_prad.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 09:21:55 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/09 09:22:22 by luicasad         ###   ########.fr       */
+/*   Created: 2024/01/09 09:01:54 by luicasad          #+#    #+#             */
+/*   Updated: 2024/01/09 14:10:34 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <limits.h>
-# include "libft.h"
-# include "ft_printf.h"
-# include "libpss.h"
-# include "argpar.h"
+#include "libpss.h"
 
-void	ps_sort(t_pss *a, t_pss *b);
-void	ps_sor2(t_pss *a);
-void	ps_sor3(t_pss *a);
-void	ps_sor4(t_pss *a, t_pss *b);
-void	ps_sor5(t_pss *a, t_pss *b);
-void	ps_add4(t_pss *a, t_pss *b);
-void	ps_add5(t_pss *a, t_pss *b);
-void	ps_radi(t_pss *a, t_pss *b);
+void	pss_prad(t_pss *a, t_pss *b, ssize_t bit)
+{
+	ssize_t	loops;
 
-#endif
+	loops = pss_size(a);
+	while (loops)
+	{
+		ft_printf("<%d>[%d]", pss_peek(a), ft_bit(bit, pss_peek_idx(a)));
+		if (ft_bit(bit, pss_peek_idx(a)))
+			pss_rota(a, PRINTME);
+		else
+			pss_psoo(b, a, PRINTME);
+		loops--;
+	}
+}
