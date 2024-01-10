@@ -6,10 +6,10 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/09 11:37:00 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/10 19:01:14 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-MAKEFLAGS += rR
+#MAKEFLAGS += rR
 # ============================================================================ #
 #                                 COLORS                                       #
 # ============================================================================ #
@@ -106,6 +106,14 @@ SRCS =	ft_isalnum.c \
 		ft_bit.c
 
 # Generate a list of object files by replacing .c with .o
+#
+# I did this approach
+#
+#OBJS = $(patsubst %.c, %.o, $(SRCS))
+#BONUS_OBJS = $(patsubst %.c, %.o, $(BONUS_SRCS))
+#
+#But Dina Zhuzhleva suggested me this aproach to avoid suspicious usage of wild cards.
+#
 _OBJS = $(SRCS:.c=.o)
 OBJS = $(addprefix $(OBJDIR), $(_OBJS))
 
@@ -130,7 +138,7 @@ $(NAME): $(OBJS)
 
 # For each c file create its object file.
 #$(OBJS): $(SRCS) 
-%.o: %.c Makefile
+%.o: %.c Makefile $(INCDIR)libft.h
 	@echo "$(BLUE)LIBFT ========== COMPILING ALL OBJECTS ====================$(DEF_COLOR)"
 	$(CC) $(CFLAGS)  -c $< -o $@ $(HEADS)
 
@@ -147,7 +155,6 @@ fclean: clean
 # rebuild all after removing all
 re: fclean all
 	@echo "$(BLUE)LIBFT ================ REBUILDING =========================$(DEF_COLOR)"
-
 
 norma:
 	@echo "$(BLUE)LIBFT ============== CHECKING NORME =======================$(DEF_COLOR)"
