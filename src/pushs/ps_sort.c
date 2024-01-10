@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 09:07:56 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/09 08:30:50 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/10 10:05:59 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	ps_sort(t_pss *a, t_pss *b)
 {
-	if (a->siz == 2)
+	if (a->siz == 1)
+		return ;
+	else if (a->siz == 2)
 		ps_sor2(a);
 	else if (a->siz == 3)
 		ps_sor3(a);
