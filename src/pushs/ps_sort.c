@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 09:07:56 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/10 10:05:59 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/11 18:37:32 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	ps_sort(t_pss *a, t_pss *b)
 		ps_sor4(a, b);
 	else if (a->siz == 5)
 		ps_sor5(a, b);
-	else 
+	else
 		ps_radi(a, b);
-	
 }

@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 08:31:05 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/09 16:30:48 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/11 18:37:00 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ void	ps_radi(t_pss *a, t_pss *b)
 	{
 		pss_prad(a, b, bit);
 		pss_pall(a, b);
-		//pss_prnu(a);
-		//pss_prin(a);
 		loops--;
 		bit++;
 	}

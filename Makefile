@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 14:59:58 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/11 14:47:11 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/11 18:38:32 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -199,8 +199,10 @@ clean:
 	$(MAKE) -C $(SRCDIR_PRINT)  clean
 	@echo "========== Cleaning libft  objects ================="
 	$(MAKE) -C $(SRCDIR_LIBFT)  clean
-	@echo "========== Cleaning libft  objects ================="
+	@echo "========== Cleaning libpss  objects ================="
 	$(MAKE) -C $(SRCDIR_STACK)  clean
+	@echo "========== Cleaning libpss  objects ================="
+	$(MAKE) -C $(SRCDIR_ARGPA)  clean
 	@echo "========== Cleaning libraries *.a =================="
 	rm -f $(LIBDIR)*
 
@@ -212,6 +214,10 @@ fclean : clean
 	$(MAKE) -C $(SRCDIR_PRINT)  fclean
 	@echo "======= Cleaning libft   objectsand library ========"
 	$(MAKE) -C $(SRCDIR_LIBFT)  fclean
+	@echo "======= Cleaning libft   objectsand library ========"
+	$(MAKE) -C $(SRCDIR_STACK)  fclean
+	@echo "======= Cleaning libft   objectsand library ========"
+	$(MAKE) -C $(SRCDIR_ARGPA)  fclean
 
 .PHONY: re
 re: fclean all

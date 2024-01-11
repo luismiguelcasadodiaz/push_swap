@@ -6,10 +6,41 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 09:08:13 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/04 19:51:26 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/11 18:50:11 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
+
+static void	ps_sor5_aux(t_pss *a, t_pss *b)
+{
+	int	num_rota;
+
+	num_rota = 0;
+	while (pss_peek(a) < pss_bign(b))
+	{
+		if (pss_peek(b) == pss_bign(b))
+			pss_rota(a, PRINTME);
+		else
+			pss_roro(a, b, PRINTME);
+		num_rota++;
+	}
+	while (!pss_empt(b))
+	{
+		if (pss_unpe(b) < pss_bott(a))
+		{
+			pss_psoo(a, b, PRINTME);
+			pss_rrot(a, PRINTME);
+			num_rota--;
+		}
+		else
+			pss_psoo(a, b, PRINTME);
+	}
+	while (num_rota)
+	{
+		pss_rrot(a, PRINTME);
+		num_rota--;
+	}
+}
 
 /* ************************************************************************** */
 /* ps_sor5() sort a 5-element stack                                           */
@@ -39,39 +70,11 @@
 /* ************************************************************************** */
 void	ps_sor5(t_pss *a, t_pss *b)
 {
-	int	num_rota;
-
-	num_rota = 0;
 	pss_psoo(b, a, PRINTME);
 	pss_psoo(b, a, PRINTME);
 	ps_sor3(a);
 	if ((pss_sman(a) < pss_sman(b)) && (pss_bign(b) < pss_bign(a)))
-	{
-		while (pss_peek(a) < pss_bign(b))
-		{
-			if (pss_peek(b) == pss_bign(b))
-				pss_rota(a, PRINTME);
-			else
-				pss_roro(a, b, PRINTME);
-			num_rota++;
-		}
-		while (!pss_empt(b))
-		{
-			if (pss_unpe(b) < pss_bott(a))
-			{
-				pss_psoo(a, b, PRINTME);
-				pss_rrot(a, PRINTME);
-				num_rota--;
-			}
-			else
-				pss_psoo(a, b, PRINTME);
-		}
-		while (num_rota)
-		{
-			pss_rrot(a, PRINTME);
-			num_rota--;
-		}
-	}
+		ps_sor5_aux(a, b);
 	else
 	{
 		ps_add4(a, b);
