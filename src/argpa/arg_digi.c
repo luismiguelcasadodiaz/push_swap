@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 08:57:56 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/10 09:07:04 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/11 10:58:01 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ int	arg_digits(char	*arg)
 	int	ok;
 
 	i = 0;
-	if (((arg[i] == '+') || (arg[i] == '-')) && arg[1 + 1] == '\0')
+	if (((arg[i] == '+') || (arg[i] == '-')) && arg[i + 1] == '\0')
 		return (0);
 	ok = 1;
-	ok = ok && check(arg[i]);
+	ok = ok && check(arg[i++]);
 	while (ok && arg[i] != '\0')
 		ok = ok && ft_isdigit(arg[i++]);
 	return (ok);

@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 19:08:37 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/04 10:36:18 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:17:09 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "checker.h"
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 	}
 	else
 		ft_printf("Error\n");
-	pss_free(a);
 	pss_free(b);
+	pss_free(a);
 	return (0);
 }

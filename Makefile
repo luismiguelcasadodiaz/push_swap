@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 14:59:58 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/09 19:30:11 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/11 14:47:11 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ OBJDIR 			= ./obj/
 INCDIR 			= ./inc/
 LIBDIR			= ./lib/
 REQUIRED_DIRS	= $(OBJDIR) $(INCDIR) $(LIBDIR)
+VPATH			= $(OBJDIR):$(INCDIR):$(LIBDIR):$(SRCDIR_STACK):$(SRCDIR_CHECK)
 # ============================================================================ #
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
@@ -106,6 +107,15 @@ SRCS_CHECK = chk_init.c \
 		chk_rota.c \
 		chk_rrot.c \
 		chk_read.c \
+		gnl_my_free.c \
+		gnl_substr.c \
+		gnl_join.c \
+		gnl_strlen.c \
+		gnl_strlen_and_nl.c \
+		gnl_read_to_buff.c \
+		gnl_buff_analisis.c \
+		gnl_buff_flush.c \
+		get_next_line.c \
 		checker.c
 
 FILE_PUSHS = $(addprefix $(SRCDIR_PUSHS), $(SRCS_PUSHS))

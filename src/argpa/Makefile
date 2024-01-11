@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/02 23:38:33 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/11 14:49:33 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -88,7 +88,8 @@ all: $(NAME)
 
 $(NAME): $(OBJS) 
 	@echo "$(CYAN)LIBARGPAR ========== GATHERING ALL OBJECTS ====================$(DEF_COLOR)"
-	ar rcs $(LIBDIR)$(NAME) $?
+	ar rcs $(NAME) $?
+	cp $(NAME) $(LIBDIR)
 
 
 # For each c file create its object file.

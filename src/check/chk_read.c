@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 10:28:20 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/04 10:34:29 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/11 14:17:15 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,21 @@
 int	chk_read(t_pss *a, t_pss *b)
 {
 	short	all_ok;
-	pss_psoo(b, a, PRINTME);
-	pss_psoo(a, b, PRINTME);
+	int		fd;
+	short	end_file;
+	char	*move;
+
 	all_ok = 1;
+	fd = open("/dev/stdin", O_RDONLY);
+	end_file = 0;
+	while (!end_file)
+	{
+		move = get_next_line(fd);
+		if (move == NULL)
+			end_file = 1;
+		else
+			all_ok = all_ok && chk_trea(move, a, b);
+		free(move);
+	}
 	return (all_ok);
 }

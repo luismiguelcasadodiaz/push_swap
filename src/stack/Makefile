@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/09 13:52:23 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/11 14:50:31 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -120,7 +120,8 @@ all: $(NAME)
 
 $(NAME): $(OBJS) 
 	@echo "$(RED)LIBPSS ========== GATHERING ALL OBJECTS ====================$(DEF_COLOR)"
-	ar rcs $(LIBDIR)$(NAME) $?
+	ar rcs $(NAME) $?
+	cp $(NAME) $(LIBDIR)
 
 
 # For each c file create its object file.
