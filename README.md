@@ -120,3 +120,62 @@ I got `massif.out.14023` where the number was de `PID`
 
 ![image](https://github.com/luismiguelcasadodiaz/push_swap/blob/main/docs/media/massif_visualizer.png)
 
+##Doxygen 
+
+Doxygen helps with project documentation if you embrace comments with `/**..*/`. 
+
+```c
+/* ************************************************************************** */
+/**
+   @file arg_seen.c                                                             
+   @brief arg_seen() check if num has been previously seen in the arguments.    
+                                                                                
+   @param[in] num: the num to see if exists inside the stack.                   
+   @param[in]   a: the stack to save the arguments.                             
+                                                                                
+   @returns 0 if the argument has not been seen.   That is, it is not           
+   inside the stack. 1 if the argument has been seen.                           
+                                                                                
+   @details                                                                     
+   Loops the stack looking for num. If there is not, pushes num into  stack     
+   and returns zero. Otherwiser returns one ==> arg_seen == True                
+                                                                                
+   @author LMCD (Luis Miguel Casado Diaz)                                       
+*/
+/* ************************************************************************** */
+```
+
+This is 42 Norma incompatible. Si i figured out how to create a 42 norma compatible documentation that later easyly trasnfors into a Doxygen compatible comment.  
+
+```c
+/* ************************************************************************** */
+/*.<*                                                                        .*/
+/*.@file arg_seen.c                                                          .*/
+/*.@brief arg_seen() check if num has been previously seen in the arguments. .*/
+/*.                                                                          .*/
+/*.@param[in] num: the num to see if exists inside the stack.                .*/
+/*.@param[in]   a: the stack to save the arguments.                          .*/
+/*.                                                                          .*/
+/*.@returns 0 if the argument has not been seen.   That is, it is not        .*/
+/*.inside the stack. 1 if the argument has been seen.                        .*/
+/*.                                                                          .*/
+/*.@details                                                                  .*/
+/*.Loops the stack looking for num. If there is not, pushes num into  stack  .*/
+/*.and returns zero. Otherwiser returns one ==> arg_seen == True             .*/
+/*.                                                                          .*/
+/*.@author LMCD (Luis Miguel Casado Diaz)                                    .*/
+/*.>*                                                                        .*/
+/* ************************************************************************** */
+
+```
+This 42 norma compatible can be transformed to Doxygen compatible comment with this bash script.
+
+```bash
+#!/bin/bash
+sed -i 's/\/\*\.<.*$/\/\*\*/' $1
+sed -i 's/\/\*\.>.*$/\*\//' $1
+sed -i 's/\/\*\./   /' $1
+sed -i 's/\.\*\//   /' $1
+```
+
+[you will find it here 42norma2doxugen.sh]() 
