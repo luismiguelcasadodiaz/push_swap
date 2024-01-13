@@ -1,0 +1,13 @@
+digraph "/home/luis/Documentos/c/cursus/circle3/push_swap/src/ftpri"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  compound=true
+  subgraph clusterdir_68267d1309a1af8e8297ef4c3efbcdba {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", style="filled,dashed,", label="src", fontname="Helvetica", fontsize="10", URL="dir_68267d1309a1af8e8297ef4c3efbcdba.html"]
+  dir_3c1c818669fa557263b8243d09369c54 [shape=box, label="ftpri", style="filled,bold,", fillcolor="#edf0f7", color="grey25", URL="dir_3c1c818669fa557263b8243d09369c54.html"];
+  }
+  dir_bfccd401955b95cf8c75461437045ac0 [shape=box, label="inc", style="", fillcolor="#edf0f7", color="grey25", URL="dir_bfccd401955b95cf8c75461437045ac0.html"];
+  dir_3c1c818669fa557263b8243d09369c54->dir_bfccd401955b95cf8c75461437045ac0 [headlabel="11", labeldistance=1.5 headhref="dir_000002_000003.html"];
+}

@@ -1,0 +1,117 @@
+\hypertarget{ft__printf_8h}{}\doxysection{/home/luis/\+Documentos/c/cursus/circle3/push\+\_\+swap/inc/ft\+\_\+printf.h File Reference}
+\label{ft__printf_8h}\index{/home/luis/Documentos/c/cursus/circle3/push\_swap/inc/ft\_printf.h@{/home/luis/Documentos/c/cursus/circle3/push\_swap/inc/ft\_printf.h}}
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+Include dependency graph for ft\+\_\+printf.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ft__printf_8h_aada743dc93e7b00240e781ea30287271}{FD}}~1
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+ssize\+\_\+t \mbox{\hyperlink{ft__printf_8h_a7b723ca8d98d6da6c601dd76d124779b}{ft\+\_\+write\+\_\+c}} (char c)
+\item 
+ssize\+\_\+t \mbox{\hyperlink{ft__printf_8h_aa13412ac524d021e0175ae6fd3abda4d}{ft\+\_\+write\+\_\+str}} (char $\ast$str)
+\item 
+ssize\+\_\+t \mbox{\hyperlink{ft__printf_8h_add709469c2066a628f243e374223ea11}{ft\+\_\+write\+\_\+int\+\_\+base}} (int num, int base, char $\ast$basechars, ssize\+\_\+t $\ast$digits)
+\item 
+ssize\+\_\+t \mbox{\hyperlink{ft__printf_8h_a27eca6d66d3d6e065d5b64fed0ad5f91}{ft\+\_\+write\+\_\+uns\+\_\+base}} (unsigned long long n, unsigned long long b, char $\ast$c, ssize\+\_\+t $\ast$d)
+\item 
+ssize\+\_\+t \mbox{\hyperlink{ft__printf_8h_a04f20ba26c16c8144f52360b194cfe7f}{ft\+\_\+write\+\_\+dec}} (int num)
+\item 
+ssize\+\_\+t \mbox{\hyperlink{ft__printf_8h_a2200f20fb003033cd84b6bb6ad18c14b}{ft\+\_\+write\+\_\+int}} (int num)
+\item 
+ssize\+\_\+t \mbox{\hyperlink{ft__printf_8h_ad13cab59dd6536d5eeb9ebaf4413352e}{ft\+\_\+write\+\_\+ptr}} (void $\ast$num)
+\item 
+ssize\+\_\+t \mbox{\hyperlink{ft__printf_8h_af584fd35eeaa452a2ff6597a92cadcbc}{ft\+\_\+write\+\_\+uns}} (unsigned int num)
+\item 
+ssize\+\_\+t \mbox{\hyperlink{ft__printf_8h_ab2177b21e9cf8d1017916b0e7acabc8e}{ft\+\_\+write\+\_\+hex\+\_\+low}} (unsigned int num)
+\item 
+ssize\+\_\+t \mbox{\hyperlink{ft__printf_8h_a9aafbb0b44d008bc3d9c4c872821b2a9}{ft\+\_\+write\+\_\+hex\+\_\+cap}} (unsigned int num)
+\item 
+int \mbox{\hyperlink{ft__printf_8h_a0d9db352c6e9d0a0d72371be9b27f3f6}{ft\+\_\+printf}} (const char $\ast$fmt,...)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ft__printf_8h_aada743dc93e7b00240e781ea30287271}\label{ft__printf_8h_aada743dc93e7b00240e781ea30287271}} 
+\index{ft\_printf.h@{ft\_printf.h}!FD@{FD}}
+\index{FD@{FD}!ft\_printf.h@{ft\_printf.h}}
+\doxysubsubsection{\texorpdfstring{FD}{FD}}
+{\footnotesize\ttfamily \#define FD~1}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ft__printf_8h_a0d9db352c6e9d0a0d72371be9b27f3f6}\label{ft__printf_8h_a0d9db352c6e9d0a0d72371be9b27f3f6}} 
+\index{ft\_printf.h@{ft\_printf.h}!ft\_printf@{ft\_printf}}
+\index{ft\_printf@{ft\_printf}!ft\_printf.h@{ft\_printf.h}}
+\doxysubsubsection{\texorpdfstring{ft\_printf()}{ft\_printf()}}
+{\footnotesize\ttfamily int ft\+\_\+printf (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ft__printf_8h_a7b723ca8d98d6da6c601dd76d124779b}\label{ft__printf_8h_a7b723ca8d98d6da6c601dd76d124779b}} 
+\index{ft\_printf.h@{ft\_printf.h}!ft\_write\_c@{ft\_write\_c}}
+\index{ft\_write\_c@{ft\_write\_c}!ft\_printf.h@{ft\_printf.h}}
+\doxysubsubsection{\texorpdfstring{ft\_write\_c()}{ft\_write\_c()}}
+{\footnotesize\ttfamily ssize\+\_\+t ft\+\_\+write\+\_\+c (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ft__printf_8h_a04f20ba26c16c8144f52360b194cfe7f}\label{ft__printf_8h_a04f20ba26c16c8144f52360b194cfe7f}} 
+\index{ft\_printf.h@{ft\_printf.h}!ft\_write\_dec@{ft\_write\_dec}}
+\index{ft\_write\_dec@{ft\_write\_dec}!ft\_printf.h@{ft\_printf.h}}
+\doxysubsubsection{\texorpdfstring{ft\_write\_dec()}{ft\_write\_dec()}}
+{\footnotesize\ttfamily ssize\+\_\+t ft\+\_\+write\+\_\+dec (\begin{DoxyParamCaption}\item[{int}]{num }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ft__printf_8h_a9aafbb0b44d008bc3d9c4c872821b2a9}\label{ft__printf_8h_a9aafbb0b44d008bc3d9c4c872821b2a9}} 
+\index{ft\_printf.h@{ft\_printf.h}!ft\_write\_hex\_cap@{ft\_write\_hex\_cap}}
+\index{ft\_write\_hex\_cap@{ft\_write\_hex\_cap}!ft\_printf.h@{ft\_printf.h}}
+\doxysubsubsection{\texorpdfstring{ft\_write\_hex\_cap()}{ft\_write\_hex\_cap()}}
+{\footnotesize\ttfamily ssize\+\_\+t ft\+\_\+write\+\_\+hex\+\_\+cap (\begin{DoxyParamCaption}\item[{unsigned int}]{num }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ft__printf_8h_ab2177b21e9cf8d1017916b0e7acabc8e}\label{ft__printf_8h_ab2177b21e9cf8d1017916b0e7acabc8e}} 
+\index{ft\_printf.h@{ft\_printf.h}!ft\_write\_hex\_low@{ft\_write\_hex\_low}}
+\index{ft\_write\_hex\_low@{ft\_write\_hex\_low}!ft\_printf.h@{ft\_printf.h}}
+\doxysubsubsection{\texorpdfstring{ft\_write\_hex\_low()}{ft\_write\_hex\_low()}}
+{\footnotesize\ttfamily ssize\+\_\+t ft\+\_\+write\+\_\+hex\+\_\+low (\begin{DoxyParamCaption}\item[{unsigned int}]{num }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ft__printf_8h_a2200f20fb003033cd84b6bb6ad18c14b}\label{ft__printf_8h_a2200f20fb003033cd84b6bb6ad18c14b}} 
+\index{ft\_printf.h@{ft\_printf.h}!ft\_write\_int@{ft\_write\_int}}
+\index{ft\_write\_int@{ft\_write\_int}!ft\_printf.h@{ft\_printf.h}}
+\doxysubsubsection{\texorpdfstring{ft\_write\_int()}{ft\_write\_int()}}
+{\footnotesize\ttfamily ssize\+\_\+t ft\+\_\+write\+\_\+int (\begin{DoxyParamCaption}\item[{int}]{num }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ft__printf_8h_add709469c2066a628f243e374223ea11}\label{ft__printf_8h_add709469c2066a628f243e374223ea11}} 
+\index{ft\_printf.h@{ft\_printf.h}!ft\_write\_int\_base@{ft\_write\_int\_base}}
+\index{ft\_write\_int\_base@{ft\_write\_int\_base}!ft\_printf.h@{ft\_printf.h}}
+\doxysubsubsection{\texorpdfstring{ft\_write\_int\_base()}{ft\_write\_int\_base()}}
+{\footnotesize\ttfamily ssize\+\_\+t ft\+\_\+write\+\_\+int\+\_\+base (\begin{DoxyParamCaption}\item[{int}]{num,  }\item[{int}]{base,  }\item[{char $\ast$}]{basechars,  }\item[{ssize\+\_\+t $\ast$}]{digits }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ft__printf_8h_ad13cab59dd6536d5eeb9ebaf4413352e}\label{ft__printf_8h_ad13cab59dd6536d5eeb9ebaf4413352e}} 
+\index{ft\_printf.h@{ft\_printf.h}!ft\_write\_ptr@{ft\_write\_ptr}}
+\index{ft\_write\_ptr@{ft\_write\_ptr}!ft\_printf.h@{ft\_printf.h}}
+\doxysubsubsection{\texorpdfstring{ft\_write\_ptr()}{ft\_write\_ptr()}}
+{\footnotesize\ttfamily ssize\+\_\+t ft\+\_\+write\+\_\+ptr (\begin{DoxyParamCaption}\item[{void $\ast$}]{num }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ft__printf_8h_aa13412ac524d021e0175ae6fd3abda4d}\label{ft__printf_8h_aa13412ac524d021e0175ae6fd3abda4d}} 
+\index{ft\_printf.h@{ft\_printf.h}!ft\_write\_str@{ft\_write\_str}}
+\index{ft\_write\_str@{ft\_write\_str}!ft\_printf.h@{ft\_printf.h}}
+\doxysubsubsection{\texorpdfstring{ft\_write\_str()}{ft\_write\_str()}}
+{\footnotesize\ttfamily ssize\+\_\+t ft\+\_\+write\+\_\+str (\begin{DoxyParamCaption}\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ft__printf_8h_af584fd35eeaa452a2ff6597a92cadcbc}\label{ft__printf_8h_af584fd35eeaa452a2ff6597a92cadcbc}} 
+\index{ft\_printf.h@{ft\_printf.h}!ft\_write\_uns@{ft\_write\_uns}}
+\index{ft\_write\_uns@{ft\_write\_uns}!ft\_printf.h@{ft\_printf.h}}
+\doxysubsubsection{\texorpdfstring{ft\_write\_uns()}{ft\_write\_uns()}}
+{\footnotesize\ttfamily ssize\+\_\+t ft\+\_\+write\+\_\+uns (\begin{DoxyParamCaption}\item[{unsigned int}]{num }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ft__printf_8h_a27eca6d66d3d6e065d5b64fed0ad5f91}\label{ft__printf_8h_a27eca6d66d3d6e065d5b64fed0ad5f91}} 
+\index{ft\_printf.h@{ft\_printf.h}!ft\_write\_uns\_base@{ft\_write\_uns\_base}}
+\index{ft\_write\_uns\_base@{ft\_write\_uns\_base}!ft\_printf.h@{ft\_printf.h}}
+\doxysubsubsection{\texorpdfstring{ft\_write\_uns\_base()}{ft\_write\_uns\_base()}}
+{\footnotesize\ttfamily ssize\+\_\+t ft\+\_\+write\+\_\+uns\+\_\+base (\begin{DoxyParamCaption}\item[{unsigned long long}]{n,  }\item[{unsigned long long}]{b,  }\item[{char $\ast$}]{c,  }\item[{ssize\+\_\+t $\ast$}]{d }\end{DoxyParamCaption})}
+

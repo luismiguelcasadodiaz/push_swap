@@ -6,12 +6,25 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 19:40:39 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/08 23:00:10 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/13 18:46:22 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libpss.h"
 
+/******************************************************************************/
+/**
+   @file pss_mkid.c
+   @brief pss_mkid() makes(calculates) the future positions in a sorted stack
+
+   @param[in]  s: The stack to calculate value's future positions.
+
+   @details
+   Loops the stack. For each node loops the stack couting how manu values
+   are lower than current (external loop node) node's value.
+
+   @author LMCD (Luis Miguel Casado Díaz)
+ *****************************************************************************/
 void	pss_mkid(t_pss *s)
 {
 	t_nod	*ex_node;

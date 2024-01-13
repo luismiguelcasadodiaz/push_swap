@@ -1,0 +1,19 @@
+\hypertarget{ft__split_8c}{}\doxysection{/home/luis/\+Documentos/c/cursus/circle3/push\+\_\+swap/src/libft/ft\+\_\+split.c File Reference}
+\label{ft__split_8c}\index{/home/luis/Documentos/c/cursus/circle3/push\_swap/src/libft/ft\_split.c@{/home/luis/Documentos/c/cursus/circle3/push\_swap/src/libft/ft\_split.c}}
+{\ttfamily \#include \char`\"{}libft.\+h\char`\"{}}\newline
+Include dependency graph for ft\+\_\+split.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$$\ast$ \mbox{\hyperlink{ft__split_8c_aa65c9de65051c8c589286cf133c4a1f4}{ft\+\_\+split}} (char const $\ast$s, char c)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ft__split_8c_aa65c9de65051c8c589286cf133c4a1f4}\label{ft__split_8c_aa65c9de65051c8c589286cf133c4a1f4}} 
+\index{ft\_split.c@{ft\_split.c}!ft\_split@{ft\_split}}
+\index{ft\_split@{ft\_split}!ft\_split.c@{ft\_split.c}}
+\doxysubsubsection{\texorpdfstring{ft\_split()}{ft\_split()}}
+{\footnotesize\ttfamily char $\ast$$\ast$ ft\+\_\+split (\begin{DoxyParamCaption}\item[{char const $\ast$}]{s,  }\item[{char}]{c }\end{DoxyParamCaption})}
+

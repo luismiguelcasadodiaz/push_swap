@@ -6,12 +6,21 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:07 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/08 22:54:56 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/13 17:09:01 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
 #include "ft_printf.h"
 
+/******************************************************************************/
+/**
+   @file pss_prin.c
+   @brief pss_prin() prints indexes of stack's nodes                      
+                                                                                
+   @param[in]  s: The stack to Rprint the values from.                        
+                                                                                
+   @author LMCD (Luis Miguel Casado Díaz)
+ *****************************************************************************/
 void	pss_prin(t_pss *s)
 {
 	t_nod	*nod;
