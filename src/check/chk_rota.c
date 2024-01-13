@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   chk_rota.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:luicasad<luicasad@student.42barcelona.com>  +#+  +:+       +#+        */
+/*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/27 16:12:19 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/27 16:49:00 by luicasad         ###   ########.fr       */
+/*   Created: 2024/01/13 09:39:14 by luicasad          #+#    #+#             */
+/*   Updated: 2024/01/13 09:39:15 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "checker.h"
 
 /* ************************************************************************** */
@@ -26,11 +27,11 @@
 int	chk_rota(t_pss *a, t_pss *b, char *move)
 {
 	if (move[1] == 'a')
-		pss_rota(a, PRINTME);
+		pss_rota(a, NOPRINT);
 	else if (move[1] == 'b')
-		pss_rota(b, PRINTME);
+		pss_rota(b, NOPRINT);
 	else if (move[1] == 'r')
-		pss_roro(a, b, PRINTME);
+		pss_roro(a, b, NOPRINT);
 	else
 		return (0);
 	return (1);

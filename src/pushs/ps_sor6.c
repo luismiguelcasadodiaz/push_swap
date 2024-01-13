@@ -6,10 +6,34 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 09:08:13 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/06 02:18:04 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/13 09:20:26 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
+
+static void	ps_sor6_case3(t_pss *a, t_pss *b)
+{
+	while (pss_peek(a) < pss_bign(b))
+	{
+		if (pss_peek(b) == pss_bign(b))
+			pss_rota(a, PRINTME);
+		else
+			pss_roro(a, b, PRINTME);
+		num_rota++;
+	}
+	while (!pss_empt(b))
+	{
+		if (pss_unpe(b) < pss_bott(a))
+		{
+			pss_psoo(a, b, PRINTME);
+			pss_rrot(a, PRINTME);
+			num_rota--;
+		}
+		else
+			pss_psoo(a, b, PRINTME);
+	}
+	pss_nrro(a, num_rota);
+}
 
 /* ************************************************************************** */
 /* ps_sor6() sort a 6-element stack                                           */
@@ -48,32 +72,7 @@ void	ps_sor6(t_pss *a, t_pss *b)
 	pss_psoo(b, a, PRINTME);
 	ps_sor3(a);
 	if ((pss_sman(a) < pss_sman(b)) && (pss_bign(b) < pss_bign(a)))
-	{
-		while (pss_peek(a) < pss_bign(b))
-		{
-			if (pss_peek(b) == pss_bign(b))
-				pss_rota(a, PRINTME);
-			else
-				pss_roro(a, b, PRINTME);
-			num_rota++;
-		}
-		while (!pss_empt(b))
-		{
-			if (pss_unpe(b) < pss_bott(a))
-			{
-				pss_psoo(a, b, PRINTME);
-				pss_rrot(a, PRINTME);
-				num_rota--;
-			}
-			else
-				pss_psoo(a, b, PRINTME);
-		}
-		while (num_rota)
-		{
-			pss_rrot(a, PRINTME);
-			num_rota--;
-		}
-	}
+		ps_sor6_case3(a, b);
 	else
 	{
 		ps_add4(a, b);

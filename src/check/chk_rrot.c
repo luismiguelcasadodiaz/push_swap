@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   chk_rrot.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:luicasad<luicasad@student.42barcelona.com>  +#+  +:+       +#+        */
+/*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/27 16:12:19 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/27 17:08:29 by luicasad         ###   ########.fr       */
+/*   Created: 2024/01/13 09:36:47 by luicasad          #+#    #+#             */
+/*   Updated: 2024/01/13 09:36:49 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "checker.h"
 
 /* ************************************************************************** */
@@ -26,11 +27,11 @@
 int	chk_rrot(t_pss *a, t_pss *b, char *move)
 {
 	if (move[2] == 'a')
-		pss_rrot(a, PRINTME);
+		pss_rrot(a, NOPRINT);
 	else if (move[2] == 'b')
-		pss_rrot(b, PRINTME);
+		pss_rrot(b, NOPRINT);
 	else if (move[2] == 'r')
-		pss_rrrr(a, b, PRINTME);
+		pss_rrrr(a, b, NOPRINT);
 	else
 		return (0);
 	return (1);

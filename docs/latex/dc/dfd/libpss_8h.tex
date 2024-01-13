@@ -3,6 +3,7 @@
 {\ttfamily \#include $<$unistd.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}ft\+\_\+printf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libft.\+h\char`\"{}}\newline
 Include dependency graph for libpss.\+h\+:
 % FIG 0
 This graph shows which files directly or indirectly include this file\+:
@@ -33,7 +34,7 @@ typedef struct \mbox{\hyperlink{structs__pss}{s\+\_\+pss}} \mbox{\hyperlink{libp
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{libpss_8h_ae2a682a2695a20f25173018c434be1a6}{t\+\_\+nod}} $\ast$ \mbox{\hyperlink{libpss_8h_a57c195864248feb8870db54157ba74d8}{nod\+\_\+init}} (int num)
+\mbox{\hyperlink{libpss_8h_ae2a682a2695a20f25173018c434be1a6}{t\+\_\+nod}} $\ast$ \mbox{\hyperlink{libpss_8h_a00247abcb79faa3ff6c9d56244fda58d}{nod\+\_\+init}} (int num, ssize\+\_\+t idx)
 \item 
 void \mbox{\hyperlink{libpss_8h_a550e3fd53ce91ec868f37637a1605ac4}{nod\+\_\+free}} (\mbox{\hyperlink{libpss_8h_ae2a682a2695a20f25173018c434be1a6}{t\+\_\+nod}} $\ast$my\+\_\+n)
 \item 
@@ -45,6 +46,10 @@ short \mbox{\hyperlink{libpss_8h_abdd237062ef2a5b470d9691a3c652422}{pss\+\_\+emp
 \item 
 int \mbox{\hyperlink{libpss_8h_ae2582c1360f8ccc3524ae74db818cf53}{pss\+\_\+size}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s)
 \item 
+int \mbox{\hyperlink{libpss_8h_a82fecb5a24ba787343edf9ddb78f2ec8}{pss\+\_\+sman}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s)
+\item 
+int \mbox{\hyperlink{libpss_8h_a95f29e00b370ffd38efdb5f2932acb8c}{pss\+\_\+bign}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s)
+\item 
 int \mbox{\hyperlink{libpss_8h_a52218525d77b49875b6a0896b23f0677}{pss\+\_\+mini}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s)
 \item 
 int \mbox{\hyperlink{libpss_8h_abae2debfc96683a4e5a9b7ae7e6f2c7b}{pss\+\_\+maxi}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s)
@@ -53,17 +58,27 @@ void \mbox{\hyperlink{libpss_8h_a0a67f7608deb67d559c298497a0e895e}{pss\+\_\+mami
 \item 
 void \mbox{\hyperlink{libpss_8h_aaa4f96277300979436e11d231e1a7dd0}{pss\+\_\+prin}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s)
 \item 
+void \mbox{\hyperlink{libpss_8h_a298972d8469de77ce9eb871d548a2ba3}{pss\+\_\+prnu}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s)
+\item 
 int \mbox{\hyperlink{libpss_8h_a1a14b822ab74469ed8ce7d0fd36032ce}{pss\+\_\+have}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s, int num)
 \item 
 int \mbox{\hyperlink{libpss_8h_a8e0f825ca88fdc9cfb3713e8c4f3358f}{pss\+\_\+peek}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s)
+\item 
+int \mbox{\hyperlink{libpss_8h_a8afc04130d07d89af8e0bd1bc80920bb}{pss\+\_\+peek\+\_\+idx}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s)
+\item 
+int \mbox{\hyperlink{libpss_8h_a0ae5fd33241e6da3cdd673174dc1cf5e}{pss\+\_\+unpe}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s)
+\item 
+int \mbox{\hyperlink{libpss_8h_aa28505a2171678da35f03831abf043c8}{pss\+\_\+ovbo}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s)
+\item 
+int \mbox{\hyperlink{libpss_8h_aaf670f60277e74a14d603a1021f85566}{pss\+\_\+bott}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s)
 \item 
 int \mbox{\hyperlink{libpss_8h_a58b649105665fae54b832970a77372f1}{pss\+\_\+isor}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s)
 \item 
 \mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$ \mbox{\hyperlink{libpss_8h_afe674394865c1f7350b9edf833856783}{pss\+\_\+reve}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s)
 \item 
-int \mbox{\hyperlink{libpss_8h_adba4db431db0d6da626626d593211cfe}{pss\+\_\+push}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s, int num)
+int \mbox{\hyperlink{libpss_8h_aaa0253d423f4deded141f218106212ab}{pss\+\_\+push}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s, int num, ssize\+\_\+t idx)
 \item 
-int \mbox{\hyperlink{libpss_8h_a0429c0285946b3eb3fb6d6496567c392}{pss\+\_\+pope}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s, int $\ast$num)
+int \mbox{\hyperlink{libpss_8h_a45f5b801820a0437c38706511e8ede75}{pss\+\_\+pope}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s, int $\ast$num, ssize\+\_\+t $\ast$idx)
 \item 
 void \mbox{\hyperlink{libpss_8h_abc9e031c899e57e3a1817c02428a9d8a}{pss\+\_\+swap}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s, int printme)
 \item 
@@ -78,6 +93,16 @@ void \mbox{\hyperlink{libpss_8h_a51f3e9112399d9aa2e81ece248214368}{pss\+\_\+roro
 void \mbox{\hyperlink{libpss_8h_a63635b1b079364a87a2583dc122aceb9}{pss\+\_\+rrot}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s, int printme)
 \item 
 void \mbox{\hyperlink{libpss_8h_a3b87b14ae9c081cf06e99229a01598c7}{pss\+\_\+rrrr}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$one, \mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$two, int printme)
+\item 
+void \mbox{\hyperlink{libpss_8h_aab5e44aa3e637ac5e2e993e798be6d91}{pss\+\_\+nrot}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s, int n)
+\item 
+void \mbox{\hyperlink{libpss_8h_a46d3ccc5eb27cde24b7d175fec5b0774}{pss\+\_\+nrro}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s, int n)
+\item 
+void \mbox{\hyperlink{libpss_8h_a786289bbbcdc1b5758607a2b2f5c844d}{pss\+\_\+mkid}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$my\+\_\+s)
+\item 
+void \mbox{\hyperlink{libpss_8h_a2c8acea793ab052ee56973e96c0540cd}{pss\+\_\+pall}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$one, \mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$two)
+\item 
+void \mbox{\hyperlink{libpss_8h_a087d7c6ee32af3841cac6590725c5815}{pss\+\_\+prad}} (\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$one, \mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$two, ssize\+\_\+t bit)
 \end{DoxyCompactItemize}
 
 
@@ -124,11 +149,23 @@ void \mbox{\hyperlink{libpss_8h_a3b87b14ae9c081cf06e99229a01598c7}{pss\+\_\+rrrr
 \doxysubsubsection{\texorpdfstring{nod\_free()}{nod\_free()}}
 {\footnotesize\ttfamily void nod\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_ae2a682a2695a20f25173018c434be1a6}{t\+\_\+nod}} $\ast$}]{my\+\_\+n }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{libpss_8h_a57c195864248feb8870db54157ba74d8}\label{libpss_8h_a57c195864248feb8870db54157ba74d8}} 
+\mbox{\Hypertarget{libpss_8h_a00247abcb79faa3ff6c9d56244fda58d}\label{libpss_8h_a00247abcb79faa3ff6c9d56244fda58d}} 
 \index{libpss.h@{libpss.h}!nod\_init@{nod\_init}}
 \index{nod\_init@{nod\_init}!libpss.h@{libpss.h}}
 \doxysubsubsection{\texorpdfstring{nod\_init()}{nod\_init()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{libpss_8h_ae2a682a2695a20f25173018c434be1a6}{t\+\_\+nod}} $\ast$ nod\+\_\+init (\begin{DoxyParamCaption}\item[{int}]{num }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{libpss_8h_ae2a682a2695a20f25173018c434be1a6}{t\+\_\+nod}} $\ast$ nod\+\_\+init (\begin{DoxyParamCaption}\item[{int}]{num,  }\item[{ssize\+\_\+t}]{idx }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{libpss_8h_a95f29e00b370ffd38efdb5f2932acb8c}\label{libpss_8h_a95f29e00b370ffd38efdb5f2932acb8c}} 
+\index{libpss.h@{libpss.h}!pss\_bign@{pss\_bign}}
+\index{pss\_bign@{pss\_bign}!libpss.h@{libpss.h}}
+\doxysubsubsection{\texorpdfstring{pss\_bign()}{pss\_bign()}}
+{\footnotesize\ttfamily int pss\+\_\+bign (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{my\+\_\+s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{libpss_8h_aaf670f60277e74a14d603a1021f85566}\label{libpss_8h_aaf670f60277e74a14d603a1021f85566}} 
+\index{libpss.h@{libpss.h}!pss\_bott@{pss\_bott}}
+\index{pss\_bott@{pss\_bott}!libpss.h@{libpss.h}}
+\doxysubsubsection{\texorpdfstring{pss\_bott()}{pss\_bott()}}
+{\footnotesize\ttfamily int pss\+\_\+bott (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{my\+\_\+s }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{libpss_8h_abdd237062ef2a5b470d9691a3c652422}\label{libpss_8h_abdd237062ef2a5b470d9691a3c652422}} 
 \index{libpss.h@{libpss.h}!pss\_empt@{pss\_empt}}
@@ -178,17 +215,59 @@ void \mbox{\hyperlink{libpss_8h_a3b87b14ae9c081cf06e99229a01598c7}{pss\+\_\+rrrr
 \doxysubsubsection{\texorpdfstring{pss\_mini()}{pss\_mini()}}
 {\footnotesize\ttfamily int pss\+\_\+mini (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{my\+\_\+s }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{libpss_8h_a786289bbbcdc1b5758607a2b2f5c844d}\label{libpss_8h_a786289bbbcdc1b5758607a2b2f5c844d}} 
+\index{libpss.h@{libpss.h}!pss\_mkid@{pss\_mkid}}
+\index{pss\_mkid@{pss\_mkid}!libpss.h@{libpss.h}}
+\doxysubsubsection{\texorpdfstring{pss\_mkid()}{pss\_mkid()}}
+{\footnotesize\ttfamily void pss\+\_\+mkid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{my\+\_\+s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{libpss_8h_aab5e44aa3e637ac5e2e993e798be6d91}\label{libpss_8h_aab5e44aa3e637ac5e2e993e798be6d91}} 
+\index{libpss.h@{libpss.h}!pss\_nrot@{pss\_nrot}}
+\index{pss\_nrot@{pss\_nrot}!libpss.h@{libpss.h}}
+\doxysubsubsection{\texorpdfstring{pss\_nrot()}{pss\_nrot()}}
+{\footnotesize\ttfamily void pss\+\_\+nrot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{my\+\_\+s,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{libpss_8h_a46d3ccc5eb27cde24b7d175fec5b0774}\label{libpss_8h_a46d3ccc5eb27cde24b7d175fec5b0774}} 
+\index{libpss.h@{libpss.h}!pss\_nrro@{pss\_nrro}}
+\index{pss\_nrro@{pss\_nrro}!libpss.h@{libpss.h}}
+\doxysubsubsection{\texorpdfstring{pss\_nrro()}{pss\_nrro()}}
+{\footnotesize\ttfamily void pss\+\_\+nrro (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{my\+\_\+s,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{libpss_8h_aa28505a2171678da35f03831abf043c8}\label{libpss_8h_aa28505a2171678da35f03831abf043c8}} 
+\index{libpss.h@{libpss.h}!pss\_ovbo@{pss\_ovbo}}
+\index{pss\_ovbo@{pss\_ovbo}!libpss.h@{libpss.h}}
+\doxysubsubsection{\texorpdfstring{pss\_ovbo()}{pss\_ovbo()}}
+{\footnotesize\ttfamily int pss\+\_\+ovbo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{my\+\_\+s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{libpss_8h_a2c8acea793ab052ee56973e96c0540cd}\label{libpss_8h_a2c8acea793ab052ee56973e96c0540cd}} 
+\index{libpss.h@{libpss.h}!pss\_pall@{pss\_pall}}
+\index{pss\_pall@{pss\_pall}!libpss.h@{libpss.h}}
+\doxysubsubsection{\texorpdfstring{pss\_pall()}{pss\_pall()}}
+{\footnotesize\ttfamily void pss\+\_\+pall (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{one,  }\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{two }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{libpss_8h_a8e0f825ca88fdc9cfb3713e8c4f3358f}\label{libpss_8h_a8e0f825ca88fdc9cfb3713e8c4f3358f}} 
 \index{libpss.h@{libpss.h}!pss\_peek@{pss\_peek}}
 \index{pss\_peek@{pss\_peek}!libpss.h@{libpss.h}}
 \doxysubsubsection{\texorpdfstring{pss\_peek()}{pss\_peek()}}
 {\footnotesize\ttfamily int pss\+\_\+peek (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{my\+\_\+s }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{libpss_8h_a0429c0285946b3eb3fb6d6496567c392}\label{libpss_8h_a0429c0285946b3eb3fb6d6496567c392}} 
+\mbox{\Hypertarget{libpss_8h_a8afc04130d07d89af8e0bd1bc80920bb}\label{libpss_8h_a8afc04130d07d89af8e0bd1bc80920bb}} 
+\index{libpss.h@{libpss.h}!pss\_peek\_idx@{pss\_peek\_idx}}
+\index{pss\_peek\_idx@{pss\_peek\_idx}!libpss.h@{libpss.h}}
+\doxysubsubsection{\texorpdfstring{pss\_peek\_idx()}{pss\_peek\_idx()}}
+{\footnotesize\ttfamily int pss\+\_\+peek\+\_\+idx (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{my\+\_\+s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{libpss_8h_a45f5b801820a0437c38706511e8ede75}\label{libpss_8h_a45f5b801820a0437c38706511e8ede75}} 
 \index{libpss.h@{libpss.h}!pss\_pope@{pss\_pope}}
 \index{pss\_pope@{pss\_pope}!libpss.h@{libpss.h}}
 \doxysubsubsection{\texorpdfstring{pss\_pope()}{pss\_pope()}}
-{\footnotesize\ttfamily int pss\+\_\+pope (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{my\+\_\+s,  }\item[{int $\ast$}]{num }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int pss\+\_\+pope (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{my\+\_\+s,  }\item[{int $\ast$}]{num,  }\item[{ssize\+\_\+t $\ast$}]{idx }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{libpss_8h_a087d7c6ee32af3841cac6590725c5815}\label{libpss_8h_a087d7c6ee32af3841cac6590725c5815}} 
+\index{libpss.h@{libpss.h}!pss\_prad@{pss\_prad}}
+\index{pss\_prad@{pss\_prad}!libpss.h@{libpss.h}}
+\doxysubsubsection{\texorpdfstring{pss\_prad()}{pss\_prad()}}
+{\footnotesize\ttfamily void pss\+\_\+prad (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{one,  }\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{two,  }\item[{ssize\+\_\+t}]{bit }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{libpss_8h_aaa4f96277300979436e11d231e1a7dd0}\label{libpss_8h_aaa4f96277300979436e11d231e1a7dd0}} 
 \index{libpss.h@{libpss.h}!pss\_prin@{pss\_prin}}
@@ -196,17 +275,23 @@ void \mbox{\hyperlink{libpss_8h_a3b87b14ae9c081cf06e99229a01598c7}{pss\+\_\+rrrr
 \doxysubsubsection{\texorpdfstring{pss\_prin()}{pss\_prin()}}
 {\footnotesize\ttfamily void pss\+\_\+prin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{my\+\_\+s }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{libpss_8h_a298972d8469de77ce9eb871d548a2ba3}\label{libpss_8h_a298972d8469de77ce9eb871d548a2ba3}} 
+\index{libpss.h@{libpss.h}!pss\_prnu@{pss\_prnu}}
+\index{pss\_prnu@{pss\_prnu}!libpss.h@{libpss.h}}
+\doxysubsubsection{\texorpdfstring{pss\_prnu()}{pss\_prnu()}}
+{\footnotesize\ttfamily void pss\+\_\+prnu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{my\+\_\+s }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{libpss_8h_a6ff170728ef2f1546ed2c27112f6c342}\label{libpss_8h_a6ff170728ef2f1546ed2c27112f6c342}} 
 \index{libpss.h@{libpss.h}!pss\_psoo@{pss\_psoo}}
 \index{pss\_psoo@{pss\_psoo}!libpss.h@{libpss.h}}
 \doxysubsubsection{\texorpdfstring{pss\_psoo()}{pss\_psoo()}}
 {\footnotesize\ttfamily void pss\+\_\+psoo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{dst,  }\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{ori,  }\item[{int}]{printme }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{libpss_8h_adba4db431db0d6da626626d593211cfe}\label{libpss_8h_adba4db431db0d6da626626d593211cfe}} 
+\mbox{\Hypertarget{libpss_8h_aaa0253d423f4deded141f218106212ab}\label{libpss_8h_aaa0253d423f4deded141f218106212ab}} 
 \index{libpss.h@{libpss.h}!pss\_push@{pss\_push}}
 \index{pss\_push@{pss\_push}!libpss.h@{libpss.h}}
 \doxysubsubsection{\texorpdfstring{pss\_push()}{pss\_push()}}
-{\footnotesize\ttfamily int pss\+\_\+push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{my\+\_\+s,  }\item[{int}]{num }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int pss\+\_\+push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{my\+\_\+s,  }\item[{int}]{num,  }\item[{ssize\+\_\+t}]{idx }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{libpss_8h_afe674394865c1f7350b9edf833856783}\label{libpss_8h_afe674394865c1f7350b9edf833856783}} 
 \index{libpss.h@{libpss.h}!pss\_reve@{pss\_reve}}
@@ -244,6 +329,12 @@ void \mbox{\hyperlink{libpss_8h_a3b87b14ae9c081cf06e99229a01598c7}{pss\+\_\+rrrr
 \doxysubsubsection{\texorpdfstring{pss\_size()}{pss\_size()}}
 {\footnotesize\ttfamily int pss\+\_\+size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{my\+\_\+s }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{libpss_8h_a82fecb5a24ba787343edf9ddb78f2ec8}\label{libpss_8h_a82fecb5a24ba787343edf9ddb78f2ec8}} 
+\index{libpss.h@{libpss.h}!pss\_sman@{pss\_sman}}
+\index{pss\_sman@{pss\_sman}!libpss.h@{libpss.h}}
+\doxysubsubsection{\texorpdfstring{pss\_sman()}{pss\_sman()}}
+{\footnotesize\ttfamily int pss\+\_\+sman (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{my\+\_\+s }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{libpss_8h_abc9e031c899e57e3a1817c02428a9d8a}\label{libpss_8h_abc9e031c899e57e3a1817c02428a9d8a}} 
 \index{libpss.h@{libpss.h}!pss\_swap@{pss\_swap}}
 \index{pss\_swap@{pss\_swap}!libpss.h@{libpss.h}}
@@ -255,4 +346,10 @@ void \mbox{\hyperlink{libpss_8h_a3b87b14ae9c081cf06e99229a01598c7}{pss\+\_\+rrrr
 \index{pss\_swsw@{pss\_swsw}!libpss.h@{libpss.h}}
 \doxysubsubsection{\texorpdfstring{pss\_swsw()}{pss\_swsw()}}
 {\footnotesize\ttfamily void pss\+\_\+swsw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{one,  }\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{two,  }\item[{int}]{printme }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{libpss_8h_a0ae5fd33241e6da3cdd673174dc1cf5e}\label{libpss_8h_a0ae5fd33241e6da3cdd673174dc1cf5e}} 
+\index{libpss.h@{libpss.h}!pss\_unpe@{pss\_unpe}}
+\index{pss\_unpe@{pss\_unpe}!libpss.h@{libpss.h}}
+\doxysubsubsection{\texorpdfstring{pss\_unpe()}{pss\_unpe()}}
+{\footnotesize\ttfamily int pss\+\_\+unpe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$}]{my\+\_\+s }\end{DoxyParamCaption})}
 

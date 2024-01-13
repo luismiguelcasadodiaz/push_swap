@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   chk_psoo.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:luicasad<luicasad@student.42barcelona.com>  +#+  +:+       +#+        */
+/*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/27 16:12:19 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/27 16:52:46 by luicasad         ###   ########.fr       */
+/*   Created: 2024/01/13 09:37:05 by luicasad          #+#    #+#             */
+/*   Updated: 2024/01/13 09:37:09 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "checker.h"
 
 /* ************************************************************************** */
@@ -25,9 +26,9 @@
 int	chk_psoo(t_pss *a, t_pss *b, char *move)
 {
 	if (move[1] == 'a')
-		pss_psoo(a, b, PRINTME);
+		pss_psoo(a, b, NOPRINT);
 	else if (move[1] == 'b')
-		pss_psoo(b, a, PRINTME);
+		pss_psoo(b, a, NOPRINT);
 	else
 		return (0);
 	return (1);

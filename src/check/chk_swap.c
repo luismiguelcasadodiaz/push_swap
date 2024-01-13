@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   chk_swap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:luicasad<luicasad@student.42barcelona.com>  +#+  +:+       +#+        */
+/*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/27 16:12:19 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/27 16:36:03 by luicasad         ###   ########.fr       */
+/*   Created: 2024/01/13 09:36:18 by luicasad          #+#    #+#             */
+/*   Updated: 2024/01/13 09:36:21 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "checker.h"
 
 /* ************************************************************************** */
@@ -26,11 +27,11 @@
 int	chk_swap(t_pss *a, t_pss *b, char *move)
 {
 	if (move[1] == 'a')
-		pss_swap(a, PRINTME);
+		pss_swap(a, NOPRINT);
 	else if (move[1] == 'b')
-		pss_swap(b, PRINTME);
+		pss_swap(b, NOPRINT);
 	else if (move[1] == 's')
-		pss_swsw(a, b, PRINTME);
+		pss_swsw(a, b, NOPRINT);
 	else
 		return (0);
 	return (1);

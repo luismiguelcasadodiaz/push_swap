@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 14:59:58 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/11 18:38:32 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/13 08:18:37 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,6 +107,7 @@ SRCS_CHECK = chk_init.c \
 		chk_rota.c \
 		chk_rrot.c \
 		chk_read.c \
+		chk_prin.c \
 		gnl_my_free.c \
 		gnl_substr.c \
 		gnl_join.c \

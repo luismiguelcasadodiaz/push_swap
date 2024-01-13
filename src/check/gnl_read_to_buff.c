@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 09:42:47 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/11 10:09:00 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/13 09:35:10 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "checker.h"
@@ -72,7 +72,7 @@ char	*gnl_read_to_buff(int fd, char	*read_buf, ssize_t *read_bytes)
 	*read_bytes = read(fd, read_raw, BUFFER_SIZE);
 	if (*read_bytes <= 0)
 	{
-	gnl_my_free(&read_raw);
+		gnl_my_free(&read_raw);
 		if (*read_bytes == -1)
 			return (gnl_my_free(&read_buf));
 		return (read_buf);

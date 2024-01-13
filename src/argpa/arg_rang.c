@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 08:58:33 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/31 19:23:15 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/13 11:18:49 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 /*.@var long arg_num                                                         .*/
 /*.Holds the value resulting form convert arg string int a number            .*/
 /*.                                                                          .*/
-/*./author LMCD (Luis Miguel Casado Diaz)                                    .*/
+/*.@author LMCD (Luis Miguel Casado Diaz)                                    .*/
 /*.>*                                                                        .*/
 /* ************************************************************************** */
 int	arg_range_int(char *arg, int *my_int)

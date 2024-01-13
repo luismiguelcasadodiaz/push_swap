@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['siz_0',['siz',['../da/d15/structs__pss.html#acbd72a07178b44d84309e89d72cb440c',1,'s_pss']]],
-  ['sma_1',['sma',['../da/d15/structs__pss.html#a3a1103649674a9f3711bb3d5762d6d67',1,'s_pss']]]
+  ['prev_0',['prev',['../dc/d78/structs__nod.html#a4f3cea3f9a9d2a1ab8878a0574dcb5a2',1,'s_nod']]]
 ];

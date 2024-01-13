@@ -1,11 +1,5 @@
 \hypertarget{arg__seen_8c}{}\doxysection{src/argpa/arg\+\_\+seen.c File Reference}
 \label{arg__seen_8c}\index{src/argpa/arg\_seen.c@{src/argpa/arg\_seen.c}}
-
-
-\mbox{\hyperlink{arg__seen_8c_aadfc1b99330b7cc1cbd16915e0c85522}{arg\+\_\+seen()}} check if num has been previously seen in the arguments. ~\newline
-  
-
-
 {\ttfamily \#include \char`\"{}argpar.\+h\char`\"{}}\newline
 Include dependency graph for arg\+\_\+seen.\+c\+:
 % FIG 0
@@ -14,34 +8,6 @@ Include dependency graph for arg\+\_\+seen.\+c\+:
 \item 
 int \mbox{\hyperlink{arg__seen_8c_aadfc1b99330b7cc1cbd16915e0c85522}{arg\+\_\+seen}} (int num, \mbox{\hyperlink{libpss_8h_a8a1972914f35eb43f2d2741e4a0c2a59}{t\+\_\+pss}} $\ast$a)
 \end{DoxyCompactItemize}
-
-
-\doxysubsection{Detailed Description}
-\mbox{\hyperlink{arg__seen_8c_aadfc1b99330b7cc1cbd16915e0c85522}{arg\+\_\+seen()}} check if num has been previously seen in the arguments. ~\newline
- 
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em num} & the num to see if exists inside the stack. ~\newline
- \\
-\hline
-\mbox{\texttt{ in}}  & {\em a} & the stack to save the arguments. ~\newline
-\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-0 if the argument has not been seen previously. That is, it is not ~\newline
- inside the stack. 1 if the argument has been seen. ~\newline
-
-\end{DoxyReturn}
-~\newline
- Loops the stack looking for num. If there is not, pushes num into the stack ~\newline
- and returns zero. Otherwiser returns one ==\texorpdfstring{$>$}{>} arg\+\_\+seen == True ~\newline
-
-
-\begin{DoxyAuthor}{Author}
-LMCD (Luis Miguel Casado Díaz) 
-\end{DoxyAuthor}
 
 
 \doxysubsection{Function Documentation}

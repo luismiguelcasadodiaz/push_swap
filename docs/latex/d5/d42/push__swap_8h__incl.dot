@@ -23,6 +23,7 @@ digraph "inc/push_swap.h"
   Node8 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
   Node8 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
   Node8 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
   Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
   Node9 [label="argpar.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d7/db5/argpar_8h.html",tooltip=" "];
   Node9 -> Node8 [color="midnightblue",fontsize="10",style="solid"];

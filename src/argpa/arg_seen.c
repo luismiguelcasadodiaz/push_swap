@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 08:57:26 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/08 23:33:37 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/13 11:19:07 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 /*.Loops the stack looking for num. If there is not, pushes num into  stack  .*/
 /*.and returns zero. Otherwiser returns one ==> arg_seen == True             .*/
 /*.                                                                          .*/
-/*./author LMCD (Luis Miguel Casado Diaz)                                    .*/
+/*.@author LMCD (Luis Miguel Casado Diaz)                                    .*/
 /*.>*                                                                        .*/
 /* ************************************************************************** */
 int	arg_seen(int num, t_pss *a)

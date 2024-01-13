@@ -6,23 +6,32 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 08:57:56 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/11 10:58:01 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/13 11:18:19 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "argpar.h"
 
 /* ************************************************************************** */
-/* arg_digits() verifies that al chars in arg are either +-0123456789.        */
-/*                                                                            */
-/* OPERATES:                                                                  */
-/* Set the hypothesis that arg it is ok.                                      */
-/*                                                                            */
-/* evaluates if first char of argument is +-0..9                              */
-/* Loops the argument string while each char validates against   0123456789   */
-/*                                                                            */
-/* RETURNS:                                                                   */
-/* 1 if all char are all ok, 0 otherwise.                                     */
+/*.<*                                                                        .*/
+/*.@file arg_digi.c                                                          .*/
+/*.@brief arg_digits() verifies all arg's  chars are either +-0123456789.    .*/
+/*.                                                                          .*/
+/*.@param[in] arg: The string to validate as integer.                        .*/
+/*.                                                                          .*/
+/*.@returns                                                                  .*/
+/*.1 if all char are all ok, 0 otherwise.                                    .*/
+/*.                                                                          .*/
+/*.@details                                                                  .*/
+/*.An isolated sign (+/-) is not accepted.                                   .*/
+/*.                                                                          .*/
+/*.Set the hypothesis that arg it is ok.                                     .*/
+/*.                                                                          .*/
+/*.evaluates if first char of argument is +-0..9                             .*/
+/*.Loops the argument string while each char validates against   0123456789  .*/
+/*.                                                                          .*/
+/*.@author LMCD (Luis Miguel Casado Diaz)                                    .*/
+/*.>*                                                                        .*/
 /* ************************************************************************** */
 static int	check(char c)
 {

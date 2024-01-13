@@ -6,12 +6,12 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 09:08:13 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/11 18:50:11 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/13 09:19:59 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-static void	ps_sor5_aux(t_pss *a, t_pss *b)
+static void	ps_sor5_case3(t_pss *a, t_pss *b)
 {
 	int	num_rota;
 
@@ -35,11 +35,7 @@ static void	ps_sor5_aux(t_pss *a, t_pss *b)
 		else
 			pss_psoo(a, b, PRINTME);
 	}
-	while (num_rota)
-	{
-		pss_rrot(a, PRINTME);
-		num_rota--;
-	}
+	pss_nrro(a, num_rota);
 }
 
 /* ************************************************************************** */
@@ -74,7 +70,7 @@ void	ps_sor5(t_pss *a, t_pss *b)
 	pss_psoo(b, a, PRINTME);
 	ps_sor3(a);
 	if ((pss_sman(a) < pss_sman(b)) && (pss_bign(b) < pss_bign(a)))
-		ps_sor5_aux(a, b);
+		ps_sor5_case3(a, b);
 	else
 	{
 		ps_add4(a, b);

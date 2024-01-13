@@ -16,4 +16,9 @@ digraph "src/stack/pss_maxi.c"
   Node5 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
   Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
   Node6 [label="limits.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node2 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="libft.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d6/d7e/libft_8h.html",tooltip=" "];
+  Node7 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="errno.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
 }

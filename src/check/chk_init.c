@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   chk_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:luicasad<luicasad@student.42barcelona.com>  +#+  +:+       +#+        */
+/*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/27 08:56:37 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/27 16:59:56 by luicasad         ###   ########.fr       */
+/*   Created: 2024/01/13 09:34:25 by luicasad          #+#    #+#             */
+/*   Updated: 2024/01/13 09:34:28 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "checker.h"
 
 void	chk_init(int *i, t_pss **a, t_pss **b, int *all_OK)
@@ -18,4 +19,3 @@ void	chk_init(int *i, t_pss **a, t_pss **b, int *all_OK)
 	*a = pss_init('a');
 	*b = pss_init('b');
 }
-

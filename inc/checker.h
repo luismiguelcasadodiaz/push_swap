@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 09:22:38 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/11 13:16:46 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/13 08:42:52 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,5 @@ int		chk_psoo(t_pss *a, t_pss *b, char *move);
 int		chk_rota(t_pss *a, t_pss *b, char *move);
 int		chk_rrot(t_pss *a, t_pss *b, char *move);
 int		chk_read(t_pss *a, t_pss *b);
+void	chk_prin(t_pss *a, t_pss *b);
 #endif
