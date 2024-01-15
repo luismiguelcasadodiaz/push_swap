@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 #generates $1 random numbers of 1 byte (-N1) from /dev /random
 #USAGE ./random.sh 7 

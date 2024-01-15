@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 14:59:58 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/13 08:18:37 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/15 13:13:39 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,24 +100,24 @@ SRCS_PUSHS = 	ps_sort.c \
 		ps_radi.c \
 		push_swap.c
 
-SRCS_CHECK = chk_init.c \
-		chk_trea.c \
-		chk_swap.c \
-		chk_psoo.c \
-		chk_rota.c \
-		chk_rrot.c \
-		chk_read.c \
-		chk_prin.c \
-		gnl_my_free.c \
-		gnl_substr.c \
-		gnl_join.c \
-		gnl_strlen.c \
-		gnl_strlen_and_nl.c \
-		gnl_read_to_buff.c \
-		gnl_buff_analisis.c \
-		gnl_buff_flush.c \
-		get_next_line.c \
-		checker.c
+SRCS_CHECK = chk_init_bonus.c \
+		chk_trea_bonus.c \
+		chk_swap_bonus.c \
+		chk_psoo_bonus.c \
+		chk_rota_bonus.c \
+		chk_rrot_bonus.c \
+		chk_read_bonus.c \
+		chk_prin_bonus.c \
+		gnl_my_free_bonus.c \
+		gnl_substr_bonus.c \
+		gnl_join_bonus.c \
+		gnl_strlen_bonus.c \
+		gnl_strlen_and_nl_bonus.c \
+		gnl_read_to_buff_bonus.c \
+		gnl_buff_analisis_bonus.c \
+		gnl_buff_flush_bonus.c \
+		get_next_line_bonus.c \
+		checker_bonus.c
 
 FILE_PUSHS = $(addprefix $(SRCDIR_PUSHS), $(SRCS_PUSHS))
 FILE_CHECK = $(addprefix $(SRCDIR_CHECK), $(SRCS_CHECK))
