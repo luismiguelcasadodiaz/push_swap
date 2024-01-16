@@ -9,7 +9,7 @@
 /*   Updated: 2024/01/11 09:39:29 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "checker.h"
+#include "checker_bonus.h"
 
 /* gnl_strlen_and_nl() returns s'lenght and the pos of a newline char in s    */
 /*                                                                            */

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 /* ************************************************************************** */
 /* chk_psoo() calls the right pss push function according to move's second    */

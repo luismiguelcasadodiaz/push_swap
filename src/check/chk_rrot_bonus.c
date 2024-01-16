@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 /* ************************************************************************** */
 /* chk_rrot() calls the right pss rrot function according to move's third     */

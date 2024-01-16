@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 /* gnl_join() joins preffix(buf) with suffix(raw). Both null terminated       */
 /*                                                                            */

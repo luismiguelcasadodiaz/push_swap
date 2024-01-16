@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 /* ************************************************************************** */
 /* chk_swap() calls the right pss swap function according to move's second    */

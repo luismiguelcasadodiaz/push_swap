@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 /* ************************************************************************** */
 /* chk_rota() calls the right pss rota function according to move's second    */

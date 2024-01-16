@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 /* gnl_my_free() releases memory, sets pointer to null ans returns null.      */
 /*                                                                            */

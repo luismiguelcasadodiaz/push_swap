@@ -9,7 +9,7 @@
 /*   Updated: 2024/01/13 09:35:10 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "checker.h"
+#include "checker_bonus.h"
 
 /* gnl_read_to_buff() joins existing buffer and read bytes from file          */
 /*                                                                            */

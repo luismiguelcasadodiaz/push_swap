@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 /* ************************************************************************** */
 /* chk_trea() analyses the argument. If it is a move, executes the move.      */

@@ -9,7 +9,7 @@
 /*   Updated: 2024/01/11 09:37:51 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "checker.h"
+#include "checker_bonus.h"
 
 /*                                                                            */
 /* gnl_strlen() returns s'lenght                                              */

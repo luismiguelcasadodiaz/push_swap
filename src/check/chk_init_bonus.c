@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 void	chk_init(int *i, t_pss **a, t_pss **b, int *all_OK)
 {

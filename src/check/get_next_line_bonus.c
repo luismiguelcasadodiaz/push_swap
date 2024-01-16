@@ -9,7 +9,7 @@
 /*   Updated: 2024/01/11 10:36:14 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "checker.h"
+#include "checker_bonus.h"
 
 /* get_next_line() returns a line from a file descriptor.                     */
 /*                                                                            */

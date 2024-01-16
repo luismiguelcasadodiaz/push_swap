@@ -6,10 +6,10 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 19:08:37 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/13 09:32:19 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/16 10:21:24 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "checker.h"
+#include "checker_bonus.h"
 
 int	main(int argc, char **argv)
 {
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 		b = pss_init('b');
 		all_ok = chk_read(a, b);
 		if (!all_ok)
-			ft_printf("Error\n");
+			ft_putstr_fd("Error\n", 2);
 		else if (pss_isor(a) && pss_empt(b))
 			ft_printf("OK\n");
 		else
@@ -35,6 +35,6 @@ int	main(int argc, char **argv)
 		pss_free(a);
 	}
 	else
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
 	return (0);
 }

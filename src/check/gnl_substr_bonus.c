@@ -9,7 +9,7 @@
 /*   Updated: 2024/01/11 09:58:51 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "checker.h"
+#include "checker_bonus.h"
 
 /* gnl_substr () returns a substring of size len from a string starting in    */
 /* the start position                                                         */

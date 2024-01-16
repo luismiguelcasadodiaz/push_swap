@@ -9,7 +9,7 @@
 /*   Updated: 2024/01/11 10:09:22 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "checker.h"
+#include "checker_bonus.h"
 
 /* gnl_buff_analisis() splits buffer by first newline  in line and new_buf    */
 /*                                                                            */

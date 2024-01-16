@@ -9,7 +9,7 @@
 /*   Updated: 2024/01/11 10:10:35 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "checker.h"
+#include "checker_bonus.h"
 
 /* gnl_buff_flush() Empties the buffer                                        */
 /*                                                                            */
