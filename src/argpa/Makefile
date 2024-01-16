@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/16 10:37:39 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/16 12:28:27 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -75,6 +75,11 @@ OBJS = $(addprefix $(OBJDIR), $(_OBJS))
 
 
 all: $(NAME)
+
+#includes all dependencies files.
+ #READ GNU make  manual 4.14 Generating Prerequisites Automatically.
+include $(SRCS:.c=.d)
+
 #	$(info sources $(SRCS))
 #	$(info objects $(_OBJS))
 #	$(info targets $(OBJS))
@@ -100,10 +105,20 @@ $(OBJS): $(SRCS) Makefile $(INCDIR)$(HEADER)
 	@echo "$(CYAN)LIBARGPAR ========== COMPILING ALL OBJECTS ====================$(DEF_COLOR)"
 	$(CC) $(CFLAGS)  -c $< -o $@ $(HEADS)
 
+#for each c file create its dependency file
+#READ GNU make  manual 4.14 Generating Prerequisites Automatically.
+#READ GNU gcc manuel 3.13 Options controlling the preprocessor.
+%.d: %.c
+	@set -e; rm -f $@; \
+	$(CC) $(HEADS) -MM $< > $@.$$$$ ; \
+	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
+
 # removes all generated object files
 clean:
 	@echo "$(CYAN)LIBARGPAR ========== REMOVING ALL OBJECTS =====================$(DEF_COLOR)"
 	rm -f $(OBJS)
+	rm -f *.d
 
 # removes target file and all generated object files
 fclean: clean

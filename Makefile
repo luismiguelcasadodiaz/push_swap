@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 14:59:58 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/15 13:13:39 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/16 13:32:23 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ VPATH			= $(OBJDIR):$(INCDIR):$(LIBDIR):$(SRCDIR_STACK):$(SRCDIR_CHECK)
 # ============================================================================ #
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
-CC 			= gcc
+CC 				= cc
 WRNFL			= -Wall -Wextra -Werror
 DBGFL			= -g
 CFLGS			= $(DBGFL) $(WRNFL) -c
@@ -89,35 +89,36 @@ LLIBS 			= -L$(LIBDIR) -l$(LOADLIBARGPA) -l$(LOADLIBSS) -l$(LOADLIBPRINTF) -l$(L
 #                                 SOURCES                                      #
 # ============================================================================ #
 
+HEADER		=	push_swap.h
+SRCS_PUSHS	= 	ps_sort.c \
+				ps_sor2.c \
+				ps_sor3.c \
+				ps_sor4.c \
+				ps_sor5.c \
+				ps_add4.c \
+				ps_add5.c \
+				ps_radi.c \
+				push_swap.c
 
-SRCS_PUSHS = 	ps_sort.c \
-		ps_sor2.c \
-		ps_sor3.c \
-		ps_sor4.c \
-		ps_sor5.c \
-		ps_add4.c \
-		ps_add5.c \
-		ps_radi.c \
-		push_swap.c
-
-SRCS_CHECK = chk_init_bonus.c \
-		chk_trea_bonus.c \
-		chk_swap_bonus.c \
-		chk_psoo_bonus.c \
-		chk_rota_bonus.c \
-		chk_rrot_bonus.c \
-		chk_read_bonus.c \
-		chk_prin_bonus.c \
-		gnl_my_free_bonus.c \
-		gnl_substr_bonus.c \
-		gnl_join_bonus.c \
-		gnl_strlen_bonus.c \
-		gnl_strlen_and_nl_bonus.c \
-		gnl_read_to_buff_bonus.c \
-		gnl_buff_analisis_bonus.c \
-		gnl_buff_flush_bonus.c \
-		get_next_line_bonus.c \
-		checker_bonus.c
+HEADER_BON	=	checker_bonus.h
+SRCS_CHECK	 =	chk_init_bonus.c \
+				chk_trea_bonus.c \
+				chk_swap_bonus.c \
+				chk_psoo_bonus.c \
+				chk_rota_bonus.c \
+				chk_rrot_bonus.c \
+				chk_read_bonus.c \
+				chk_prin_bonus.c \
+				gnl_my_free_bonus.c \
+				gnl_substr_bonus.c \
+				gnl_join_bonus.c \
+				gnl_strlen_bonus.c \
+				gnl_strlen_and_nl_bonus.c \
+				gnl_read_to_buff_bonus.c \
+				gnl_buff_analisis_bonus.c \
+				gnl_buff_flush_bonus.c \
+				get_next_line_bonus.c \
+				checker_bonus.c
 
 FILE_PUSHS = $(addprefix $(SRCDIR_PUSHS), $(SRCS_PUSHS))
 FILE_CHECK = $(addprefix $(SRCDIR_CHECK), $(SRCS_CHECK))
@@ -132,7 +133,13 @@ $(info object patha $(OBJS_PUSHS))
 #                                 RULES                                        #
 # ============================================================================ #
 all: makedirs makelibs $(NAME)
+#includes all dependencies files.
+#READ GNU make  manual 4.14 Generating Prerequisites Automatically.
+include $(SRCS_PUSH:.c=.d)
+
+
 bonus: makedirs makelibs $(BONUS)
+include $(SRCS_CHECK:.c=.d)
 # .......................... directories creation ............................ #
 
 makedirs:
@@ -145,11 +152,11 @@ makedirs:
 makelibs: $(MYLIBS) 
 
 $(NAMELIBPRINTF): makelibftprintf 
-$(NAMELIBFT): 	  makelibft
+$(NAMELIBFT): 	  makelibft $(LIBDIR)$(NAMELIBFT)
 $(NAMELIBPSS):    makelibpss
 $(NAMELIBARGPA):  makelibargpa
 
-makelibft:
+makelibft: 
 	$(MAKE) -C $(SRCDIR_LIBFT)
 
 makelibftprintf:
@@ -161,6 +168,15 @@ makelibpss:
 makelibargpa:
 	$(MAKE) -C $(SRCDIR_ARGPA)
 
+# ....................... dependencies construction .......................... #
+#for each c file create its dependency file 
+#READ GNU make  manual 4.14 Generating Prerequisites Automatically.
+#READ GNU gcc manuel 3.13 Options controlling the preprocessor.
+%.d: %.c
+	@set -e; rm -f $@; \
+	$(CC) $(HEADS) -MM $< > $@.$$$$ ; \
+	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+    rm -f $@.$$$$
 # .......................... targets construction ............................ #
 $(NAME): Makefile $(OBJS_PUSHS)
 	@echo "$(GREEN)========== GATHERING PUSH_SWAP OBJECTS =============$(DEF_COLOR)"
@@ -184,11 +200,11 @@ $(BONUS): Makefile $(OBJS_CHECK)
 #	@echo "========== COMPILING PUSH_SWAP FILES ==============="
 #	$(CC) $(CFLGS) $< -o $@ $(HEADS)  
 
-$(OBJDIR)%.o: $(SRCDIR_PUSHS)%.c
+$(OBJDIR)%.o: $(SRCDIR_PUSHS)%.c $(INCDIR)$(HEADER)
 	@echo "$(GREEN)========== COMPILING PUSH_SWAP FILES ===============$(DEF_COLOR)"
 	$(CC) $(CFLGS) $< -o $@ $(HEADS)  
 
-$(OBJDIR)%.o: $(SRCDIR_CHECK)%.c
+$(OBJDIR)%.o: $(SRCDIR_CHECK)%.c $(INCDIR)$(HEADER_BON)
 	@echo "$(MAGENTA)========== COMPILING  CHECKER  FILES ===============$(DEF_COLOR)"
 	$(CC) $(CFLGS) $< -o $@ $(HEADS) 
  

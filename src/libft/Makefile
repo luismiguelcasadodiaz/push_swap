@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/16 10:35:23 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/16 13:32:25 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #MAKEFLAGS += rR
@@ -124,6 +124,9 @@ OBJS = $(addprefix $(OBJDIR), $(_OBJS))
 
 all: $(NAME)
 
+#includes all dependencies files.
+#READ GNU make  manual 4.14 Generating Prerequisites Automatically.
+include $(SRCS:.c=.d)
 
 # Vous devez utiliser la commande ar pour créer votre bibliothèque
 # NOTE rcs:
@@ -140,14 +143,24 @@ $(NAME): $(OBJS)
 
 # For each c file create its object file.
 #$(OBJS): $(SRCS) 
-%.o: %.c Makefile $(INCDIR)$(HEADER)
+%.o: %.c Makefile 
 	@echo "$(BLUE)LIBFT ========== COMPILING ALL OBJECTS ====================$(DEF_COLOR)"
 	$(CC) $(CFLAGS)  -c $< -o $@ $(HEADS)
+
+#for each c file create its dependency file 
+#READ GNU make  manual 4.14 Generating Prerequisites Automatically.
+#READ GNU gcc manuel 3.13 Options controlling the preprocessor.
+%.d: %.c
+	@set -e; rm -f $@; \
+	$(CC) $(HEADS) -MM $< > $@.$$$$ ; \
+	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+    rm -f $@.$$$$
 
 # removes all generated object files
 clean:
 	@echo "$(BLUE)LIBFT ========== REMOVING ALL OBJECTS =====================$(DEF_COLOR)"
 	rm -f $(OBJS)
+	rm -f *.d
 
 # removes target file and all generated object files
 fclean: clean

@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:08:17 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/16 10:34:37 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/16 12:37:39 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -79,7 +79,9 @@ OBJS = $(addprefix $(OBJDIR), $(_OBJS))
 # This is the reason for writtting this rule the first one
 
 all: $(NAME)
-
+#includes all dependencies files.
+#READ GNU make  manual 4.14 Generating Prerequisites Automatically.
+include $(SRCS:.c=.d)
 
 $(NAME): $(OBJS)
 	@echo "$(YELLOW)FT_PRINTF ======= GATHERING ALL OBJECTS =====================$(DEF_COLOR)"
@@ -94,11 +96,21 @@ $(NAME): $(OBJS)
 	@echo "$(YELLOW)FT_PRINTF ======= COMPILING ALL OBJECTS =====================$(DEF_COLOR)"
 	$(CC) $(CFLAGS) -c $< -o $@ $(HEADS)
 
+#for each c file create its dependency file
+#READ GNU make  manual 4.14 Generating Prerequisites Automatically.
+#READ GNU gcc manuel 3.13 Options controlling the preprocessor.
+%.d: %.c
+	@set -e; rm -f $@; \
+	$(CC) $(HEADS) -MM $< > $@.$$$$ ; \
+	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
+
 
 # removes all generated object files
 clean:
 	@echo "$(YELLOW)FT_PRINTF ======= REMOVING ALL OBJECTS ======================$(DEF_COLOR)"
 	rm -f $(OBJS)
+	rm -f *.d
 
 # removes target file and all generated object files
 fclean: clean
