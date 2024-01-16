@@ -6,11 +6,12 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 08:58:33 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/13 11:18:49 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/16 13:27:02 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "argpar.h"
+#include "libft.h"
 
 /* ************************************************************************** */
 /*.<*                                                                        .*/
@@ -33,7 +34,13 @@
 int	arg_range_int(char *arg, int *my_int)
 {
 	long	arg_num;
+	short	l;
+	char	c;
 
+	l = ft_strlen(arg);
+	c = arg[0];
+	if (((c == '+' || c == '-' ) && l > 11) || (c != '+' && c != '-' && l > 10))
+		return (0);
 	arg_num = ft_atol(arg);
 	if (INT_MIN <= arg_num && arg_num <= INT_MAX)
 	{

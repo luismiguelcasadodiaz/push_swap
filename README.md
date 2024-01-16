@@ -179,3 +179,16 @@ sed -i 's/\.\*\//   /' $1
 ```
 
 [you will find it here 42norma2doxugen.sh](https://github.com/luismiguelcasadodiaz/push_swap/blob/main/docs/42norma2doxygen.sh) 
+## header file changes name
+
+During the evaluation, Paul Borrull noticed that bonus part had not ` _bonus.c/h`. After changing file names i still had to change includes inside the files.
+
+I solved it with one command.
+
+```bash
+ sed -i'.bak' -e  's/checker\.h/checker_bonus\.h/' *
+ ```
+
+`*` for all folders files.
+`-i'.bak'` edit files in-place saving backups with extension `.bak`.
+`-e ` append the command to the list of command to execute.
