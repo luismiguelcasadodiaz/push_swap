@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/11 14:49:33 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/16 10:37:39 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -61,9 +61,10 @@ HEADS		=	-I$(INCDIR)
 #                                   SOURCES                                    #
 # ============================================================================ #
 SRCS	=	arg_digi.c \
-		arg_rang.c \
-		arg_seen.c \
-		arg_pars.c 
+			arg_rang.c \
+			arg_seen.c \
+			arg_pars.c 
+HEADER	=	argpar.h
 
 # Generate a list of object files by replacing .c with .o 
 _OBJS = $(SRCS:.c=.o)
@@ -86,14 +87,14 @@ all: $(NAME)
 # - s can be seen to mean 'sort' (create a sorted index of) the library, so that it will be indexed and faster to access the functions in the library.
 #   Therefore, rcs can be seen to mean replace, create, sort
 
-$(NAME): $(OBJS) 
+$(NAME): $(OBJS)
 	@echo "$(CYAN)LIBARGPAR ========== GATHERING ALL OBJECTS ====================$(DEF_COLOR)"
 	ar rcs $(NAME) $?
 	cp $(NAME) $(LIBDIR)
 
 
 # For each c file create its object file.
-$(OBJS): $(SRCS) Makefile
+$(OBJS): $(SRCS) Makefile $(INCDIR)$(HEADER)
 
 %.o: %.c Makefile
 	@echo "$(CYAN)LIBARGPAR ========== COMPILING ALL OBJECTS ====================$(DEF_COLOR)"

@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/11 14:33:47 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/16 10:35:23 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #MAKEFLAGS += rR
@@ -57,7 +57,8 @@ HEADS		=	-I$(INCDIR)
 #
 # So I must explicitly enumerate files for the project.
 
-SRCS =	ft_isalnum.c \
+HEADER	=	libft.h
+SRCS	=	ft_isalnum.c \
       	ft_isalpha.c \
       	ft_isascii.c \
       	ft_isdigit.c \
@@ -139,7 +140,7 @@ $(NAME): $(OBJS)
 
 # For each c file create its object file.
 #$(OBJS): $(SRCS) 
-%.o: %.c Makefile $(INCDIR)libft.h
+%.o: %.c Makefile $(INCDIR)$(HEADER)
 	@echo "$(BLUE)LIBFT ========== COMPILING ALL OBJECTS ====================$(DEF_COLOR)"
 	$(CC) $(CFLAGS)  -c $< -o $@ $(HEADS)
 

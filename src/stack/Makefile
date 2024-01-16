@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/11 14:50:31 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/16 10:36:16 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -60,6 +60,7 @@ HEADS		=	-I$(INCDIR)
 # ============================================================================ #
 #                                   SOURCES                                    #
 # ============================================================================ #
+HEADER	=	libpss.h
 SRCS	=	nod_init.c \
 		nod_free.c \
 		pss_init.c \
@@ -125,7 +126,7 @@ $(NAME): $(OBJS)
 
 
 # For each c file create its object file.
-$(OBJS): $(SRCS) Makefile
+$(OBJS): $(SRCS) Makefile $(INCDIR)$(HEADER)
 
 %.o: %.c Makefile
 	@echo "$(RED)LIBPSS ========== COMPILING ALL OBJECTS ====================$(DEF_COLOR)"

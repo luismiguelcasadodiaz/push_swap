@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:08:17 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/11 14:48:28 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/16 10:34:37 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -57,7 +57,8 @@ HEADS		=	-I$(INCDIR)
 #
 # So I must explicitly enumerate files for the project.
 
-SRCS := ft_write_str.c \
+HEADER	= ft_printf.h
+SRCS 	= ft_write_str.c \
         ft_write_c.c \
 		ft_write_int_base.c \
 		ft_write_uns_base.c \
@@ -88,8 +89,8 @@ $(NAME): $(OBJS)
 
 # For each c file create its object file.
 
-#$(OBJS): $(SRCS)
-%.o: %.c Makefile
+#$(OBJS): $(SRCS) Makefile $(INCDIR)$(HEADER)
+%.o: %.c Makefile $(INCDIR)$(HEADER)
 	@echo "$(YELLOW)FT_PRINTF ======= COMPILING ALL OBJECTS =====================$(DEF_COLOR)"
 	$(CC) $(CFLAGS) -c $< -o $@ $(HEADS)
 
