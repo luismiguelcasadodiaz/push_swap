@@ -258,19 +258,21 @@ pss_unpe.o pss_unpe.d : pss_unpe.c ../../inc/libpss.h
 This rules sets that any changes in either `pss_unpe.c` or in `../../inc/libpass.h`  affects to object file and dependency file.
 
 All this magic happens wiht this rule from GNU make  manual [4.14 Generating Prerequisites Automatically](https://www.gnu.org/software/make/manual/make.html#Automatic-Prerequisites).
+
+```make
 %.d: %.c
 	@set -e; rm -f $@; \
 	$(CC) $(HEADS) -MM $< > $@.$$$$ ; \
 	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
     rm -f $@.$$$$
-
+```
 Once the dependencies files (make rules) are properly formatted, they have to be included into `Makefile` with:
 
 ```make
 DEPE_PUSHS = $(addprefix $(OBJDIR), $(SRCS_PUSHS:.c=.d))
  -include $(DEPE_PUSHS)
  ```
-The [include directive] (https://www.gnu.org/software/make/manual/make.html#Include) tells make to suspend reading the current makefile and read one or more other makefiles before continuing. 
+The [include directive](https://www.gnu.org/software/make/manual/make.html#Include) tells make to suspend reading the current makefile and read one or more other makefiles before continuing. 
 Please notice leading  minus sign .If you want make to simply ignore a makefile which does not exist or cannot be remade,(that happens the first time) with no error message, use the -include directive instead of include,
 
 With this knowledge, now i manage a more clever compilation process, where only REAL depended files are recompiled when something the file depends on has changed.
