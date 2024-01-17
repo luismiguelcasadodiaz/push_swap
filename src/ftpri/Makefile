@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:08:17 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/16 12:37:39 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/17 10:34:58 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -15,7 +15,7 @@ MAKEFLAGS += rR
 # ============================================================================ #
 DEF_COLOR	=	\033[0;39m
 GRAY		=	\033[0;90m
-RED		=	\033[0;91m
+RED			=	\033[0;91m
 GREEN		=	\033[0;92m
 YELLOW		=	\033[0;93m
 BLUE		=	\033[0;94m
@@ -37,16 +37,15 @@ NAME = libftprintf.a
 #                                 FOLDERS                                      #
 # ============================================================================ #
 #OBJDIR		= ../../obj/
-#INCDIR		= ../../inc/
+INCDIR		= ../../inc/
 LIBDIR		= ../../lib/
 OBJDIR		= 
-INCDIR		= ../../inc/
-#LIBDIR		= 
+vpath %.a $(LIBDIR)
 # ============================================================================ #
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
-CC = cc
-CFLAGS = -g -Wall -Wextra -Werror
+CC 			= 	cc
+CFLAGS 		= 	-g -Wall -Wextra -Werror
 HEADS		=	-I$(INCDIR)
 # From 4.4.3 The Function wildcard gnu make manual....
 # Althought wildcard exparnds automaticaly in rules
@@ -57,18 +56,18 @@ HEADS		=	-I$(INCDIR)
 #
 # So I must explicitly enumerate files for the project.
 
-HEADER	= ft_printf.h
-SRCS 	= ft_write_str.c \
-        ft_write_c.c \
-		ft_write_int_base.c \
-		ft_write_uns_base.c \
-		ft_write_ptr.c \
-		ft_write_int.c \
-		ft_write_dec.c \
-		ft_write_uns.c \
-		ft_write_hex_low.c \
-		ft_write_hex_cap.c \
-		ft_printf.c
+HEADER		=	ft_printf.h
+SRCS 		= 	ft_write_str.c \
+        		ft_write_c.c \
+				ft_write_int_base.c \
+				ft_write_uns_base.c \
+				ft_write_ptr.c \
+				ft_write_int.c \
+				ft_write_dec.c \
+				ft_write_uns.c \
+				ft_write_hex_low.c \
+				ft_write_hex_cap.c \
+				ft_printf.c
 
 # Generate a list of object files by replacing .c with .o
 
@@ -86,12 +85,11 @@ include $(SRCS:.c=.d)
 $(NAME): $(OBJS)
 	@echo "$(YELLOW)FT_PRINTF ======= GATHERING ALL OBJECTS =====================$(DEF_COLOR)"
 	ar rcs $(NAME) $?
-	cp $(NAME) $(LIBDIR)
-
+	mv $(NAME) $(LIBDIR)
 
 # For each c file create its object file.
-
 #$(OBJS): $(SRCS) Makefile $(INCDIR)$(HEADER)
+
 %.o: %.c Makefile $(INCDIR)$(HEADER)
 	@echo "$(YELLOW)FT_PRINTF ======= COMPILING ALL OBJECTS =====================$(DEF_COLOR)"
 	$(CC) $(CFLAGS) -c $< -o $@ $(HEADS)

@@ -6,12 +6,12 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 14:59:58 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/16 13:32:23 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/17 12:10:41 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #Here, rR is equivalent to --no-builtin-rules --no-builtin-variables.
-MAKEFLAGS += rR
+#MAKEFLAGS += rR
 #$(foreach x,$(filter-out .% MAKE% SHELL CURDIR,$(.VARIABLES)) MAKEINFO,$(if $(filter default,$(origin $x)),$(eval override undefine $x)))
 # ============================================================================ #
 #                                 COLORS                                       #
@@ -52,7 +52,7 @@ OBJDIR 			= ./obj/
 INCDIR 			= ./inc/
 LIBDIR			= ./lib/
 REQUIRED_DIRS	= $(OBJDIR) $(INCDIR) $(LIBDIR)
-VPATH			= $(OBJDIR):$(INCDIR):$(LIBDIR):$(SRCDIR_STACK):$(SRCDIR_CHECK)
+vpath %.a $(LIBDIR)
 # ============================================================================ #
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
@@ -126,20 +126,24 @@ FILE_CHECK = $(addprefix $(SRCDIR_CHECK), $(SRCS_CHECK))
 OBJS_PUSHS = $(addprefix $(OBJDIR), $(SRCS_PUSHS:.c=.o))
 OBJS_CHECK = $(addprefix $(OBJDIR), $(SRCS_CHECK:.c=.o))
 
-$(info source files $(SRCS_PUSHS))
-$(info source paths $(FILE_PUSHS))
-$(info object patha $(OBJS_PUSHS))
+DEPE_PUSHS = $(addprefix $(OBJDIR), $(SRCS_PUSHS:.c=.d))
+DEPE_CHECK = $(addprefix $(OBJDIR), $(SRCS_CHECK:.c=.d))
+
+#$(info source files $(SRCS_PUSHS))
+#$(info source paths $(FILE_PUSHS))
+#$(info object patha $(OBJS_PUSHS))
+#$(info depend patha $(DEPE_PUSHS))
 # ============================================================================ #
 #                                 RULES                                        #
 # ============================================================================ #
 all: makedirs makelibs $(NAME)
 #includes all dependencies files.
 #READ GNU make  manual 4.14 Generating Prerequisites Automatically.
-include $(SRCS_PUSH:.c=.d)
+-include $(DEPE_PUSHS)
 
 
 bonus: makedirs makelibs $(BONUS)
-include $(SRCS_CHECK:.c=.d)
+-include $(DEPE_CHECK)
 # .......................... directories creation ............................ #
 
 makedirs:
@@ -178,11 +182,11 @@ makelibargpa:
 	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
     rm -f $@.$$$$
 # .......................... targets construction ............................ #
-$(NAME): Makefile $(OBJS_PUSHS)
+$(NAME): Makefile  $(OBJS_PUSHS) -l$(LOADLIBFT) -l$(LOADLIBPRINTF) -l$(LOADLIBSS) -l$(LOADLIBARGPA) 
 	@echo "$(GREEN)========== GATHERING PUSH_SWAP OBJECTS =============$(DEF_COLOR)"
 	$(CC) $(LFLGS) $(OBJS_PUSHS) -o $@ $(LLIBS)
 
-$(BONUS): Makefile $(OBJS_CHECK)
+$(BONUS): Makefile $(OBJS_CHECK) -l$(LOADLIBFT) -l$(LOADLIBPRINTF) -l$(LOADLIBSS) -l$(LOADLIBARGPA) 
 	@echo "$(MAGENTA)========== GATHERING CHECKER OBJECTS ===============$(DEF_COLOR)"
 	$(CC) $(LFLGS) $(OBJS_CHECK) -o $@ $(LLIBS)
 # .......................... objects construction ............................ #

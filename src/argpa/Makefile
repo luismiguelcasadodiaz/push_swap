@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/16 12:28:27 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/17 10:35:00 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -40,8 +40,7 @@ NAME		= libargpar.a
 INCDIR		= ../../inc/
 LIBDIR		= ../../lib/
 OBJDIR		=  
-#INCDIR		=
-#LIBDIR		=
+vpath %.a $(LIBDIR)
 # ============================================================================ #
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
@@ -60,11 +59,11 @@ HEADS		=	-I$(INCDIR)
 # ============================================================================ #
 #                                   SOURCES                                    #
 # ============================================================================ #
+HEADER	=	argpar.h
 SRCS	=	arg_digi.c \
 			arg_rang.c \
 			arg_seen.c \
 			arg_pars.c 
-HEADER	=	argpar.h
 
 # Generate a list of object files by replacing .c with .o 
 _OBJS = $(SRCS:.c=.o)
@@ -75,31 +74,17 @@ OBJS = $(addprefix $(OBJDIR), $(_OBJS))
 
 
 all: $(NAME)
-
 #includes all dependencies files.
  #READ GNU make  manual 4.14 Generating Prerequisites Automatically.
 include $(SRCS:.c=.d)
 
-#	$(info sources $(SRCS))
-#	$(info objects $(_OBJS))
-#	$(info targets $(OBJS))
-
-
-# Vous devez utiliser la commande ar pour créer votre bibliothèque
-# NOTE rcs:
-# - r  means that if the library already exists, replace the old files within the library with your new files. 
-# - c means create the library if it did not exist. 
-# - s can be seen to mean 'sort' (create a sorted index of) the library, so that it will be indexed and faster to access the functions in the library.
-#   Therefore, rcs can be seen to mean replace, create, sort
-
 $(NAME): $(OBJS)
 	@echo "$(CYAN)LIBARGPAR ========== GATHERING ALL OBJECTS ====================$(DEF_COLOR)"
 	ar rcs $(NAME) $?
-	cp $(NAME) $(LIBDIR)
-
+	mv $(NAME) $(LIBDIR)
 
 # For each c file create its object file.
-$(OBJS): $(SRCS) Makefile $(INCDIR)$(HEADER)
+#$(OBJS): $(SRCS) Makefile $(INCDIR)$(HEADER)
 
 %.o: %.c Makefile
 	@echo "$(CYAN)LIBARGPAR ========== COMPILING ALL OBJECTS ====================$(DEF_COLOR)"

@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/16 12:38:53 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/17 12:38:11 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -40,7 +40,7 @@ NAME		= libpss.a
 INCDIR		= ../../inc/
 LIBDIR		= ../../lib/
 OBJDIR		=  
-#INCDIR		=
+vpath %.a $(LIBDIR)
 #LIBDIR		=
 # ============================================================================ #
 #                               COMPILER SETUP                                 #
@@ -125,7 +125,7 @@ include $(SRCS:.c=.d)
 $(NAME): $(OBJS) 
 	@echo "$(RED)LIBPSS ========== GATHERING ALL OBJECTS ====================$(DEF_COLOR)"
 	ar rcs $(NAME) $?
-	cp $(NAME) $(LIBDIR)
+	mv $(NAME) $(LIBDIR)
 
 
 # For each c file create its object file.
