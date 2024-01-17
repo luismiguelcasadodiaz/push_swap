@@ -6,11 +6,12 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 09:01:54 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/11 18:27:55 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:21:38 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libpss.h"
+#include "libft.h"
 
 void	pss_prad(t_pss *a, t_pss *b, ssize_t bit)
 {

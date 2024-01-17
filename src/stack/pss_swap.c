@@ -6,10 +6,11 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/09 00:57:22 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/17 09:58:48 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
+#include "ft_printf.h"
 
 /* ************************************************************************** */
 /* pss_swap() swaps the values between top node and the top node's next.      */

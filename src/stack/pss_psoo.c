@@ -6,10 +6,11 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/08 23:21:37 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/17 09:59:55 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
+#include "ft_printf.h"
 
 /* ************************************************************************** */
 /* pss_psoo() push into one destination stack the other's top (origin) node.  */

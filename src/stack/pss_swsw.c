@@ -6,10 +6,11 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2023/12/31 08:50:12 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/17 09:59:25 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
+#include "ft_printf.h"
 
 /* ************************************************************************** */
 /* pss_swsw() swaps the two top nodes of the two stacks passed as params      */

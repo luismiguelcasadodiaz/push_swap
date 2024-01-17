@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 21:04:07 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/13 18:37:56 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/17 09:55:54 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -21,8 +21,6 @@
 # define LIBPSS_H
 # include <unistd.h>
 # include <stdlib.h>
-# include "ft_printf.h"
-# include "libft.h"
 # define OUTPUT_FD 1
 # define PRINTME 1
 # define NOPRINT 0
