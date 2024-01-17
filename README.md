@@ -192,3 +192,91 @@ I solved it with one command.
 `*` for all folders files.
 `-i'.bak'` edit files in-place saving backups with extension `.bak`.
 `-e ` append the command to the list of command to execute.
+
+## Makefile
+I thank to Eric Alonso Martinez for teaching me so much about Makfile. 
+
+Eric touched one of my lib%.a files and noticed that my make did nothing.
+Etic touched one of my %.h and noticed that all was relinked.
+
+
+Eric hinted me to read GNU gcc manual [3.13 Options controlling the Preprocessor](https://gcc.gnu.org/onlinedocs/gcc-13.2.0/gcc/Preprocessor-Options.html).
+`-MM` flag creates a dependencies file `*.d`  for each source file. I notice that my `#include` usage created unnecessary dependencies. Them I moved some includes from `*.h` to the `*.c` really requiring it.
+
+```bash
+➜  stack git:(main) ✗ cat *.d
+nod_free.o: nod_free.c ../../inc/libpss.h
+nod_init.o: nod_init.c ../../inc/libpss.h
+pss_bign.o: pss_bign.c ../../inc/libpss.h
+pss_bott.o: pss_bott.c ../../inc/libpss.h
+pss_empt.o: pss_empt.c ../../inc/libpss.h
+pss_free.o: pss_free.c ../../inc/libpss.h
+pss_have.o: pss_have.c ../../inc/libpss.h
+pss_init.o: pss_init.c ../../inc/libpss.h
+pss_isor.o: pss_isor.c ../../inc/libpss.h
+pss_mami.o: pss_mami.c ../../inc/libpss.h
+pss_maxi.o: pss_maxi.c ../../inc/libpss.h
+pss_mini.o: pss_mini.c ../../inc/libpss.h
+pss_mkid.o: pss_mkid.c ../../inc/libpss.h
+pss_nrot.o: pss_nrot.c ../../inc/libpss.h
+pss_nrro.o: pss_nrro.c ../../inc/libpss.h
+pss_ovbo.o: pss_ovbo.c ../../inc/libpss.h
+pss_pall.o: pss_pall.c ../../inc/libpss.h
+pss_peek.o: pss_peek.c ../../inc/libpss.h
+pss_peek_idx.o: pss_peek_idx.c ../../inc/libpss.h
+pss_pope.o: pss_pope.c ../../inc/libpss.h
+pss_prad.o: pss_prad.c ../../inc/libpss.h ../../inc/libft.h
+pss_prin.o: pss_prin.c ../../inc/libpss.h ../../inc/ft_printf.h
+pss_prnu.o: pss_prnu.c ../../inc/libpss.h ../../inc/ft_printf.h
+pss_psoo.o: pss_psoo.c ../../inc/libpss.h ../../inc/ft_printf.h
+pss_push.o: pss_push.c ../../inc/libpss.h
+pss_reve.o: pss_reve.c ../../inc/libpss.h ../../inc/ft_printf.h
+pss_roro.o: pss_roro.c ../../inc/libpss.h ../../inc/ft_printf.h
+pss_rota.o: pss_rota.c ../../inc/libpss.h ../../inc/ft_printf.h
+pss_rrot.o: pss_rrot.c ../../inc/libpss.h ../../inc/ft_printf.h
+pss_rrrr.o: pss_rrrr.c ../../inc/libpss.h ../../inc/ft_printf.h
+pss_size.o: pss_size.c ../../inc/libpss.h
+pss_sman.o: pss_sman.c ../../inc/libpss.h
+pss_swap.o: pss_swap.c ../../inc/libpss.h ../../inc/ft_printf.h
+pss_swsw.o: pss_swsw.c ../../inc/libpss.h ../../inc/ft_printf.h
+pss_unpe.o: pss_unpe.c ../../inc/libpss.h
+```
+
+We can see the dependenciess file as a `make rule`.
+
+Each dependencies file is transformed with a sed instruction 
+
+```bash
+	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+```
+
+into this new `make rule` 
+
+```bash
+pss_unpe.o pss_unpe.d : pss_unpe.c ../../inc/libpss.h
+```
+This rules sets that any changes in either `pss_unpe.c` or in `../../inc/libpass.h`  affects to object file and dependency file.
+
+All this magic happens wiht this rule from GNU make  manual [4.14 Generating Prerequisites Automatically](https://www.gnu.org/software/make/manual/make.html#Automatic-Prerequisites).
+%.d: %.c
+	@set -e; rm -f $@; \
+	$(CC) $(HEADS) -MM $< > $@.$$$$ ; \
+	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+    rm -f $@.$$$$
+
+Once the dependencies files (make rules) are properly formatted, they have to be included into `Makefile` with:
+
+```make
+DEPE_PUSHS = $(addprefix $(OBJDIR), $(SRCS_PUSHS:.c=.d))
+ -include $(DEPE_PUSHS)
+ ```
+The [include directive] (https://www.gnu.org/software/make/manual/make.html#Include) tells make to suspend reading the current makefile and read one or more other makefiles before continuing. 
+Please notice leading  minus sign .If you want make to simply ignore a makefile which does not exist or cannot be remade,(that happens the first time) with no error message, use the -include directive instead of include,
+
+With this knowledge, now i manage a more clever compilation process, where only REAL depended files are recompiled when something the file depends on has changed.
+
+Addtionally Eric taught me [vpath directive](https://www.gnu.org/software/make/manual/make.html#Selective-Search) .   `vpath %.a ./lib` hints make that files ending in `*.a` should be looked for in sach path.
+
+
+Finally, with [Directory search for link libraries](https://www.gnu.org/software/make/manual/make.html#Libraries_002fSearch) i was able to relink my targets if the libraries they depend on changed.
+
