@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/17 12:38:11 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/18 19:08:41 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -124,12 +124,11 @@ include $(SRCS:.c=.d)
 
 $(NAME): $(OBJS) 
 	@echo "$(RED)LIBPSS ========== GATHERING ALL OBJECTS ====================$(DEF_COLOR)"
-	ar rcs $(NAME) $?
-	mv $(NAME) $(LIBDIR)
+	ar rcs $(LIBDIR)$(NAME) $?
 
 
 # For each c file create its object file.
-$(OBJS): $(SRCS) Makefile $(INCDIR)$(HEADER)
+# $(OBJS): $(SRCS) Makefile $(INCDIR)$(HEADER)
 
 %.o: %.c Makefile
 	@echo "$(RED)LIBPSS ========== COMPILING ALL OBJECTS ====================$(DEF_COLOR)"

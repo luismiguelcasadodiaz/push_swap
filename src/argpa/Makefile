@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/17 10:35:00 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/18 18:30:21 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -80,8 +80,7 @@ include $(SRCS:.c=.d)
 
 $(NAME): $(OBJS)
 	@echo "$(CYAN)LIBARGPAR ========== GATHERING ALL OBJECTS ====================$(DEF_COLOR)"
-	ar rcs $(NAME) $?
-	mv $(NAME) $(LIBDIR)
+	ar rcs $(LIBDIR)$(NAME) $?
 
 # For each c file create its object file.
 #$(OBJS): $(SRCS) Makefile $(INCDIR)$(HEADER)

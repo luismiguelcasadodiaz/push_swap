@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/17 09:15:46 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/18 18:29:29 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #MAKEFLAGS += rR
@@ -138,8 +138,7 @@ include $(SRCS:.c=.d)
 
 $(NAME): $(OBJS) 
 	@echo "$(BLUE)LIBFT ========== GATHERING ALL OBJECTS ====================$(DEF_COLOR)"
-	ar rcs $(NAME) $?
-	cp $(NAME) $(LIBDIR)
+	ar rcs $(LIBDIR)$(NAME) $?
 
 
 # For each c file create its object file.
@@ -166,9 +165,7 @@ clean:
 # removes target file and all generated object files
 fclean: clean
 	@echo "$(BLUE)LIBFT ========== REMOVING TARGET ==========================$(DEF_COLOR)"
-	rm -f $(LIBDIR)$(NAME)
-
-# rebuild all after removing all
+	rm -f $(LIBDIR)$(NAME) # rebuild all after removing all
 re: fclean all
 	@echo "$(BLUE)LIBFT ================ REBUILDING =========================$(DEF_COLOR)"
 
