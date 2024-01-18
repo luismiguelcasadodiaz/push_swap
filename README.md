@@ -282,3 +282,24 @@ Addtionally Eric taught me [vpath directive](https://www.gnu.org/software/make/m
 
 Finally, with [Directory search for link libraries](https://www.gnu.org/software/make/manual/make.html#Libraries_002fSearch) i was able to relink my targets if the libraries they depend on changed.
 
+
+## library construnction.
+Joan Renaull Valls assited me with `ar`.
+
+I faced a problem with the library construction after touching only one file `*.c` , generated the `*.o` and replacing it into the `*.a`.
+
+```make
+	ar rcs $(NAME) $?
+	mv $(NAME) $(LIBDIR)
+```
+
+Joan teached me manually adding files to my `*.a` and observ that after moving the library to the lib dir, that did not exist any more in the Makefile folder, so the new library contained only the new object created after recompiling. That generated a symbols missing error upwards in the linking process.
+
+thanks to Joan asitance my Makefile chenged to :
+
+
+```make
+	ar rcs ($LIBDIR)$(NAME) $?
+```
+
+Creating the library directory directly into `push_swap/lib` folder.
