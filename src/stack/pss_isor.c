@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 08:52:53 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/13 18:41:18 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/18 17:31:46 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	pss_isor(t_pss	*s)
 	int		end;
 	int		ascend;
 
-	if (pss_empt(s) || (pss_size(s) <= 2))
+	if (pss_empt(s) || (pss_size(s) < 2))
 		return (0);
 	ascend = 1;
 	nod = s->top;
