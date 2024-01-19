@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/18 19:08:41 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/19 18:39:09 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -95,7 +95,9 @@ SRCS	=	nod_init.c \
 		pss_nrro.c \
 		pss_mkid.c \
 		pss_pall.c \
-		pss_prad.c 
+		pss_prad.c \
+		pss_deep.c
+
 
 
 # Generate a list of object files by replacing .c with .o 
