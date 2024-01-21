@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 19:40:39 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/13 18:46:22 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/21 15:59:01 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
    @file pss_mkid.c
    @brief pss_mkid() makes(calculates) the future positions in a sorted stack
 
-   @param[in]  s: The stack to calculate value's future positions.
+   @param[in]  s: Non-empty stack to calculate value's future positions inside
+   a hypotetical sorted stack.
 
    @details
    Loops the stack. For each node loops the stack couting how manu values
@@ -32,6 +33,8 @@ void	pss_mkid(t_pss *s)
 	short	ex_end;
 	short	in_end;
 
+	if (pss_empt(s))
+		return ;
 	ex_end = 0;
 	ex_node = s->top;
 	while (!ex_end)

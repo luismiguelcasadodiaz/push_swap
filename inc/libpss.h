@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 21:04:07 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/19 20:33:05 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/21 12:48:10 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -53,6 +53,8 @@ void	nod_free(t_nod *my_n);
 /* int siz holds the number of integers in the stack.                         */
 /* chr nam holds the letter that names the stack.                             */
 /* int fld holds the file descriptor to print stack data and movements        */
+/* int big holds the biggest  index   in the stack.                           */
+/* int sma holds the smallest index   in the stack.                           */
 /*                                                                            */
 /* ************************************************************************** */
 typedef struct s_pss
@@ -63,6 +65,8 @@ typedef struct s_pss
 	int		siz;
 	char	nam;
 	int		fld;
+	int		bid;
+	int		sid;
 }	t_pss;
 
 t_pss	*pss_init(char name);
@@ -114,7 +118,13 @@ int		pss_bott(t_pss *my_s);
 /* ************************************************************************** */
 int		pss_isor(t_pss *my_s);
 t_pss	*pss_reve(t_pss *my_s);
+/* ************************************************************************** */
+/* pss_push() inserts a new node on top of the stack                          */
+/* ************************************************************************** */
 int		pss_push(t_pss *my_s, int num, ssize_t idx);
+/* ************************************************************************** */
+/* pss_pope() Removes an element from top of the stack                        */
+/* ************************************************************************** */
 int		pss_pope(t_pss *my_s, int *num, ssize_t *idx);
 void	pss_swap(t_pss *my_s, int printme);
 void	pss_swsw(t_pss *one, t_pss *two, int printme);
@@ -133,10 +143,17 @@ void	pss_mkid(t_pss *my_s);
 /* pss_pall() pushes all nodes from stack two(ori) to stack one (dst)         */
 /* ************************************************************************** */
 void	pss_pall(t_pss *one, t_pss *two);
+/* ************************************************************************** */
+/* pss_prad() implements one iteration of Radix Sort algorithm                */
+/* ************************************************************************** */
 void	pss_prad(t_pss *one, t_pss *two, ssize_t bit);
 /* ************************************************************************** */
 /* pss_deep() returns how many nodes there are above actual idx position      */
 /* ************************************************************************** */
 ssize_t		pss_deep(ssize_t idx, t_pss *one);
+/* ************************************************************************** */
+/* pss_nmtp() returns number of moves towards the right positioni             */
+/* ************************************************************************** */
+short		pss_nmtp(ssize_t idx, t_pss *one);
 
 #endif
