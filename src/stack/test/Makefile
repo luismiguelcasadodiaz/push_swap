@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/23 12:57:35 by luicasad          #+#    #+#              #
-#    Updated: 2023/12/24 16:34:24 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/24 15:33:47 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME	= 	test_pss
@@ -28,6 +28,7 @@ all: Makefile $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) -o $(NAME) $(OBJS) $(LIBS)
+	rm -f $(OBJS)
 
 %.o : %.c 
 	$(CC) $(CFLAGS) -c $< -o $@ $(HEADS) 

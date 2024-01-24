@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 18:38:02 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/21 16:00:02 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/24 18:20:40 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /******************************************************************************/
 /**
    @file pss_nmtp.c
-   @brief pss_nmtp() returns how many nodes are bigger than idx..
+   @brief pss_nmtp() returns how many nodes have a bigger idx than idx.
 
    @param[in] idx: the idx to know how many nodes has above.
    @param[in]   s: an ordered stack to look in.
@@ -30,21 +30,20 @@
 short	pss_nmtp(ssize_t idx, t_pss *one)
 {
 	t_nod	*node;
+	ssize_t nodes;
 	short	count;
 	short	found;
 
-	if (!pss_isor(one))
-		return (-1);
 	count = 0;
-	if (pss_empt(one))
-		return (count);
 	found = 0;
+	nodes = pss_size(one);
 	node = one->top;
-	while ((node->next != one->top) && !found)
+	while (nodes && !found)
 	{
 		count++;
-		found = (node->idx < idx);
+		found = ((node->idx > idx) && (idx > node->next->idx));
 		node = node->next;
+		nodes--;
 	}
 	if (found)
 		return (count);

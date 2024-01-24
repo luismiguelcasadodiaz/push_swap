@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/21 15:58:19 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/22 11:33:30 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
@@ -28,7 +28,7 @@
 
    @author LMCD (Luis Miguel Casado Díaz)
  *****************************************************************************/
-static void	pss_mami_u(t_pss *s, int num, ssize_t idx))
+static void	pss_mami_u(t_pss *s, int num, ssize_t idx)
 {
 	if (pss_size(s) == 1)
 	{

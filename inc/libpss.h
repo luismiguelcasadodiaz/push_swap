@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 21:04:07 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/21 12:48:10 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/24 17:46:06 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -24,6 +24,28 @@
 # define OUTPUT_FD 1
 # define PRINTME 1
 # define NOPRINT 0
+
+/* ************************************************************************** */
+/* The cost is a structure that contains the cost in movements for extracting */
+/* idx from stack a and insert it in the right order in stack b.              */
+/*                                                                            */
+/* ssize_t idx holdis the idx this cost refres toside a sorted stack.         */
+/* short mov holds optimiced total moves using roro & rrrr.                   */
+/* short mova holds moves (rota/rrot) of a to put idx on the top.             */
+/* short movb holds moves (rota/rrot) of b to put on the top idx's next idx.  */
+/* char dira holds an 'f' for rota moves or a 'b' for rrot moves of a.        */
+/* char dirb holds an 'f' for rota moves or a 'b' for rrot moves of b.        */
+/*                                                                            */
+/* ************************************************************************** */
+typedef struct	s_cost
+{
+	ssize_t	idx;
+	short	mov;
+	short	mova;
+	short	movb;
+	char	dira;
+	char	dirb;
+}	t_cost;
 
 /* ************************************************************************** */
 /* The node is a structure that contains:                                     */
@@ -77,10 +99,12 @@ int		pss_sman(t_pss *my_s);
 int		pss_bign(t_pss *my_s);
 int		pss_mini(t_pss *my_s);
 int		pss_maxi(t_pss *my_s);
+ssize_t	pss_imax(t_pss *my_s);
+ssize_t	pss_imin(t_pss *my_s);
 /* ************************************************************************** */
 /* pss_mami() updates min and max according the last pushed num.              */
 /* ************************************************************************** */
-void	pss_mami(t_pss *my_s, int num, char c);
+void	pss_mami(t_pss *my_s, int num, ssize_t idx, char c);
 /* ************************************************************************** */
 /* pss_prin() Prints indexes of stack's nodes                                 */
 /* ************************************************************************** */
@@ -117,6 +141,7 @@ int		pss_bott(t_pss *my_s);
 /* pss_isor() checks if stack's values are stored in ascendan order           */
 /* ************************************************************************** */
 int		pss_isor(t_pss *my_s);
+int		pss_isori(t_pss *my_s);
 t_pss	*pss_reve(t_pss *my_s);
 /* ************************************************************************** */
 /* pss_push() inserts a new node on top of the stack                          */
@@ -150,10 +175,16 @@ void	pss_prad(t_pss *one, t_pss *two, ssize_t bit);
 /* ************************************************************************** */
 /* pss_deep() returns how many nodes there are above actual idx position      */
 /* ************************************************************************** */
-ssize_t		pss_deep(ssize_t idx, t_pss *one);
+ssize_t	pss_deep(ssize_t idx, t_pss *one);
 /* ************************************************************************** */
 /* pss_nmtp() returns number of moves towards the right positioni             */
 /* ************************************************************************** */
-short		pss_nmtp(ssize_t idx, t_pss *one);
+short	pss_nmtp(ssize_t idx, t_pss *one);
+/* ************************************************************************** */
+/* pss_extr() returns optima direction and moves number to extract a node     */
+/* ************************************************************************** */
+void	pss_extr(ssize_t deep, t_pss *a, char *direction, short *moves);
+void	pss_inse(ssize_t deep, t_pss *a, char *direction, short *moves);
+t_cost	pss_chea(t_pss *a, t_pss *b);
 
 #endif

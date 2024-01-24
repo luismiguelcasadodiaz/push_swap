@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 19:40:39 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/21 15:59:01 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:25:20 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
    a hypotetical sorted stack.
 
    @details
-   Loops the stack. For each node loops the stack couting how manu values
-   are lower than current (external loop node) node's value.
+   Loops the stack. For each node loops the stack couting how many values
+   are lower or equal than current (external loop node) node's value.
 
    @author LMCD (Luis Miguel Casado Díaz)
  *****************************************************************************/
@@ -45,10 +45,12 @@ void	pss_mkid(t_pss *s)
 		while (!in_end)
 		{
 			in_end = (in_node->next == ex_node);
-			if (in_node->num < ex_node->num)
+			if (in_node->num <= ex_node->num)
 				ex_node->idx++;
 			in_node = in_node->next;
 		}
 		ex_node = ex_node->next;
 	}
+	s->sid = pss_imin(s);
+	s->bid = pss_imax(s);
 }

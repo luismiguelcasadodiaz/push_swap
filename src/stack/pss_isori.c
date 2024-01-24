@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pss_isor.c                                         :+:      :+:    :+:   */
+/*   pss_isori.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 08:52:53 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/22 14:26:23 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/22 14:33:54 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 /* ************************************************************************** */
 /**
-   @file pss_isor.c
-   @brief pss_isor() checks if stack's values are stored in ascendan order.
+   @file pss_isori.c
+   @brief pss_isori() checks if stack's values are stored in ascendan order.
 
    @param[in] t_pss *s: the stack for verification.
 
@@ -35,28 +35,28 @@
 
  ****************************************************************************/
 
-int	pss_isor(t_pss	*s)
+int	pss_isori(t_pss	*s)
 {
 	t_nod	*nod;
-	int		num;
+	int		idx;
 	int		end;
-	int		ascend;
+	int		descend;
 
 	if (pss_empt(s) || (pss_size(s) < 2))
 		return (0);
-	ascend = 1;
+	descend = 1;
 	nod = s->top;
 	end = 0;
-	num = nod->num;
-	while (!end && ascend)
+	idx = nod->idx;
+	while (!end && descend)
 	{
 		end = (nod->next == s->top);
 		if (!end)
 		{
-			ascend = ascend && (num < nod->next->num);
+			descend = descend && (idx > nod->next->idx);
 		}
 		nod = nod->next;
-		num = nod->num;
+		idx = nod->idx;
 	}
-	return (ascend);
+	return (descend);
 }

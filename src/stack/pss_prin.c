@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:07 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/13 17:09:01 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/22 11:53:34 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
@@ -26,7 +26,7 @@ void	pss_prin(t_pss *s)
 	t_nod	*nod;
 	short	end;
 
-	ft_printf("pss(%c){I:%d, [%d..%d]}(", s->nam, s->siz, s->sma, s->big);
+	ft_printf("pss(%c){I:%d, [%d..%d]}(", s->nam, s->siz, s->sid, s->bid);
 	if (pss_empt(s))
 		ft_printf("empty");
 	else
