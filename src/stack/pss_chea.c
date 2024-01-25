@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 12:18:38 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/24 17:59:09 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/25 09:41:41 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static t_cost	optimize(t_pss *a, t_pss *b, ssize_t idx)
 	c.idx = idx; 
 	pss_extr(pss_deep(idx, a), a, &c.dira, &c.mova);
 	pss_inse(idx, b, &c.dirb, &c.movb);
+	ft_printf("idx = %d, movesa = %d dira = %c", idx, c.mova, c.dira);
+	ft_printf(" movesb = %d dirb = %c",  c.movb, c.dirb);
 	if ((c.dira == c.dirb) && (c.mova != 0) && (c.movb != 0))
 	{
 		if (c.mova > c.movb)
@@ -30,6 +32,7 @@ static t_cost	optimize(t_pss *a, t_pss *b, ssize_t idx)
 	}
 	else
 		c.mov = c.mova + c.movb;
+	ft_printf(" ==> moves = %d \n",  c.mov);
 	return (c);
 }
 
@@ -48,7 +51,6 @@ t_cost	pss_chea(t_pss *a, t_pss *b)
 	while (nodes)
 	{
 		c = optimize(a, b, node->idx);
-		ft_printf("idx = %d, moves = %d\n", node->idx, c.mov);
 		if (c.mov < minmoves)
 		{
 			minmoves = c.mov;

@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:29:20 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/24 17:03:52 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/25 18:11:36 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
@@ -28,6 +28,7 @@ int	main(void)
 	pss_push(a, 9, 0);
 	pss_push(a, 3, 0);
 	pss_push(a, 6, 0);
+	pss_push(a, -1, 0);
 	pss_push(a, 1, 0);
 	pss_push(a, 7, 0);
 	pss_push(a, 2, 0);
@@ -35,16 +36,11 @@ int	main(void)
 	pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
 	pss_mkid(a);
 	pss_psoo(b, a, PRINTME);
-	if (b->top->idx < a->top->idx)
-		pss_psoo(b, a, PRINTME);
-	else
-	{
-		pss_psoo(b, a, PRINTME);
-		pss_swap(b, PRINTME);
-	}
+	pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
+	pss_psoo(b, a, PRINTME);
 	pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
 	i = pss_size(a);
-	while (i)
+	while (i > 3)
 	{
 		c = pss_chea(a, b);
 		ft_printf("idx = %d, deepa = %d, directiona = %c, movesa = %d ", c.idx, pss_deep(c.idx, a), c.dira, c.mova);
@@ -77,6 +73,19 @@ int	main(void)
 		i--;
 	}
 	pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
+	while (!pss_empt(b))
+	{
+		pss_extr(pss_deep(b->top->idx + 1 , a), a,  &c.dira, &c.mova);
+		if (c.mova !=0)
+		{
+			if (c.dira == 'f')
+				pss_nrot(a, c.mova);
+			else
+				pss_nrro(a, c.mova);
+		}
+		pss_psoo(a, b, PRINTME);
+		pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
+	}
 	pss_free(a);
 	pss_free(b);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 18:38:02 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/24 18:20:40 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/25 17:54:19 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,17 @@ short	pss_nmtp(ssize_t idx, t_pss *one)
 	while (nodes && !found)
 	{
 		count++;
-		found = ((node->idx > idx) && (idx > node->next->idx));
+		if ((one->sid < idx) && (idx < one->bid))
+			found = ((node->idx > idx) && (idx > node->next->idx));
+		else if (idx < one->sid)
+			found = (node->idx == one->sid);
+		else
+			found = (node->idx == one->bid);
 		node = node->next;
 		nodes--;
 	}
-	if (found)
-		return (count);
+	if (one->bid < idx)
+		return (count - 1);
 	else
-		return (0);
+		return (count);
 }
