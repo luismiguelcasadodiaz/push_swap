@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 21:04:07 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/24 17:46:06 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/26 18:23:02 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -45,6 +45,10 @@ typedef struct	s_cost
 	short	movb;
 	char	dira;
 	char	dirb;
+	short	rmva;
+	short	rmvb;
+	short	roro;
+	short	rrrr;
 }	t_cost;
 
 /* ************************************************************************** */
@@ -155,11 +159,13 @@ void	pss_swap(t_pss *my_s, int printme);
 void	pss_swsw(t_pss *one, t_pss *two, int printme);
 void	pss_psoo(t_pss *dst, t_pss *ori, int printme);
 void	pss_rota(t_pss *my_s, int printme);
-void	pss_roro(t_pss *one, t_pss *two, int printme);
-void	pss_rrot(t_pss *my_s, int printme);
-void	pss_rrrr(t_pss *one, t_pss *two, int printme);
 void	pss_nrot(t_pss *my_s, int n);
+void	pss_roro(t_pss *one, t_pss *two, int printme);
+void	pss_nror(t_pss *one, t_pss *two, int n);
+void	pss_rrot(t_pss *my_s, int printme);
 void	pss_nrro(t_pss *my_s, int n);
+void	pss_rrrr(t_pss *one, t_pss *two, int printme);
+void	pss_nrrr(t_pss *one, t_pss *two, int n);
 /* ************************************************************************** */
 /* pss_mkid() makes(calculates) the future positions in a sorted stack        */
 /* ************************************************************************** */

@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:05:08 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/22 11:33:30 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/26 09:21:58 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
@@ -83,7 +83,7 @@ static void	pss_mami_o(t_pss *s, int num, ssize_t idx)
 			s->big = pss_maxi(s);
 		if (s->sid == idx)
 			s->sid = pss_imin(s);
-		if (s->big == idx)
+		if (s->bid == idx)
 			s->bid = pss_imax(s);
 	}
 }

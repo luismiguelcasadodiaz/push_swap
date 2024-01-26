@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 14:40:26 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/25 17:54:21 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/26 09:39:55 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ void	pss_inse(ssize_t idx, t_pss *b, char *direction, short *moves)
 
 	if (idx < b->sid)
 	{
-		*moves = 0;
-		*direction = 'f';	
+		pss_extr(pss_deep(b->sid, b), b, direction, moves);
 		return ;
 	}
 	if (b->bid < idx)

@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:29:20 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/26 19:29:46 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/26 12:36:13 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
@@ -69,42 +69,43 @@ int	main(int ac, char **av)
 	while (i > 3)
 	{
 		c = pss_chea(a, b);
-		if (c.roro)
-			pss_nror(a, b, c.roro);
-		if (c.rrrr)
-			pss_nrrr(a, b, c.rrrr);
-		if (c.mova)
-			pss_nrot(a, c.mova);
-		if (c.rmva)
-			pss_nrro(a, c.rmva);
-		if (c.movb)
-			pss_nrot(b, c.movb);
-		if (c.rmvb)
-			pss_nrro(b, c.rmvb);
-
-		//ft_printf("idx = %d, deepa = %d, directiona = %c, movesa = %d ", c.idx, pss_deep(c.idx, a), c.dira, c.mova);
-		//ft_printf("deepb = %d, directionb = %c, movesb = %d\n",  pss_nmtp(c.idx, b), c.dirb, c.movb);
-		pss_psoo(b, a, PRINTME);
+		ft_printf("idx = %d, deepa = %d, directiona = %c, movesa = %d ", c.idx, pss_deep(c.idx, a), c.dira, c.mova);
+		ft_printf("deepb = %d, directionb = %c, movesb = %d\n",  pss_nmtp(c.idx, b), c.dirb, c.movb);
+		if (c.mova !=0)
+		{
+			if (c.dira == 'f')
+				pss_nrot(a, c.mova);
+			else
+				pss_nrro(a, c.mova);
+		}
+		if (c.movb !=0)
+		{
+			if (c.dirb == 'f')
+			{
+				pss_nrot(b, c.movb);
+				pss_psoo(b, a, PRINTME);
+				//pss_nrro(b, c.movb + 1);
+			}
+			else
+			{
+				pss_nrro(b, c.movb);
+				pss_psoo(b, a, PRINTME);
+				//pss_nrot(b, c.movb + 1);
+			}
+		}
+		else
+			pss_psoo(b, a, PRINTME);
 		pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
 		i--;
-	}
-	pss_extr(pss_deep(b->bid, b), b,  &c.dirb, &c.movb);
-	if (c.movb !=0)
-	{
-		if (c.dirb == 'f')
-			pss_nrot(b, c.movb);
-		else
-			pss_nrro(b, c.movb);
 	}
 	ps_sor3(a);
 	pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
 	while (!pss_empt(b))
 	{
-		//if ((a->sid < b->top->idx) && (b->top->idx < a->bid))
-		//		pss_extr(pss_nmtp(b->top->idx , a), a,  &c.dira, &c.mova);
-		//else 
-		if (b->top->idx < a->sid)
-				pss_extr(pss_deep(a->sid, a), a,  &c.dira, &c.mova);
+		if ((a->sid < b->top->idx) && (b->top->idx < a->bid))
+				pss_extr(pss_nmtp(b->top->idx , a), a,  &c.dira, &c.mova);
+		else
+				pss_extr(pss_nmtp(a->sid, a), a,  &c.dira, &c.mova);
 
 		if (c.mova !=0)
 		{
