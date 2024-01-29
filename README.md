@@ -86,19 +86,19 @@ I got the idea that the bonus was not a hard task, so I implemented it at this p
 OSINT suggested three solutions, the chunks solution, the radix sort solution, and the Turkish solution. Radix was the more straight one to me. The [Radix Sort](https://github.com/luismiguelcasadodiaz/push_swap/blob/main/src/pushs/README.md) gave me 3 points sorting 100 numbers and 4 points sorting 500 numbers.
 
 |mov|run 1|run 2|run 3|run 3%
-|---|-----|----|----|-----|
+|---|----:|---:|---:|-----|
 |pa|381|381|381|35.25%|
-|pb|381|381|381|35.25%%|
-|ra|319|319|319|29.51%%|
-|Tot|1 081|1 081|1 081|100%|
+|pb|381|381|381|35.25%|
+|ra|319|319|319|29.51%|
+|Tot|1 081|1 081|1 081|100.00%|
 
 Sorting 100 integer below movemente gave me 5 points too.
 |mov|run 1|run 2|run 3|run 3%
-|---|-----|----|----|-----|
+|---|-----:|----:|----:|-----:|
 |pa|2 278|2 278|2 278|33.61%|
-|pb|2 278|2 278|2 278|33.61%%|
-|ra|2 222|2 222|2 222|32.78%%|
-|Tot|6 778|6 778|6 778|100%|
+|pb|2 278|2 278|2 278|33.61%|
+|ra|2 222|2 222|2 222|32.78%|
+|Tot|6 778|6 778|6 778|100.00%|
 
 
 I was happy, but suddenly I became unhappy when I discovered (Barcelona's Pedago team confirmed me) that it was mandatory to get 5 points by sorting 100 and 500 numbers to submit the bonus.
@@ -107,21 +107,21 @@ That is the reason why I worked out the [Turkish algorithm](https://github.com/l
 
 With turkish, sorting 500 integer below 5500 movements gave me 5 points. 
 |mov|run 1|run 2|run 3|run 3%
-|---|-----|----|----|-----|
+|---|-----:|----:|----:|-----:|
 |pa|497|497|497|9.99%|
 |pb|497|497|497|9.99%|
 |ra|528|558|571|11.47%|
-|rb|715|1233|808|16.23%|
+|rb|715|1 233|808|16.23%|
 |rr|601|736|712|14.31%|
 |rra|461|566|396|7.96%|
-|rrb|939|657|1023|20.55%|
+|rrb|939|657|1 023|20.55%|
 |rrr|724|514|472|9.48%|
 |sa|1|1|1|0.02%|
-|Tot|4963|5259|4977|100%|
+|Tot|4 963|5 259|4 977|100.00%|
 
 Sorting 100 integer below movemente gave me 5 points too.
 |mov|run 1|run 2|run 3|run 3%
-|---|-----|----|----|-----|
+|---|-----:|----:|----:|-----:|
 |pa|97|97|97|17.93%|
 |pb|97|97|97|17.93%|
 |ra|56|44|36|6.65%|
@@ -131,7 +131,7 @@ Sorting 100 integer below movemente gave me 5 points too.
 |rrb|94|67|42|7.76%|
 |rrr|52|63|40|3.70%|
 |sa|1|0|0|0.00%|
-|Tot|560|530|541|100%|
+|Tot|560|530|541|100.00%|
 
 
 # learnings
