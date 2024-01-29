@@ -20,7 +20,7 @@ I implementent the stack as a double linked list that becomes circular. I do tha
 ![imagen](https://github.com/luismiguelcasadodiaz/push_swap/blob/main/docs/media/rotate.jpeg)
 
 
-## testing
+## Testing
 ```bash
 ------- Testing allowed operations -------
 pss(a){#:0, [0..0]}(empty)
