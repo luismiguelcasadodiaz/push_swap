@@ -2,7 +2,7 @@
 
 Radix Sort is used to sort numbers. 
 
-Sorting starts from least significant digit to most significatn digit.
+Sorting starts from the least significant digit to the most significant digit.
 
 | n1| n2| n3| n4| n5| n6| n7| n8|
 |---|---|---|---|---|---|---|---|
@@ -42,14 +42,14 @@ We see three buckets (0, 1, and 8)
 
 ## Radix Sort in Push_swap.
 
-The aim of the previous section was to understand the algoritm and the concep of classification bucktes used in the shadow.
+The previous section aimed to understand the algorithm and the concept of classification buckets used in the shadow.
 
-we are restricted by two stacks. Let's think about it as buckets for classification.
+We are restricted by two stacks. Let's think about it as buckets for classification.
 
 
-Push_swap  sorts integers in the interval -2147483648 .. 2147483647. if we had one bucket per digit (0..9), we have to loop over all numbers 10 times plus the positive/negative discrimination.  A dataset of 100 integer requires 100 times 11 visits to each number. That is 1100 visits.
+Push_swap  sorts integers in the interval -2147483648 .. 2147483647. if we had one bucket per digit (0..9), we have to loop over all numbers 10 times plus the positive/negative discrimination.  A dataset of 100 integers requires 100 times 11 visits to each number. That is 1100 visits.
 
-The point is that we have ONLY two buckets. We have to think in binary. This make thing worse as we require 32bits to represent the interval of valid integer to sort. 100 numbers times 32 visits. That is 3200 visits.
+The point is that we have ONLY two buckets. We have to think in binary. This makes things worse as we require 32 bits to represent the interval of valid integer to sort. 100 numbers times 32 visits. That is 3200 visits.
 
 After some consideration, we can see that we only have 100 numbers to sort. We have 100 positions. The positions are not affected by the size of the number to be sorted. Position 7 will always be position seven regardless of whether it has the value -2147483600 or the value 125.
 
@@ -58,7 +58,7 @@ That said, if we associate each number in the stack, let's call it x, with the n
 100 numbers fit in 128 = 2⁷ ==> 100 times 7 =  700 visits.
 500 numbers fit in 512 = 2⁹ ==> 500 times 9 = 4500 visits.
 
-## round bit 1
+## Round bit 1
 
 | STACK A  |  STACK A | STACK B  | STACK A  |
 |----------|----------|----------|----------|
@@ -70,7 +70,7 @@ That said, if we associate each number in the stack, let's call it x, with the n
 
 			pb pb ra pb ra		 pa pa pa
 
-## round bit 2
+## Round bit 2
 
 | STACK A  |  STACK A | STACK B  | STACK A  |
 |----------|----------|----------|----------|
@@ -82,7 +82,7 @@ That said, if we associate each number in the stack, let's call it x, with the n
 
 			pb ra pb ra pb       pa pa pa
 
-## round bit 3
+## Round bit 3
 
 | STACK A  |  STACK A | STACK B  | STACK A  |
 |----------|----------|----------|----------|
@@ -95,8 +95,8 @@ That said, if we associate each number in the stack, let's call it x, with the n
 			ra pb pb pb pb       pa pa pa pa
 
 
-## number of commands
-We can stimate the amount of commands like this
+## Number of commands
+We can estimate the number of commands like this
 3 bits times 5 + 5/2			
 
 In a genereic way k * (1,5 * n), being k de number of bits and n the number of values to sort.
