@@ -55,6 +55,30 @@ You have 2 stacks named a and b.
 # Approach
 I started this project by implementing the [stack library](https://github.com/luismiguelcasadodiaz/push_swap/blob/main/src/stack/README.md). A Stack circular with a double link to navigate it forward or backward. And checked that no memory leaks remained at the exit.
 
+My stack holds some stack's metadata:
+
+Field big holds the biggest  integer in the stack.
+Field sma holds the smallest integer in the stack.
+Field siz holds the number of integers in the stack.
+Field nam holds the letter that names the stack.
+Field fld holds the file descriptor to print stack data and movements.
+Field big holds the biggest  index   in the stack.
+Field sma holds the smallest index   in the stack.
+
+```c
+typedef struct s_pss
+{
+	t_nod		*top;
+	int		big;
+	int		sma;
+	int		siz;
+	char		nam;
+	int		fld;
+	int		bid;
+	int		sid;
+}	t_pss;
+```
+
 I started sorting stacks of 2, 3, 4, and five elements. I wrote a function for each case (ps_sort2, ps_sor3, ps_sort4 (sorts 3 and adds fourth), and ps_sort5 (sorts 3 then adds 4th and 5th),  I got a certain understanding of how to order a small number of numbers. I started to see conditions to insert in the top (no movements required), in the bottom (a ra movement required),  or in the middle of the stack (choose if going through the top or the bottom depending on destination deepness).
 
 I got the idea that the bonus was not a hard task, so I implemented it at this point, comparing its behavior with existing checkers.
@@ -63,8 +87,7 @@ OSINT suggested three solutions, the chunks solution, the radix sort solution, a
 
 I was happy, but suddenly I became unhappy when I discovered (Barcelona's Pedago team confirmed me) that it was mandatory to get 5 points by sorting 100 and 500 numbers to submit the bonus.
 
-That is the reason why I worked out the [Turkish algorithm]().
-[Rotators Sort]()
+That is the reason why I worked out the [Turkish algorithm](https://github.com/luismiguelcasadodiaz/push_swap/blob/main/src/pushs/turkish.md).
 
 
 # learnings
