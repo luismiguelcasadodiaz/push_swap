@@ -133,6 +133,7 @@ Sorting 100 integer below movemente gave me 5 points too.
 |sa|1|0|0|0.00%|
 |Tot|560|530|541|100.00%|
 
+When i compare movements, i appreciate that Radix uses only 3 movements while Turkish uses 9 movements.
 
 # learnings
 ## linker
