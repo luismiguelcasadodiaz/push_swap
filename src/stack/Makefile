@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/26 18:15:08 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/29 18:00:18 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -63,6 +63,8 @@ HEADS		=	-I$(INCDIR)
 HEADER	=	libpss.h
 SRCS	=	nod_init.c \
 		nod_free.c \
+		cos_init.c \
+		cos_show.c \
 		pss_init.c \
 		pss_size.c \
 		pss_prin.c \
@@ -105,6 +107,10 @@ SRCS	=	nod_init.c \
 		pss_nmtp.c \
 		pss_extr.c \
 		pss_inse.c \
+		pss_ttop.c \
+		pss_movs.c \
+		pss_opti.c \
+		pss_calc.c \
 		pss_chea.c
 
 

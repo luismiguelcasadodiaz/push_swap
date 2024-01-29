@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 14:40:26 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/26 09:39:55 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/29 19:33:19 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,31 +43,26 @@ void	pss_inse(ssize_t idx, t_pss *b, char *direction, short *moves)
 {
 	ssize_t	size;
 	ssize_t	half;
-	ssize_t deep;
+	ssize_t	deep;
 
-	if (idx < b->sid)
+	if ((idx < b->sid) || (b->bid < idx))
 	{
-		pss_extr(pss_deep(b->sid, b), b, direction, moves);
+		if (idx < b->sid)
+			pss_extr(pss_deep(b->sid, b), b, direction, moves);
+		if (b->bid < idx)
+			pss_extr(pss_deep(b->bid, b), b, direction, moves);
 		return ;
 	}
-	if (b->bid < idx)
-	{
-		pss_extr(pss_deep(b->bid, b), b, direction, moves) ;
-		return ;
-	}
+	*direction = 'f';
 	deep = pss_nmtp(idx, b);
-	ft_printf("idx=%d - deep=%d, ", idx, deep); 
+	ft_printf("idx=%d - deep=%d, ", idx, deep);
 	size = pss_size(b);
 	half = size / 2;
 	if (deep > half)
 	{
 		*direction = 'b';
-		//*moves = size - deep + 1;
 		*moves = size - deep;
 	}
 	else
-	{
-		*direction = 'f';
 		*moves = deep;
-	}
 }

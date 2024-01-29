@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 18:38:02 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/26 11:59:33 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/29 21:23:39 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 short	pss_nmtp(ssize_t idx, t_pss *one)
 {
 	t_nod	*node;
-	ssize_t nodes;
+	ssize_t	nodes;
 	short	count;
 	short	found;
 
@@ -43,17 +43,19 @@ short	pss_nmtp(ssize_t idx, t_pss *one)
 		count++;
 		if ((one->sid < idx) && (idx < one->bid))
 		{
-			found = ((node->idx > idx) && (idx > node->next->idx));
-			found = found || ((node->idx < idx) && (idx < node->next->idx));
-		}else if (idx < one->sid)
+			//found = ((node->idx > idx) && (idx > node->next->idx));
+			//found = found || ((node->idx < idx) && (idx < node->next->idx));
+			found = ((node->prev->idx < idx) && (idx < node->idx));
+		}
+		else if (idx < one->sid)
 			found = (node->idx == one->sid);
 		else
 			found = (node->idx == one->bid);
 		node = node->next;
 		nodes--;
 	}
-	if (one->bid < idx)
-		return (count - 1);
-	else
+	//if (one->bid < idx)
+	//	return (count - 1);
+	//else
 		return (count);
 }

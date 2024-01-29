@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_radi.c                                          :+:      :+:    :+:   */
+/*   ps_turk.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 08:31:05 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/29 11:32:40 by luicasad         ###   ########.fr       */
+/*   Created: 2024/01/29 10:46:54 by luicasad          #+#    #+#             */
+/*   Updated: 2024/01/29 15:14:27 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "push_swap.h"
 
 /******************************************************************************/
 /**
-   @file pss_radi.c
-   @brief ps_radi() sorts stack a with radix sort algoritm.
+   @file pss_turk.c
+   @brief ps_turk() sorts stack a with Turkish algoritm.
 
    @param[in]  a: Non-empty stack to calculate value's future positions inside
    a hypotetical sorted stack.
@@ -31,18 +32,33 @@
    In each iteration there are more or less 1,5 * size of a movements.
    @author LMCD (Luis Miguel Casado Díaz)
  *****************************************************************************/
-void	ps_radi(t_pss *a, t_pss *b)
-{
-	ssize_t	loops;
-	ssize_t	bit;
 
-	loops = ft_msb(pss_size(a));
-	bit = 1;
-	while (loops)
+ void	ps_turk(t_pss *a, t_pss *b)
+ {
+	t_cost	c;
+	int i;
+
+	i = pss_size(a);
+	while (i > 3)
 	{
-		pss_prad(a, b, bit);
-		pss_pall(a, b);
-		loops--;
-		bit++;
+		c = pss_chea(a, b);
+		if (c.roro)
+			pss_nror(a, b, c.roro);
+		if (c.rrrr)
+			pss_nrrr(a, b, c.rrrr);
+		if (c.mova)
+			pss_nrot(a, c.mova);
+		if (c.rmva)
+			pss_nrro(a, c.rmva);
+		if (c.movb)
+			pss_nrot(b, c.movb);
+		if (c.rmvb)
+			pss_nrro(b, c.rmvb);
+		pss_psoo(b, a, PRINTME);
+		i--;
 	}
-}
+	ps_sor3(a);
+	pss_ttop(b, b->bid);
+	pss_mvos(b, a);
+	pss_ttop(a, a->sid);
+ }

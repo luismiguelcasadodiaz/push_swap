@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:29:20 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/26 19:29:46 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/29 22:18:35 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libpss.h"
@@ -48,23 +48,23 @@ int	main(int ac, char **av)
 	t_cost	c;
 	int		i;
 	
-	ft_printf("------- Testing allowed operations -------\n");
+//	ft_printf("------- Testing allowed operations -------\n");
 	a = pss_init('a');
 	b = pss_init('b');
-	pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
+//	pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
 	while (ac > 1)
 	{
 
 		pss_push(a, ft_atoi(av[ac - 1]), 0);
 		ac--;
 	}
-	pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
+//	pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
 	pss_mkid(a);
-	pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
+//	pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
 	pss_psoo(b, a, PRINTME);
-	pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
+//	pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
 	pss_psoo(b, a, PRINTME);
-	pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
+//	pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
 	i = pss_size(a);
 	while (i > 3)
 	{
@@ -85,39 +85,43 @@ int	main(int ac, char **av)
 		//ft_printf("idx = %d, deepa = %d, directiona = %c, movesa = %d ", c.idx, pss_deep(c.idx, a), c.dira, c.mova);
 		//ft_printf("deepb = %d, directionb = %c, movesb = %d\n",  pss_nmtp(c.idx, b), c.dirb, c.movb);
 		pss_psoo(b, a, PRINTME);
-		pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
+//		pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
 		i--;
 	}
-	pss_extr(pss_deep(b->bid, b), b,  &c.dirb, &c.movb);
+	pss_ttop(b, b->bid);
+	/*pss_extr(pss_deep(b->bid, b), b,  &c.dirb, &c.movb);
 	if (c.movb !=0)
 	{
 		if (c.dirb == 'f')
 			pss_nrot(b, c.movb);
 		else
 			pss_nrro(b, c.movb);
-	}
+	}*/
 	ps_sor3(a);
-	pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
-	while (!pss_empt(b))
+//	pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
+	/*while (!pss_empt(b))
 	{
-		//if ((a->sid < b->top->idx) && (b->top->idx < a->bid))
-		//		pss_extr(pss_nmtp(b->top->idx , a), a,  &c.dira, &c.mova);
-		//else 
-		if (b->top->idx < a->sid)
-				pss_extr(pss_deep(a->sid, a), a,  &c.dira, &c.mova);
+		moves = 0;
+		if ((a->sid < b->top->idx) && (b->top->idx < a->bid))
+				pss_extr(pss_nmtp(b->top->idx , a), a,  &direction, &moves);
+		else if ( (b->top->idx < a->sid) || (a->bid < b->top->idx))
+				pss_extr(pss_deep(a->sid, a), a,  &direction, &moves);
 
-		if (c.mova !=0)
+		if (moves !=0)
 		{
-			if (c.dira == 'f')
-				pss_nrot(a, c.mova);
+			if (direction == 'f')
+				pss_nrot(a, moves);
 			else
-				pss_nrro(a, c.mova);
+				pss_nrro(a, moves);
 		}
 		pss_psoo(a, b, PRINTME);
 		pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
 	}
+	*/
+	pss_movs(b, a);
 	// final rotation to sitauta minim on top
-	pss_extr(pss_deep(a->sid, a), a,  &c.dira, &c.mova);
+	pss_ttop(a, a->sid);
+	/*pss_extr(pss_deep(a->sid, a), a,  &c.dira, &c.mova);
 	if (c.mova !=0)
 	{
 		if (c.dira == 'f')
@@ -125,7 +129,8 @@ int	main(int ac, char **av)
 		else
 			pss_nrro(a, c.mova);
 	}
-	pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
+	*/
+//	pss_prin(a); pss_prnu(a);	pss_prin(b); pss_prnu(b);
 	pss_free(a);
 	pss_free(b);
 	return (0);

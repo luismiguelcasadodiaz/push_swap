@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 21:04:07 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/26 18:23:02 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/29 18:05:57 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -51,6 +51,14 @@ typedef struct	s_cost
 	short	rrrr;
 }	t_cost;
 
+/* ************************************************************************** */
+/* cos_init() sets to zero all struct fields.                                 */
+/* ************************************************************************** */
+void cos_init(t_cost *c);
+/* ************************************************************************** */
+/* cos_show() prints all cost fields.                                         */
+/* ************************************************************************** */
+void cos_show(t_cost c);
 /* ************************************************************************** */
 /* The node is a structure that contains:                                     */
 /*                                                                            */
@@ -192,5 +200,21 @@ short	pss_nmtp(ssize_t idx, t_pss *one);
 void	pss_extr(ssize_t deep, t_pss *a, char *direction, short *moves);
 void	pss_inse(ssize_t deep, t_pss *a, char *direction, short *moves);
 t_cost	pss_chea(t_pss *a, t_pss *b);
+/* ************************************************************************** */
+/* pss_ttop() rotates the stack till idx is in the top                        */
+/* ************************************************************************** */
+void	pss_ttop(t_pss *a, ssize_t idx);
+/* ************************************************************************** */
+/* pss_movs() inserts ori's nodes into the ascendadnt ordered stack des       */
+/* ************************************************************************** */
+void	pss_movs(t_pss *ori, t_pss *des);
+/* ************************************************************************** */
+/* pss_opti() optimices moves for moving idx from stack a to stack b          */
+/* ************************************************************************** */
+t_cost	pss_opti(t_pss *a, t_pss *b, ssize_t idx);
+/* ************************************************************************** */
+/* pss_calc() from the 4 transfert options choose the best one                */
+/* ************************************************************************** */
+t_cost	pss_calc(t_cost c);
 
 #endif
