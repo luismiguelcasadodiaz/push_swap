@@ -1,14 +1,14 @@
 # push_swap
 This project involves sorting data on a stack, with a limited set of instructions, and the smallest number of moves. To make this happen, you will have to manipulate various sorting algorithms and choose the most appropriate solution(s) for optimized data sorting.
 
-Data to be sorted is made of integer values.
+The data to be sorted is made of integer values.
 
 According to <limits.h>   INT_MIN = -2 147 483 648 and INT_MAX = +2 147 483 647.
 
 ## goal
 Write a program in C called push_swap which calculates and displays on the standard output the **smallest** program, made of **Push swap language** instructions, that sorts the **integers** received as arguments.
 
-Sorting values is simple. To sort them the fastest way possible is less simple. Especially because **from one integers configuration to another, the most efficient sorting solution can differ**.
+Sorting values is simple. To sort them the fastest way possible is less simple. Especially because **from one set of integers configuration to another, the most efficient sorting solution can differ**.
  
 In terms of 42, the word **smallest** requires clarification:
 
@@ -34,11 +34,11 @@ You have 2 stacks named a and b.
   ◦ The stack a contains a random amount of negative and/or positive numbers which **cannot be duplicated**.
   ◦ The stack b is empty.
 
-• The goal is to sort in ascending order numbers into stack a. To do so you have the following operations at your disposal:
+• The goal is to sort in ascending order numbers into the stack a. To do so you have the following operations at your disposal:
 
 |code | operation| Description |
 |-----|-----|--------------|
-|sa| (swap a)| Swap the first 2 elements at the top of stack a.<br> Do nothing if there is only one or no elements.|
+|sa| (swap a)| Swap the first 2 elements at the top of stack a.<br> Do nothing if there is only one or no element.|
 |sb| (swap b)| Swap the first 2 elements at the top of stack b.<br> Do nothing if there is only one or no elements.|
 |ss| (swap a) and (swap b)| sa and sb at the same time.|
 |pa| (push a)| Take the first element at the top of b and put it at the top of a.<br>Do nothing if b is empty.|
@@ -53,17 +53,23 @@ You have 2 stacks named a and b.
 [Complexity of Sorting algorithms](https://pereiratechtalks.com/analisis-de-algoritmos-de-ordenamiento/)
 
 # Approach
-I started this project implementing the [stack library](https://github.com/luismiguelcasadodiaz/push_swap/blob/main/src/stack/README.md). A Stack circular wiht double link to navigate it forward or backward. And checked that no memory leakes remaind at exit.
+I started this project by implementing the [stack library](https://github.com/luismiguelcasadodiaz/push_swap/blob/main/src/stack/README.md). A Stack circular with a double link to navigate it forward or backward. And checked that no memory leaks remained at the exit.
 
-I starting sorting stacks of 2, 3, 4 and five elements. I wrote a function for each case (ps_sort2, ps_sor3, ps_sort4 (sorts 3 and adds fourth), and ps_sort5 (sorts 3 then add 4th and 5th),  I got a certain understanding about how to order small amount of numbers. I started to see conditions to insert in the top (no movements required), in the bottom (a ra movement required)  or in the middle of the stack (in function of the destination deepness choose if go thru the top or thru the bottom.
-OSINT suggested three solutions, the chunks solution, the radixsort solution and the Turkisg solution. 
-[Radix Sort](https://github.com/luismiguelcasadodiaz/push_swap/blob/main/src/pushs/README.md)
+I started sorting stacks of 2, 3, 4, and five elements. I wrote a function for each case (ps_sort2, ps_sor3, ps_sort4 (sorts 3 and adds fourth), and ps_sort5 (sorts 3 then adds 4th and 5th),  I got a certain understanding of how to order a small number of numbers. I started to see conditions to insert in the top (no movements required), in the bottom (a ra movement required),  or in the middle of the stack (choose if going through the top or the bottom depending on destination deepness).
+
+I got the idea that the bonus was not a hard task, so I implemented it at this point, comparing its behavior with existing checkers.
+
+OSINT suggested three solutions, the chunks solution, the radix sort solution, and the Turkish solution. Radix was the more straight one to me. The [Radix Sort](https://github.com/luismiguelcasadodiaz/push_swap/blob/main/src/pushs/README.md) gave me 3 points sorting 100 numbers and 4 points sorting 500 numbers.
+
+I was happy, but suddenly I became unhappy when I discovered (Barcelona's Pedago team confirmed me) that it was mandatory to get 5 points by sorting 100 and 500 numbers to submit the bonus.
+
+That is the reason why I worked out the [Turkish algorithm]().
 [Rotators Sort]()
 
 
 # learnings
 ## linker
-The library order matters. you get different results with this two option:
+The library order matters. you get different results with these two option:
 
 ```bash
 gcc -o test_argpa test_argpa.o -L../../../lib -lft -lftprintf -lpss -largpar
@@ -85,7 +91,7 @@ Library argpa uses pss to check duplicates or if num are ordered. Also uses libf
 LIbrary pss used ftprintf for stack visualization.
 
 ## Valgrind
-In this proyect i learned how to check leaks with, and how to get some assistance to find where the leaks happend in my code.
+In this project,  I learned how to check leaks, and how to get some assistance to find where the leaks happened in my code.
 
 ```bash
     valgrind --tool=memcheck --leak-check=yes ./$(NAME)
@@ -115,9 +121,9 @@ ra
 
 ```
 
-In this journey I also discovered a visualization tool of the memory usage.`massif-visualizer`
+In this journey, I also discovered a visualization tool for the memory usage.`massif-visualizer`
 
-First we request Valgrind the creation of a massif file.
+First, we request Valgrind the creation of a massif file.
 
 ```bash
     valgrind --tool=massif --stacks=yes ./push_swap
@@ -145,15 +151,15 @@ Doxygen helps with project documentation if you embrace comments with `/**..*/`.
    inside the stack. 1 if the argument has been seen.                           
                                                                                 
    @details                                                                     
-   Loops the stack looking for num. If there is not, pushes num into  stack     
-   and returns zero. Otherwiser returns one ==> arg_seen == True                
+   Loops the stack looking for num. If there is not, push num into  the stack     
+   and return zero. Otherwise returns one ==> arg_seen == True                
                                                                                 
    @author LMCD (Luis Miguel Casado Diaz)                                       
 */
 /* ************************************************************************** */
 ```
 
-This is 42 Norma incompatible. So I figured out how to create a 42 norma compatible comment that later easyly trasnforms into a Doxygen compatible comment.  
+This is 42 Norma incompatible. So I figured out how to create a 42 norma compatible comment that later easily transformed into a Doxygen compatible comment.  
 
 ```c
 /* ************************************************************************** */
@@ -168,15 +174,15 @@ This is 42 Norma incompatible. So I figured out how to create a 42 norma compati
 /*.inside the stack. 1 if the argument has been seen.                        .*/
 /*.                                                                          .*/
 /*.@details                                                                  .*/
-/*.Loops the stack looking for num. If there is not, pushes num into  stack  .*/
-/*.and returns zero. Otherwiser returns one ==> arg_seen == True             .*/
+/*.Loops the stack looking for num. If there is not, push num into  stack    .*/
+/*.and returns zero. Otherwise returns one ==> arg_seen == True              .*/
 /*.                                                                          .*/
 /*.@author LMCD (Luis Miguel Casado Diaz)                                    .*/
 /*.>*                                                                        .*/
 /* ************************************************************************** */
 
 ```
-This 42 norma compatible comment can be transformed to Doxygen compatible comment with this bash script.
+This 42 norma-compatible comment can be transformed into a Doxygen-compatible comment with this bash script.
 
 ```bash
 #!/bin/bash
@@ -189,7 +195,7 @@ sed -i 's/\.\*\//   /' $1
 [you will find it here 42norma2doxugen.sh](https://github.com/luismiguelcasadodiaz/push_swap/blob/main/docs/42norma2doxygen.sh) 
 ## header file changes name
 
-During the evaluation, Paul Borrull noticed that bonus part had not ` _bonus.c/h`. After changing file names i still had to change includes inside the files.
+During the evaluation, Paul Borrull noticed that the bonus part had not ` _bonus.c/h`. After changing file names I still had to change the includes inside the files.
 
 I solved it with one command.
 
@@ -199,17 +205,17 @@ I solved it with one command.
 
 `*` for all folders files.
 `-i'.bak'` edit files in-place saving backups with extension `.bak`.
-`-e ` append the command to the list of command to execute.
+`-e ` append the command to the list of commands to execute.
 
 ## Makefile
-I thank to Eric Alonso Martinez for teaching me so much about Makfile. 
+I thank Eric Alonso Martinez for teaching me so much about Makefile. 
 
 Eric touched one of my lib%.a files and noticed that my make did nothing.
 Etic touched one of my %.h and noticed that all was relinked.
 
 
 Eric hinted me to read GNU gcc manual [3.13 Options controlling the Preprocessor](https://gcc.gnu.org/onlinedocs/gcc-13.2.0/gcc/Preprocessor-Options.html).
-`-MM` flag creates a dependencies file `*.d`  for each source file. I notice that my `#include` usage created unnecessary dependencies. Them I moved some includes from `*.h` to the `*.c` really requiring it.
+`-MM` flag creates a dependencies file `*.d`  for each source file. I noticed that my `#include` usage created unnecessary dependencies. Then I moved some includes from `*.h` to the `*.c` really requiring it.
 
 ```bash
 ➜  stack git:(main) ✗ cat *.d
@@ -250,7 +256,7 @@ pss_swsw.o: pss_swsw.c ../../inc/libpss.h ../../inc/ft_printf.h
 pss_unpe.o: pss_unpe.c ../../inc/libpss.h
 ```
 
-We can see the dependenciess file as a `make rule`.
+We can see the dependencies file as a `make rule`.
 
 Each dependencies file is transformed with a sed instruction 
 
@@ -263,9 +269,9 @@ into this new `make rule`
 ```bash
 pss_unpe.o pss_unpe.d : pss_unpe.c ../../inc/libpss.h
 ```
-This rules sets that any changes in either `pss_unpe.c` or in `../../inc/libpass.h`  affects to object file and dependency file.
+This rule sets that any changes in either `pss_unpe.c` or in `../../inc/libpass.h`  affect to object file and dependency file.
 
-All this magic happens wiht this rule from GNU make  manual [4.14 Generating Prerequisites Automatically](https://www.gnu.org/software/make/manual/make.html#Automatic-Prerequisites).
+All this magic happens with this rule from GNU make  manual [4.14 Generating Prerequisites Automatically](https://www.gnu.org/software/make/manual/make.html#Automatic-Prerequisites).
 
 ```make
 %.d: %.c
@@ -274,36 +280,36 @@ All this magic happens wiht this rule from GNU make  manual [4.14 Generating Pre
 	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
     rm -f $@.$$$$
 ```
-Once the dependencies files (make rules) are properly formatted, they have to be included into `Makefile` with:
+Once the dependencies files (make rules) are properly formatted, they have to be included in `Makefile` with:
 
 ```make
 DEPE_PUSHS = $(addprefix $(OBJDIR), $(SRCS_PUSHS:.c=.d))
  -include $(DEPE_PUSHS)
  ```
 The [include directive](https://www.gnu.org/software/make/manual/make.html#Include) tells make to suspend reading the current makefile and read one or more other makefiles before continuing. 
-Please notice leading  minus sign .If you want make to simply ignore a makefile which does not exist or cannot be remade,(that happens the first time) with no error message, use the -include directive instead of include,
+Please notice the leading  minus sign. If you want to simply ignore a makefile that does not exist or cannot be remade,(that happens the first time) with no error message, use the -include directive instead of include,
 
-With this knowledge, now i manage a more clever compilation process, where only REAL depended files are recompiled when something the file depends on has changed.
+With this knowledge, now I manage a more clever compilation process, where only REAL-dependent files are recompiled when something the file depends on has changed.
 
-Addtionally Eric taught me [vpath directive](https://www.gnu.org/software/make/manual/make.html#Selective-Search) .   `vpath %.a ./lib` hints make that files ending in `*.a` should be looked for in sach path.
+Additionally, Eric taught me [vpath directive](https://www.gnu.org/software/make/manual/make.html#Selective-Search) .   `vpath %.a ./lib` hints make that files ending in `*.a` should be looked for in the search path.
 
 
-Finally, with [Directory search for link libraries](https://www.gnu.org/software/make/manual/make.html#Libraries_002fSearch) i was able to relink my targets if the libraries they depend on changed.
+Finally, with [Directory search for link libraries](https://www.gnu.org/software/make/manual/make.html#Libraries_002fSearch) I was able to relink my targets if the libraries they depend on changed.
 
 
 ## library construnction.
-Joan Renaull Valls assited me with `ar`.
+Joan Renaull Valls assisted me with `ar`.
 
-I faced a problem with the library construction after touching only one file `*.c` , generated the `*.o` and replacing it into the `*.a`.
+I faced a problem with the library construction after touching only one file `*.c` , generating the `*.o` and replacing it with the `*.a`.
 
 ```make
 	ar rcs $(NAME) $?
 	mv $(NAME) $(LIBDIR)
 ```
 
-Joan teached me manually adding files to my `*.a` and observ that after moving the library to the lib dir, that did not exist any more in the Makefile folder, so the new library contained only the new object created after recompiling. That generated a symbols missing error upwards in the linking process.
+Joan taught me to manually add files to my `*.a` and observed that after moving the library to the lib dir, that did not exist anymore in the Makefile folder, so the new library contained only the new object created after recompiling. That generated symbols missing errors upwards in the linking process.
 
-thanks to Joan asitance my Makefile chenged to :
+thanks to Joan's assistance my Makefile changed to :
 
 
 ```make
