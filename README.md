@@ -52,6 +52,14 @@ You have 2 stacks named a and b.
 
 [Complexity of Sorting algorithms](https://pereiratechtalks.com/analisis-de-algoritmos-de-ordenamiento/)
 
+# Approach
+I started this project implementing the [stack library](https://github.com/luismiguelcasadodiaz/push_swap/blob/main/src/stack/README.md). A Stack circular wiht double link to navigate it forward or backward. And checked that no memory leakes remaind at exit.
+
+I starting sorting stacks of 2, 3, 4 and five elements. I wrote a function for each case (ps_sort2, ps_sor3, ps_sort4 (sorts 3 and adds fourth), and ps_sort5 (sorts 3 then add 4th and 5th),  I got a certain understanding about how to order small amount of numbers. I started to see conditions to insert in the top (no movements required), in the bottom (a ra movement required)  or in the middle of the stack (in function of the destination deepness choose if go thru the top or thru the bottom.
+OSINT suggested three solutions, the chunks solution, the radixsort solution and the Turkisg solution. 
+[Radix Sort](https://github.com/luismiguelcasadodiaz/push_swap/blob/main/src/pushs/README.md)
+[Rotators Sort]()
+
 
 # learnings
 ## linker
