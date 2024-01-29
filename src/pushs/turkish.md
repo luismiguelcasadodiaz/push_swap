@@ -3,15 +3,15 @@ I will sort indexes instead of numbers. I became influenced by the Radix sort wh
 In this way, I only order indexes from 1 to 100 or from 1 to 500.
 
 The departure point is an unsorted stack A of indexes.
-Let's move two elements from A to B. This allows me to have the smallest index (sid) and de biggest index(bid) for stack b. As well as I have it for stack A.
+- Let's move two elements from A to B. This allows me to have the smallest index (sid) and de biggest index(bid) for stack b. As well as I have it for stack A.
 
-While in A there are more than 3 nodes, precalculated the cheaper index to move from A to a **descendant ordered Stack B**, then move it.
+- While in A there are more than 3 nodes, precalculated the cheaper index to move from A to a **descendant ordered Stack B**, then move it.
 
-Sort the remaining nodes in A.
+- Sort the remaining nodes in A.
 
-Move all nodes from B to A
+- Move all nodes from B to A
 
-Rotate A till the smallest one is on top.
+- Rotate A till the smallest one is on top.
 
 The cheaper index means the index that requires fewer movements to be extracted from stack A and correctly inserted in the **descendant ordered stack B**, the index with the lowest cost.:
 
