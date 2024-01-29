@@ -26,13 +26,14 @@ The cost of an index movement is calculated in this way.
 
 Let's dig a little more into the sentence "Movements to put the index on top of A". That means a certain number of ra(n) or rra(size of a - n) movements. We can appreciate that steps 1 and 2 above generate two options ((n)ra or (sa-n)rra and (n)rb or (sa-n)rrb). We face 4 options each time we calculate the cost:
 
-Option a) (n)ra and (n)rb. calculate cost considering the movement rr.
+Option a) (n)ra and (n)rb. Calculate cost considering the movement rr.
 
-Option b) (n)ra and (sa-n)rrb. cost is the addition of both.
+Option b) (n)ra and (sa-n)rrb. Cost is the addition of both.
 
-Option c) (sa-n)rra and (n)rb. cost is the addition of both.
+Option c) (sa-n)rra and (n)rb. Cost is the addition of both.
 
 Option d) (sa-n)rra and (sa-n)rrb. We must consider the movement rrr.
+
 
 Summarizing: For one state of Stack A, for each index in A calculate its optimal movement cost. Choose the cheapest index and move it.
 
