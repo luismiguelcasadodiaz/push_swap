@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 10:46:54 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/29 15:14:27 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/30 00:24:22 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@
 	}
 	ps_sor3(a);
 	pss_ttop(b, b->bid);
-	pss_mvos(b, a);
+	pss_movs(b, a);
 	pss_ttop(a, a->sid);
  }

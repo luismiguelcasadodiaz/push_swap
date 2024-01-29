@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 09:21:55 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/09 09:22:22 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/30 00:21:35 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ void	ps_sor5(t_pss *a, t_pss *b);
 void	ps_add4(t_pss *a, t_pss *b);
 void	ps_add5(t_pss *a, t_pss *b);
 void	ps_radi(t_pss *a, t_pss *b);
+void	ps_turk(t_pss *a, t_pss *b);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 14:59:58 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/17 12:10:41 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/30 00:20:53 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,6 +98,7 @@ SRCS_PUSHS	= 	ps_sort.c \
 				ps_add4.c \
 				ps_add5.c \
 				ps_radi.c \
+				ps_turk.c \
 				push_swap.c
 
 HEADER_BON	=	checker_bonus.h
