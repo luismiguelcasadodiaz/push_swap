@@ -135,6 +135,11 @@ Sorting 100 integer below movemente gave me 5 points too.
 
 When i compare movements, i appreciate that Radix uses only 3 movements while Turkish uses 9 movements.
 
+It is possible to check our results with [Gerard Martinez's tester](https://github.com/gemartin99/Push-Swap-Tester)....
+
+<img width="429" alt="image" src="https://github.com/luismiguelcasadodiaz/push_swap/assets/19540140/c8c06ac9-d56e-4b5d-80c4-1d37b1ddcfbe">
+
+
 # learnings
 ## linker
 The library order matters. you get different results with these two option:
