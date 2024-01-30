@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 18:38:02 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/29 21:23:39 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/30 09:13:44 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ short	pss_nmtp(ssize_t idx, t_pss *one)
 		count++;
 		if ((one->sid < idx) && (idx < one->bid))
 		{
-			//found = ((node->idx > idx) && (idx > node->next->idx));
-			//found = found || ((node->idx < idx) && (idx < node->next->idx));
 			found = ((node->prev->idx < idx) && (idx < node->idx));
 		}
 		else if (idx < one->sid)
@@ -54,8 +52,5 @@ short	pss_nmtp(ssize_t idx, t_pss *one)
 		node = node->next;
 		nodes--;
 	}
-	//if (one->bid < idx)
-	//	return (count - 1);
-	//else
-		return (count);
+	return (count);
 }

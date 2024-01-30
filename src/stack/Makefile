@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/29 18:00:18 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/30 09:17:39 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -111,6 +111,7 @@ SRCS	=	nod_init.c \
 		pss_movs.c \
 		pss_opti.c \
 		pss_calc.c \
+		pss_exec.c \
 		pss_chea.c
 
 

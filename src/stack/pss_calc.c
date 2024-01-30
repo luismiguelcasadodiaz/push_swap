@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 17:59:35 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/29 22:23:32 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/30 09:12:30 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static t_cost	case1(t_cost c)
 	c.mov = c.roro + c.mova + c.movb;
 	c.rmva = 0;
 	c.rmvb = 0;
-//	cos_show(c);
 	return (c);
 }
 
@@ -45,7 +44,6 @@ static t_cost	case2(t_cost c)
 	c.movb = 0;
 	c.rmva = 0;
 	c.mov = c.mova + c.rmvb;
-//	cos_show(c);
 	return (c);
 }
 
@@ -58,7 +56,6 @@ static t_cost	case3(t_cost c)
 	c.rmvb = 0;
 	c.mova = 0;
 	c.mov = c.rmva + c.movb;
-//	cos_show(c);
 	return (c);
 }
 
@@ -81,7 +78,6 @@ static t_cost	case4(t_cost c)
 	c.mov = c.rrrr + c.rmva + c.rmvb;
 	c.mova = 0;
 	c.movb = 0;
-//	cos_show(c);
 	return (c);
 }
 

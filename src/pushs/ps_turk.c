@@ -6,10 +6,9 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 10:46:54 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/30 00:24:22 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/30 09:27:22 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -33,27 +32,18 @@
    @author LMCD (Luis Miguel Casado Díaz)
  *****************************************************************************/
 
- void	ps_turk(t_pss *a, t_pss *b)
- {
+void	ps_turk(t_pss *a, t_pss *b)
+{
 	t_cost	c;
-	int i;
+	int		i;
 
+	pss_psoo(b, a, PRINTME);
+	pss_psoo(b, a, PRINTME);
 	i = pss_size(a);
 	while (i > 3)
 	{
 		c = pss_chea(a, b);
-		if (c.roro)
-			pss_nror(a, b, c.roro);
-		if (c.rrrr)
-			pss_nrrr(a, b, c.rrrr);
-		if (c.mova)
-			pss_nrot(a, c.mova);
-		if (c.rmva)
-			pss_nrro(a, c.rmva);
-		if (c.movb)
-			pss_nrot(b, c.movb);
-		if (c.rmvb)
-			pss_nrro(b, c.rmvb);
+		pss_exec(a, b, c);
 		pss_psoo(b, a, PRINTME);
 		i--;
 	}
@@ -61,4 +51,4 @@
 	pss_ttop(b, b->bid);
 	pss_movs(b, a);
 	pss_ttop(a, a->sid);
- }
+}
