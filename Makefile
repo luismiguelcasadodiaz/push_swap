@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 14:59:58 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/30 00:20:53 by luicasad         ###   ########.fr        #
+#    Updated: 2024/01/30 12:35:07 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -255,6 +255,7 @@ bonus_fclean: bonus_clean
 	@echo "========== Cleaning executable Checker ============="
 	rm -f $(BONUS)
 norma:
+	norminette $(INCDIR)
 	$(MAKE) -C $(SRCDIR_PRINT)  norma
 	$(MAKE) -C $(SRCDIR_LIBFT)  norma
 	$(MAKE) -C $(SRCDIR_STACK)  norma

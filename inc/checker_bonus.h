@@ -6,12 +6,12 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 09:22:38 by luicasad          #+#    #+#             */
-/*   Updated: 2024/01/13 08:42:52 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/01/30 12:39:58 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 # include "libft.h"
 # include "ft_printf.h"
 # include "libpss.h"
