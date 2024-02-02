@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/30 09:17:39 by luicasad         ###   ########.fr        #
+#    Updated: 2024/02/01 11:54:42 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 MAKEFLAGS += rR
@@ -140,7 +140,7 @@ include $(SRCS:.c=.d)
 # - s can be seen to mean 'sort' (create a sorted index of) the library, so that it will be indexed and faster to access the functions in the library.
 #   Therefore, rcs can be seen to mean replace, create, sort
 
-$(NAME): $(OBJS) 
+$(NAME): $(OBJS)
 	@echo "$(RED)LIBPSS ========== GATHERING ALL OBJECTS ====================$(DEF_COLOR)"
 	ar rcs $(LIBDIR)$(NAME) $?
 

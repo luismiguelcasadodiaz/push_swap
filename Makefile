@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 14:59:58 by luicasad          #+#    #+#              #
-#    Updated: 2024/01/30 12:35:07 by luicasad         ###   ########.fr        #
+#    Updated: 2024/02/01 13:35:15 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -265,7 +265,7 @@ norma:
 	@echo "$(MAGENTA)========== CHECKING NORME $(BONUS) ==============$(DEF_COLOR)"
 	norminette $(SRCDIR_CHECK)
 run:
-	valgrind --tool=memcheck --leak-check=yes ./$(NAME)
+	valgrind --tool=memcheck --leak-check=yes ./$(NAME) 1054 580 4165 4317 2196 587 822 3971 4326 3644 2373 4361 4357 1091 3032
 bonusrun:
 	valgrind --tool=memcheck --leak-check=yes ./$(BONUS)
 bonusrung:
